@@ -17,21 +17,25 @@ double vector3d::getZ() const
     return z;
 }
 
-vector3d vector3d::operator+(const vector3d &other)
+vector3d vector3d::operator+(const vector3d &other) const
 {
     return vector3d(x + other.x, y + other.y, z + other.z);
 }
-vector3d vector3d::operator*(double scalar)
+vector3d vector3d::operator-(const vector3d &other) const
+{
+    return vector3d(x - other.x, y - other.y, z - other.z);
+}
+vector3d vector3d::operator*(double scalar) const
 {
     return vector3d(x * scalar, y * scalar, z * scalar);
 }
-double vector3d::dot(const vector3d &other)
+double vector3d::dot(const vector3d &other) const
 {
     return x * other.x + y * other.y + z * other.z;
 }
-vector3d vector3d::cross(const vector3d &other) //TODO fix
+vector3d vector3d::cross(const vector3d &other) const
 {
-    return vector3d(0, 0, 0);
+    return vector3d(y * other.z - z * other.y, z * other.x - x * other.z, x * other.y - y * other.x);
 }
 
 ostream &operator<<(ostream &out, const vector3d &vec)
@@ -40,11 +44,19 @@ ostream &operator<<(ostream &out, const vector3d &vec)
     return out << str;
 }
 
-vector3d vector3d::normalize()
+vector3d vector3d::normalize() const
 {
     return operator*(1 / magnitude());
 }
-double vector3d::magnitude()
+double vector3d::magnitude() const
 {
     return sqrt(x * x + y * y + z * z);
+}
+bool vector3d::operator==(const vector3d &vec)
+{
+    return (x == vec.x) && (y == vec.y) && (z == vec.z);
+}
+vector3d operator*(double scalar, const vector3d &vec)
+{
+    return vector3d(vec.x * scalar, vec.y * scalar, vec.z * scalar);
 }

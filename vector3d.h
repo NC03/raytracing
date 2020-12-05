@@ -16,15 +16,18 @@ public:
     double getY() const;
     double getZ() const;
 
-    vector3d operator+(const vector3d &other);
-    vector3d operator*(double scalar);
+    vector3d operator+(const vector3d &other) const;
+    vector3d operator-(const vector3d &other) const;
+    vector3d operator*(double scalar) const;
+    friend vector3d operator*(double scalar, const vector3d &vec);
 
-    double dot(const vector3d &other);
-    vector3d cross(const vector3d &other);
-    vector3d normalize();
-    double magnitude();
+    double dot(const vector3d &other) const;
+    vector3d cross(const vector3d &other) const;
+    vector3d normalize() const;
+    double magnitude() const;
 
-    friend ostream& operator<<(ostream& out, const vector3d& vec);
+    friend ostream &operator<<(ostream &out, const vector3d &vec);
+    bool operator==(const vector3d &vec);
 
 private:
     double x, y, z;

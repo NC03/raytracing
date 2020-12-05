@@ -9,6 +9,9 @@ public:
     ray(vector3d start, vector3d dir);
 
     friend ostream &operator<<(ostream &out, const ray &r);
+    vector3d getStart() const;
+    vector3d getDir() const;
+    vector3d eval(double t) const;
 
 private:
     vector3d start;

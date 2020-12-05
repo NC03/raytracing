@@ -33,3 +33,5 @@
 
 #custom
 raytracing
+output/
+.vscode/

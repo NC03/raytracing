@@ -8,3 +8,16 @@ ostream &operator<<(ostream &out, const ray &r)
 {
     return out << r.start << " + t" << r.dir;
 }
+
+vector3d ray::getStart() const
+{
+    return start;
+}
+vector3d ray::getDir() const
+{
+    return dir;
+}
+vector3d ray::eval(double t) const
+{
+    return start + dir * t;
+}

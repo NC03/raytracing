@@ -8,7 +8,7 @@ using namespace std;
 class color
 {
 public:
-    color(int red, int green, int blue);
+    color(int red=128, int green=128, int blue=128);
 
     int getRed() const;
     int getGreen() const;
