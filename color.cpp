@@ -25,7 +25,18 @@ color color::average(color a, color b, color c, color d)
     return color(static_cast<int>(red / 4), static_cast<int>(green / 4), static_cast<int>(blue / 4));
 }
 
-ostream &operator<<(ostream& out, const color & c)
+ostream &operator<<(ostream &out, const color &c)
 {
     return out << "(" << c.red << "," << c.green << "," << c.blue << ")";
+}
+ color color::average(color arr[], int len)
+{
+    double red = 0, green = 0, blue = 0;
+    for(int i = 0; i < len; i++)
+    {
+        red += arr[i].red;
+        green += arr[i].green;
+        blue += arr[i].blue;
+    }
+    return color(static_cast<int>(red/len),static_cast<int>(green/len),static_cast<int>(blue/len));
 }

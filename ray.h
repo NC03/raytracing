@@ -1,6 +1,4 @@
 #include "vector3d.h"
-#include "sphere.h"
-#include "plane.h"
 
 #ifndef RAY_H
 #define RAY_H
@@ -14,12 +12,6 @@ public:
     vector3d getStart() const;
     vector3d getDir() const;
     vector3d eval(double t) const;
-
-
-    bool intersects(const sphere& s);
-    bool intersects(const plane& p);
-    
-
 private:
     vector3d start;
     vector3d dir;

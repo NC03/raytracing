@@ -1,60 +1,95 @@
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 #include "ray.h"
 #include "vector3d.h"
 #include "plane.h"
 #include "color.h"
 #include "sphere.h"
+#include "checkeredPlane.h"
+#include "scene.h"
 
 using namespace std;
 
 void print(color **image, int width, int height, ostream &out = cout);
 void checkIntersect(ray r, plane p);
 void checkIntersect(ray r, sphere s);
+void populate(plane &camera, vector3d &start, vector<sphere> &spheres);
 
 int main()
 {
-    // const int WIDTH = 200;
-    // const int HEIGHT = 60;
-    const int WIDTH = 1920;
-    const int HEIGHT = 1080;
-    color **image = new color *[HEIGHT];
-    for (int i = 0; i < HEIGHT; i++)
-    {
-        image[i] = new color[WIDTH];
-    }
+    // // const int WIDTH = 200;
+    // // const int HEIGHT = 60;
+    // const int WIDTH = 1920;
+    // const int HEIGHT = 1080;
+    // color **image = new color *[HEIGHT];
+    // for (int i = 0; i < HEIGHT; i++)
+    // {
+    //     image[i] = new color[WIDTH];
+    // }
 
-    plane camera(vector3d(0, 0, 0), vector3d(1, 0, 0), vector3d(0, 1, 0));
-    sphere s(vector3d(0, 0, 2), 1);
-    vector3d start = vector3d(0, 0, -0.6);
+    // plane camera(vector3d(0, 0, 0), vector3d(1, 0, 0), vector3d(0, 1, 0));
+    // vector3d start = vector3d(0, 0, -0.6);
+    // checkeredPlane p(vector3d(0, -5, 0), vector3d(1, 0, 1), vector3d(0, 0, 1));
 
-    for (int i = 0; i < HEIGHT; i++)
-    {
-        for (int j = 0; j < WIDTH; j++)
-        {
-            double x = j-WIDTH/2, y=i-HEIGHT/2;
-            x /= max(WIDTH,HEIGHT);
-            y /= max(WIDTH,HEIGHT);
-            
-            vector3d pos = camera.getPoint() + x * camera.getVector1() + y * camera.getVector2();
-            ray r(start, pos - start);
-            if (r.intersects(s))
-            {
-                image[i][j] = color(255, 0, 0);
-            }
-        }
-    }
+    // vector<sphere> spheres;
+    // populate(camera, start, spheres);
 
+    // for (int i = 0; i < HEIGHT; i++)
+    // {
+    //     for (int j = 0; j < WIDTH; j++)
+    //     {
+    //         double x = j - WIDTH / 2, y = i - HEIGHT / 2;
+    //         x /= max(WIDTH, HEIGHT);
+    //         y /= -1 * max(WIDTH, HEIGHT);
+
+    //         double ds = 1.0 / max(WIDTH, HEIGHT), dr = ds / 4;
+    //         color colors[4];
+    //         for (int k = 0; k < 4; k++)
+    //         {
+    //             bool intersect = false;
+    //             double minDist = -1;
+    //             image[i][j] = color();
+    //             vector3d pos = camera.getPoint() + (x + dr * cos(M_PI * k / 2.0)) * camera.getVector1() + (y + dr * sin(M_PI * k / 2.0)) * camera.getVector2();
+    //             ray r(start, pos - start);
+    //             if (p.intersects(r) && (!intersect || p.intersectDistance(r) < minDist)) //TODO check
+    //             {
+    //                 intersect = true;
+    //                 minDist = p.intersectDistance(r);
+    //                 colors[k] = p.getColor(r);
+    //             }
+    //             for (sphere s : spheres)
+    //             {
+    //                 if (s.intersects(r) && (!intersect || s.intersectDistance(r) < minDist))
+    //                 {
+    //                     intersect = true;
+    //                     minDist = s.intersectDistance(r);
+    //                     colors[k] = s.getColor(r);
+    //                 }
+    //             }
+    //         }
+    //         image[i][j] = color::average(colors, 4);
+    //     }
+    // }
+
+    // ofstream out("output/image.ppm");
+    // print(image, WIDTH, HEIGHT, out);
+    // out.close();
+
+    // for (int i = 0; i < HEIGHT; i++)
+    // {
+    //     delete[] image[i];
+    // }
+    // delete[] image;
+
+    // return 0;
+    scene s;
+    s.populate(cin);
+    s.render();
     ofstream out("output/image.ppm");
-    print(image, WIDTH, HEIGHT, out);
+    s.write(out);
     out.close();
-
-    for (int i = 0; i < HEIGHT; i++)
-    {
-        delete[] image[i];
-    }
-    delete[] image;
 
     return 0;
 }
@@ -112,4 +147,14 @@ void checkIntersect(ray r, sphere s)
         // cout << "imaginary" << endl;
     }
     // cout << r.intersects(s) << endl;
+}
+
+void populate(plane &camera, vector3d &start, vector<sphere> &spheres)
+{
+    camera = plane(vector3d(0, 0, 0), vector3d(1, 0, 0), vector3d(0, 1, 0));
+    start = vector3d(0, 0, -0.5);
+
+    sphere s(vector3d(0, 0, 2), 1);
+    spheres.push_back(s);
+    spheres.push_back(sphere(vector3d(1, 0, 3), 1));
 }

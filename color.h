@@ -15,6 +15,7 @@ public:
     int getBlue() const;
 
     static color average(color a, color b, color c, color d);
+    static color average(color arr[], int len);
 
     friend ostream &operator<<(ostream &out, const color &c);
 
