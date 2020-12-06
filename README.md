@@ -2,7 +2,7 @@
 
 > c++ raytracing from scratch
 
-![sphere plane](output/20201206.png)
+![sphere plane](example.png)
 
 This program generates a ray-traced image using basic c++ stl libraries. Scenes are loaded from a text-based file-format using a python script to interpret the protocol and help the c++ program parse the input. This program is capable of outputting images to the PPM file-format, from which another program can be used to convert to other, modern formats such as PNG, JPEG, TIFF, etc. Future plans include expansion to support BMP output.
 
