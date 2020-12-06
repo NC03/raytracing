@@ -3,7 +3,10 @@
 CC = clang++
 CFLAGS = -Wall -Werror
 
-all: vector3d.o sphere.o color.o plane.o ray.o raytracing.o scene.o raytracing
+all: vector3d.o sphere.o checkeredSphere.o color.o plane.o ray.o raytracing.o scene.o raytracing
+
+checkeredSphere.o: checkeredSphere.h checkeredSphere.cpp
+	$(CC) $(CFLAGS) -c checkeredSphere.cpp
 
 scene.o: scene.h scene.cpp
 	$(CC) $(CFLAGS) -c scene.cpp

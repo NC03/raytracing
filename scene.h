@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <regex>
 
 #include "ray.h"
 #include "vector3d.h"
@@ -8,9 +9,12 @@
 #include "color.h"
 #include "sphere.h"
 #include "checkeredPlane.h"
+#include "checkeredSphere.h"
 
 #ifndef SCENE_H
 #define SCENE_H
+
+using namespace std;
 
 class scene
 {
@@ -20,6 +24,7 @@ public:
     void populate(istream &in);
     void render();
     void write(ostream &out);
+    void push_back(object3d *object);
 
 private:
     int width, height;
