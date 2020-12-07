@@ -15,24 +15,26 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    string finName = "example.scene.stream";
-    string foutName = "output/image.ppm";
     if (argc == 3)
     {
-        finName = argv[1];
-        foutName = argv[2];
+        string finName = argv[1];
+        string foutName = argv[2];
+        scene s;
+
+        ifstream in(finName);
+        s.populate(in);
+        in.close();
+
+        s.render();
+
+        ofstream out(foutName);
+        s.write(out);
+        out.close();
     }
-    scene s;
-
-    ifstream in(finName);
-    s.populate(in);
-    in.close();
-
-    s.render();
-
-    ofstream out(foutName);
-    s.write(out);
-    out.close();
+    else
+    {
+        cout << "Usage: ./raytracing input_file.scene.stream output_file.ppm" << endl;
+    }
 
     return 0;
 }

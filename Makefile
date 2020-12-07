@@ -7,7 +7,7 @@ INCLUDE = -I$(SRCDIR)
 
 all: color.o vector3d.o ray.o sphere.o plane.o checkeredPlane.o checkeredSphere.o  scene.o raytracing.o raytracing
 
-docs: source/*
+docs: source/*.h source/*.cpp
 	doxygen Doxyfile
 	make -Clatex/
 
