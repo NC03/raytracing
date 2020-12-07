@@ -45,7 +45,8 @@ doxygen Doxyfile
 
 -   Repository: https://github.com/NC03/raytracing
 -   Documentation: https://nc03.github.io/raytracing/
--   Implementation based on [slides](https://www.cs.utexas.edu/~theshark/courses/cs354/lectures/cs354-4.pdf)
+-   External References:
+    -   Some implementation features based on [slides](https://www.cs.utexas.edu/~theshark/courses/cs354/lectures/cs354-4.pdf)
 
 ## About
 
