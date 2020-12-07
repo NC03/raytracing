@@ -1,5 +1,18 @@
 #include "checkeredSphere.h"
 
+/**
+ * Constructor for checkeredSphere object
+ * 
+ * @param pos The vector3d position vector of the center of the sphere
+ * @param r The radius of the sphere
+ * @param n The vector pointing in the "north" direction of the sphere
+ * @param s The vector pointing in the "start" direction of the sphere. Must be linearly independent from the "north" vector.
+ * @param width The width of the tile in the longitude direction
+ * @param height The height of the tile in the latitude direction
+ * @param c1 The color of one of the tiles of the sphere
+ * @param c2 The color of one of the tiles of the sphere
+ * 
+ */
 checkeredSphere::checkeredSphere(vector3d pos, double r, vector3d n, vector3d s, double width, double height, color c1, color c2) : sphere(pos, r), north(n.normalize()), start((s - n * (s.dot(n) / n.magnitude())).normalize()), width(width), height(height), c1(c1), c2(c2)
 {
 }
@@ -20,8 +33,7 @@ color checkeredSphere::getColor(const ray &r)
         theta = 180 - theta;
     }
 
-    bool even = (static_cast<int>(theta / width) + static_cast<int>(phi / height)) % 2 == 0;
-    // bool even = (static_cast<int>(phi / height) % 2) == 0;
+    bool even = (static_cast<int>(floor(theta / width)) + static_cast<int>(floor(phi / height)) + 4) % 2 == 0;
     if (even)
     {
         return c1;

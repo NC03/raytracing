@@ -6,6 +6,9 @@
 
 This program generates a ray-traced image using basic c++ stl libraries. Scenes are loaded from a text-based file-format using a python script to interpret the protocol and help the c++ program parse the input. This program is capable of outputting images to the PPM file-format, from which another program can be used to convert to other, modern formats such as PNG, JPEG, TIFF, etc. Future plans include expansion to support BMP output.
 
+## TO-DO
+ - round vs floor for fragments in checkeredPlane and checkeredSphere
+
 ## Installation/Operation
 
 The compilation using `clang` is controlled through `make`.

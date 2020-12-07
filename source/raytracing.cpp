@@ -13,8 +13,6 @@
 
 using namespace std;
 
-void populate(scene &scene, istream &in);
-
 int main(int argc, char *argv[])
 {
     string finName = "example.scene.stream";
@@ -37,16 +35,4 @@ int main(int argc, char *argv[])
     out.close();
 
     return 0;
-}
-
-void populate(scene &scene, istream &in)
-{
-    const int MAX_LEN = 256;
-    char l[MAX_LEN];
-    while (!in.eof())
-    {
-        in.getline(l, MAX_LEN);
-        string line = l;
-        //PROCESS
-    }
 }

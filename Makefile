@@ -1,36 +1,45 @@
 .DEFAULT_GOAL := all
-# -Iclasses/
+
 CC = clang++
 CFLAGS = -Wall -Werror
+SRCDIR = source/
+INCLUDE = -I$(SRCDIR)
 
-all: vector3d.o sphere.o checkeredSphere.o color.o plane.o ray.o raytracing.o scene.o raytracing
+all: color.o vector3d.o ray.o sphere.o plane.o checkeredPlane.o checkeredSphere.o  scene.o raytracing.o raytracing
 
-checkeredSphere.o: checkeredSphere.h checkeredSphere.cpp
-	$(CC) $(CFLAGS) -c checkeredSphere.cpp
+docs: source/*
+	doxygen Doxyfile
+	make -Clatex/
 
-scene.o: scene.h scene.cpp
-	$(CC) $(CFLAGS) -c scene.cpp
+raytracing: color.o vector3d.o ray.o sphere.o plane.o checkeredPlane.o checkeredSphere.o  scene.o raytracing.o
+	$(CC) $(CFLAGS) $(INCLUDE) *.o -o raytracing
 
-sphere.o: sphere.h sphere.cpp
-	$(CC) $(CFLAGS) -c sphere.cpp
+checkeredPlane.o: $(SRCDIR)checkeredPlane.h $(SRCDIR)checkeredPlane.cpp
+	$(CC) $(CFLAGS) $(INCLUDE) -c $(SRCDIR)checkeredPlane.cpp
 
-vector3d.o: vector3d.h vector3d.cpp
-	$(CC) $(CFLAGS) -c vector3d.cpp
+checkeredSphere.o: $(SRCDIR)checkeredSphere.h $(SRCDIR)checkeredSphere.cpp
+	$(CC) $(CFLAGS) $(INCLUDE) -c $(SRCDIR)checkeredSphere.cpp
 
-color.o: color.h color.cpp
-	$(CC) $(CFLAGS) -c color.cpp
+scene.o: $(SRCDIR)scene.h $(SRCDIR)scene.cpp
+	$(CC) $(CFLAGS) $(INCLUDE) -c $(SRCDIR)scene.cpp
 
-plane.o: plane.cpp plane.h
-	$(CC) $(CFLAGS) -c plane.cpp
+sphere.o: $(SRCDIR)sphere.h $(SRCDIR)sphere.cpp
+	$(CC) $(CFLAGS) $(INCLUDE) -c $(SRCDIR)sphere.cpp
 
-ray.o: ray.cpp ray.h
-	$(CC) $(CFLAGS) -c ray.cpp
+vector3d.o: $(SRCDIR)vector3d.h $(SRCDIR)vector3d.cpp
+	$(CC) $(CFLAGS) $(INCLUDE) -c $(SRCDIR)vector3d.cpp
 
-raytracing.o: raytracing.cpp
-	$(CC) $(CFLAGS) -c raytracing.cpp
+color.o: $(SRCDIR)color.h $(SRCDIR)color.cpp
+	$(CC) $(CFLAGS) $(INCLUDE) -c $(SRCDIR)color.cpp
 
-raytracing: *.o
-	$(CC) $(CFLAGS) *.o -o raytracing
+plane.o: $(SRCDIR)plane.cpp $(SRCDIR)plane.h
+	$(CC) $(CFLAGS) $(INCLUDE) -c $(SRCDIR)plane.cpp
+
+ray.o: $(SRCDIR)ray.cpp $(SRCDIR)ray.h
+	$(CC) $(CFLAGS) $(INCLUDE) -c $(SRCDIR)ray.cpp
+
+raytracing.o: $(SRCDIR)raytracing.cpp
+	$(CC) $(CFLAGS) $(INCLUDE) -c $(SRCDIR)raytracing.cpp
 
 clean:
 	rm *.o raytracing
