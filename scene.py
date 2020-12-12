@@ -7,7 +7,7 @@ def main():
         with open(sys.argv[1], "r") as f:
             with open(sys.argv[1]+".stream", "w") as out:
                 elements = [(line.split(":")[0], line.split(":")[1].strip())
-                            for line in f if ":" in line]
+                            for line in f if ":" in line and (line.strip())[0] != "#"]
                 for type, arguments in elements:
                     out.write(type.upper()+" ")
                     if type.lower() == "camera":
@@ -50,6 +50,14 @@ def main():
                         out.write(" ".join(m.group(4).split(","))+" ")
                         out.write(" ".join(m.group(5).split(","))+" ")
                         out.write(" ".join(m.group(6).split(","))+" ")
+                    elif type.lower() == "triangle":
+                        pattern = re.compile(
+                            r"v1\((.*)\).*v2\((.*)\).*v3\((.*)\).*c\((.*)\)")
+                        m = pattern.match(arguments)
+                        out.write(" ".join(m.group(1).split(","))+" ")
+                        out.write(" ".join(m.group(2).split(","))+" ")
+                        out.write(" ".join(m.group(3).split(","))+" ")
+                        out.write(" ".join(m.group(4).split(","))+" ")
     else:
         print("Usage: python3 scene.py input_file.scene")
 

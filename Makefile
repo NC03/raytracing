@@ -5,14 +5,17 @@ CFLAGS = -Wall -Werror
 SRCDIR = source/
 INCLUDE = -I$(SRCDIR)
 
-all: color.o vector3d.o ray.o sphere.o plane.o checkeredPlane.o checkeredSphere.o  scene.o raytracing.o raytracing
+all: color.o vector3d.o ray.o triangle.o sphere.o plane.o checkeredPlane.o checkeredSphere.o  scene.o raytracing.o raytracing
 
 docs: source/*.h source/*.cpp
 	doxygen Doxyfile
 	make -Clatex/
 
-raytracing: color.o vector3d.o ray.o sphere.o plane.o checkeredPlane.o checkeredSphere.o  scene.o raytracing.o
-	$(CC) $(CFLAGS) $(INCLUDE) *.o -o raytracing
+raytracing: color.o vector3d.o ray.o triangle.o sphere.o plane.o checkeredPlane.o checkeredSphere.o  scene.o raytracing.o
+	$(CC) $(CFLAGS) $(INCLUDE) *.o -pthread -o raytracing
+
+triangle.o: $(SRCDIR)triangle.h $(SRCDIR)triangle.cpp
+	$(CC) $(CFLAGS) $(INCLUDE) -c $(SRCDIR)triangle.cpp
 
 checkeredPlane.o: $(SRCDIR)checkeredPlane.h $(SRCDIR)checkeredPlane.cpp
 	$(CC) $(CFLAGS) $(INCLUDE) -c $(SRCDIR)checkeredPlane.cpp

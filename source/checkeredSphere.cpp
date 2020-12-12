@@ -26,13 +26,20 @@ color checkeredSphere::getColor(const ray &r)
     double y = spherical.dot(north.cross(start));
 
     double phi = asin(z / getRadius());
-    double theta = asin(y / cos(phi) / getRadius());
+    double theta = atan(y / x);
 
     if (x < 0)
     {
-        theta = 180 - theta;
+        theta += M_PI;
     }
-
+    while (theta < 0)
+    {
+        theta += 2 * M_PI;
+    }
+    while (theta > 2 * M_PI)
+    {
+        theta -= 2 * M_PI;
+    }
     bool even = (static_cast<int>(floor(theta / width)) + static_cast<int>(floor(phi / height)) + 4) % 2 == 0;
     if (even)
     {
