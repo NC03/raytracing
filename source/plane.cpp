@@ -51,3 +51,7 @@ color plane::getColor() const
 {
     return objColor;
 }
+void plane::print(ostream &out) const
+{
+    out << point << " + u" << u << " + v" << v;
+}

@@ -37,7 +37,7 @@ istream &operator>>(istream &in, Entry &e)
 {
     string key;
     in >> key;
-    cout << key << endl;
+    // cout << key << endl;
     if (key == "SPHERE")
     {
         e = Entry::SPHERE;
@@ -101,17 +101,13 @@ void scene::populate(istream &in)
             in >> px >> py >> pz >> ux >> uy >> uz >> vx >> vy >> vz >> f;
             camera = plane(vector3d(px, py, pz), vector3d(ux, uy, uz), vector3d(vx, vy, vz));
             focalLength = f;
-            cout << camera << f << endl;
         }
         else if (e == Entry::PLANE)
         {
-
             double px, py, pz, ux, uy, uz, vx, vy, vz;
             int r, g, b;
             in >> px >> py >> pz >> ux >> uy >> uz >> vx >> vy >> vz >> r >> g >> b;
-            plane *planeTemp = new plane(vector3d(px, py, pz), vector3d(ux, uy, uz), vector3d(vx, vy, vz), color(r, g, b));
-            cout << *planeTemp << endl;
-            objects.push_back(planeTemp);
+            objects.push_back(new plane(vector3d(px, py, pz), vector3d(ux, uy, uz), vector3d(vx, vy, vz), color(r, g, b)));
         }
         else if (e == Entry::CHECKEREDPLANE)
         {
@@ -123,11 +119,9 @@ void scene::populate(istream &in)
         }
         else if (e == Entry::SPHERE)
         {
-
             double px, py, pz, r;
             in >> px >> py >> pz >> r;
             sphere *sphereTemp = new sphere(vector3d(px, py, pz), r);
-            cout << *sphereTemp << endl;
             objects.push_back(sphereTemp);
         }
         else if (e == Entry::CHECKEREDSPHERE)
@@ -147,42 +141,14 @@ void scene::populate(istream &in)
         else if (e == Entry::NONE)
         {
             flag = true;
+            break;
+        }
+        cout << e << endl;
+        if (objects.size() > 0)
+        {
+            cout << *objects.back() << endl;
         }
     }
-    // const int MAX_LEN = 256;
-    // char l[MAX_LEN];
-    // while (!in.eof())
-    // {
-    //     in.getline(l, MAX_LEN);
-    //     string line = l;
-    //     try
-    //     {
-    //         regex r("(.*):(.*)");
-    //         smatch sm;
-    //         regex_match(line, sm, r);
-    //         if (sm.size() == 3)
-    //         {
-    //             if (sm[1] == "camera")
-    //             {
-    //                 r = regex("p\\((.*+)\\)");
-    //                 smatch m;
-    //                 vector3d p(0, 0, 0), u(0, 0, 0), v(0, 0, 0);
-    //             }
-    //             else
-    //             {
-    //                 cout << sm[1] << sm[2] << endl;
-    //             }
-    //         }
-    //     }
-    //     catch (...)
-    //     {
-    //         cout << "Error with line: " << line << endl;
-    //     }
-    // }
-    // objects.push_back(new checkeredPlane(vector3d(0, -5, 0), vector3d(1, 0, 1), vector3d(0, 0, 1)));
-    // objects.push_back(new sphere(vector3d(0, 0, 2), 1));
-    // objects.push_back(new sphere(vector3d(1, 0, 3), 1));
-
 }
 
 void scene::write(ostream &out)

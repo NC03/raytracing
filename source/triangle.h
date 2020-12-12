@@ -29,6 +29,7 @@ public:
     virtual double intersectDistance(const ray &r);
     virtual ray reflectedRay(const ray &r);
     virtual color getColor(const ray &r);
+    virtual void print(ostream &out) const;
 
 private:
     vector3d vertex1, vertex2, vertex3;

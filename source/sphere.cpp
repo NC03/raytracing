@@ -15,6 +15,11 @@ ostream &operator<<(ostream &out, const sphere &s)
 {
     return out << "{radius:" + to_string(s.radius) + ",position: " << s.getPosition() << "}";
 }
+void sphere::print(ostream &out) const
+{
+    out << "{radius:" << radius << ",position: " << getPosition() << "}";
+}
+
 color sphere::getColor() const
 {
     return objColor;
@@ -54,13 +59,16 @@ double sphere::intersectDistance(const ray &r)
     else if (discriminant > 0)
     {
         double s1 = (-b + sqrt(discriminant)) / (2 * a), s2 = (-b - sqrt(discriminant)) / (2 * a);
-        if(s1 >= 0 && s2 >= 0)
+        if (s1 >= 0 && s2 >= 0)
         {
-            return min(s1,s2);
-        }else if(s1 >= 0)
+            return min(s1, s2);
+        }
+        else if (s1 >= 0)
         {
             return s1;
-        }else{
+        }
+        else
+        {
             return s2;
         }
     }

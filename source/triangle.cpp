@@ -8,6 +8,10 @@ ostream &operator<<(ostream &out, const triangle &t)
 {
     return out << "[" << t.vertex1 << "," << t.vertex2 << "," << t.vertex3 << "]";
 }
+void triangle::print(ostream &out) const
+{
+    out << "[" << vertex1 << "," << vertex2 << "," << vertex3 << "]";
+}
 
 vector3d triangle::getVertex1() const
 {

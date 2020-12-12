@@ -7,8 +7,8 @@
 class object3d
 {
 public:
-    virtual ~object3d(){
-        
+    virtual ~object3d()
+    {
     }
     /**
      * Determines whether the ray intersects the object3d
@@ -30,6 +30,14 @@ public:
      * PRECONDITION: The ray must intersect the object
      */
     virtual color getColor(const ray &r) = 0;
+
+    friend ostream &operator<<(ostream &out, const object3d &o)
+    {
+        o.print(out);
+        return out;
+    }
+
+    virtual void print(ostream &out) const = 0;
 };
 
 #endif //OBJECT3D_H
