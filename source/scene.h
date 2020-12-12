@@ -2,6 +2,8 @@
 #include <fstream>
 #include <vector>
 #include <regex>
+#include <thread>
+#include <functional>
 
 #include "ray.h"
 #include "vector3d.h"
@@ -10,6 +12,7 @@
 #include "sphere.h"
 #include "checkeredPlane.h"
 #include "checkeredSphere.h"
+#include "triangle.h"
 
 #ifndef SCENE_H
 #define SCENE_H
@@ -27,6 +30,7 @@ public:
     void push_back(object3d *object);
 
 private:
+    void renderPart(int xMin, int xMax, int yMin, int yMax);
     int width, height;
     color **image;
     plane camera;

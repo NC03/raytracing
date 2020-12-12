@@ -1,6 +1,6 @@
-.DEFAULT_GOAL := docs
+.DEFAULT_GOAL := gen_docs
 
-docs:
+gen_docs:
 	git merge main
 	doxygen Doxyfile
 	make -Clatex/

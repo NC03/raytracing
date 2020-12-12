@@ -30,13 +30,14 @@ enum class Entry
     CHECKEREDPLANE,
     CHECKEREDSPHERE,
     CAMERA,
+    TRIANGLE,
     NONE
 };
 istream &operator>>(istream &in, Entry &e)
 {
     string key;
     in >> key;
-    cout << key << endl;
+    // cout << key << endl;
     if (key == "SPHERE")
     {
         e = Entry::SPHERE;
@@ -56,6 +57,10 @@ istream &operator>>(istream &in, Entry &e)
     else if (key == "CHECKEREDSPHERE")
     {
         e = Entry::CHECKEREDSPHERE;
+    }
+    else if (key == "TRIANGLE")
+    {
+        e = Entry::TRIANGLE;
     }
     else
     {
@@ -79,6 +84,8 @@ ostream &operator<<(ostream &out, Entry &e)
         return out << "NONE";
     case Entry::CHECKEREDSPHERE:
         return out << "CHECKEREDSPHERE";
+    case Entry::TRIANGLE:
+        return out << "TRIANGLE";
     }
 }
 void scene::populate(istream &in)
@@ -94,17 +101,13 @@ void scene::populate(istream &in)
             in >> px >> py >> pz >> ux >> uy >> uz >> vx >> vy >> vz >> f;
             camera = plane(vector3d(px, py, pz), vector3d(ux, uy, uz), vector3d(vx, vy, vz));
             focalLength = f;
-            cout << camera << f << endl;
         }
         else if (e == Entry::PLANE)
         {
-
             double px, py, pz, ux, uy, uz, vx, vy, vz;
             int r, g, b;
             in >> px >> py >> pz >> ux >> uy >> uz >> vx >> vy >> vz >> r >> g >> b;
-            plane *planeTemp = new plane(vector3d(px, py, pz), vector3d(ux, uy, uz), vector3d(vx, vy, vz), color(r, g, b));
-            cout << *planeTemp << endl;
-            objects.push_back(planeTemp);
+            objects.push_back(new plane(vector3d(px, py, pz), vector3d(ux, uy, uz), vector3d(vx, vy, vz), color(r, g, b)));
         }
         else if (e == Entry::CHECKEREDPLANE)
         {
@@ -116,11 +119,9 @@ void scene::populate(istream &in)
         }
         else if (e == Entry::SPHERE)
         {
-
             double px, py, pz, r;
             in >> px >> py >> pz >> r;
             sphere *sphereTemp = new sphere(vector3d(px, py, pz), r);
-            cout << *sphereTemp << endl;
             objects.push_back(sphereTemp);
         }
         else if (e == Entry::CHECKEREDSPHERE)
@@ -128,53 +129,98 @@ void scene::populate(istream &in)
             double px, py, pz, nx, ny, nz, sx, sy, sz;
             int r1, g1, b1, r2, g2, b2, r;
             in >> px >> py >> pz >> r >> nx >> ny >> nz >> sx >> sy >> sz >> r1 >> g1 >> b1 >> r2 >> g2 >> b2;
-            objects.push_back(new checkeredSphere(vector3d(px, py, pz), r, vector3d(nx, ny, nz), vector3d(sx, sy, sz), 2*M_PI/20, M_PI/10, color(r1, g1, b1), color(r2, g2, b2)));
+            objects.push_back(new checkeredSphere(vector3d(px, py, pz), r, vector3d(nx, ny, nz), vector3d(sx, sy, sz), 2 * M_PI / 20, M_PI / 10, color(r1, g1, b1), color(r2, g2, b2)));
+        }
+        else if (e == Entry::TRIANGLE)
+        {
+            double v1x, v1y, v1z, v2x, v2y, v2z, v3x, v3y, v3z;
+            int r, g, b;
+            in >> v1x >> v1y >> v1z >> v2x >> v2y >> v2z >> v3x >> v3y >> v3z >> r >> g >> b;
+            objects.push_back(new triangle(vector3d(v1x, v1y, v1z), vector3d(v2x, v2y, v2z), vector3d(v3x, v3y, v3z), color(r, g, b)));
         }
         else if (e == Entry::NONE)
         {
             flag = true;
+            break;
+        }
+        cout << e << endl;
+        if (objects.size() > 0)
+        {
+            cout << *objects.back() << endl;
         }
     }
-    // const int MAX_LEN = 256;
-    // char l[MAX_LEN];
-    // while (!in.eof())
-    // {
-    //     in.getline(l, MAX_LEN);
-    //     string line = l;
-    //     try
-    //     {
-    //         regex r("(.*):(.*)");
-    //         smatch sm;
-    //         regex_match(line, sm, r);
-    //         if (sm.size() == 3)
-    //         {
-    //             if (sm[1] == "camera")
-    //             {
-    //                 r = regex("p\\((.*+)\\)");
-    //                 smatch m;
-    //                 vector3d p(0, 0, 0), u(0, 0, 0), v(0, 0, 0);
-    //             }
-    //             else
-    //             {
-    //                 cout << sm[1] << sm[2] << endl;
-    //             }
-    //         }
-    //     }
-    //     catch (...)
-    //     {
-    //         cout << "Error with line: " << line << endl;
-    //     }
-    // }
-    // objects.push_back(new checkeredPlane(vector3d(0, -5, 0), vector3d(1, 0, 1), vector3d(0, 0, 1)));
-    // objects.push_back(new sphere(vector3d(0, 0, 2), 1));
-    // objects.push_back(new sphere(vector3d(1, 0, 3), 1));
 }
-void scene::render()
+
+void scene::write(ostream &out)
 {
-    vector3d start = camera.getVector1().cross(camera.getVector2()).normalize() * -1 * focalLength;
+    cout << "write" << endl;
+    out << "P3\n"
+        << width << " " << height << "\n256\n";
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
+        {
+            color c = image[i][j];
+            out << c.getRed() << " " << c.getGreen() << " " << c.getBlue() << " ";
+        }
+        out << endl;
+    }
+}
+void scene::push_back(object3d *object)
+{
+    objects.push_back(object);
+}
+// void scene::render()
+// {
+//     vector3d start = camera.getVector1().cross(camera.getVector2()).normalize() * -1 * focalLength;
+//     for (int i = 0; i < height; i++)
+//     {
+//         for (int j = 0; j < width; j++)
+//         {
+//             double x = j - width / 2, y = i - height / 2;
+//             x /= max(width, height);
+//             y /= -1 * max(width, height);
+
+//             double ds = 1.0 / max(width, height), dr = ds / 4;
+//             color colors[4];
+//             for (int k = 0; k < 4; k++)
+//             {
+//                 bool firstIntersect = true;
+//                 double minDist = -1;
+//                 image[i][j] = color();
+//                 vector3d pos = camera.getPoint() + (x + dr * cos(M_PI * k / 2.0)) * camera.getVector1() + (y + dr * sin(M_PI * k / 2.0)) * camera.getVector2();
+//                 ray r(start, pos - start);
+//                 for (object3d *obj : objects)
+//                 {
+//                     if (obj->intersects(r) && (firstIntersect || obj->intersectDistance(r) < minDist))
+//                     {
+//                         firstIntersect = false;
+//                         minDist = obj->intersectDistance(r);
+//                         colors[k] = obj->getColor(r);
+//                     }
+//                 }
+//             }
+//             image[i][j] = color::average(colors, 4);
+//         }
+//     }
+// }
+void scene::render()
+{
+    void (scene::*func)(int, int, int, int) = &scene::renderPart;
+
+    thread t1(func, this, 0, width / 2, 0, height / 2), t2(func, this, width / 2, width, 0, height / 2), t3(func, this, 0, width / 2, height / 2, height), t4(func, this, width / 2, width, height / 2, height);
+
+    t1.join();
+    t2.join();
+    t3.join();
+    t4.join();
+}
+void scene::renderPart(int xMin, int xMax, int yMin, int yMax)
+{
+    vector3d start = camera.getVector1().cross(camera.getVector2()).normalize() * -1 * focalLength;
+    for (int i = yMin; i < yMax; i++)
+    {
+        for (int j = xMin; j < xMax; j++)
         {
             double x = j - width / 2, y = i - height / 2;
             x /= max(width, height);
@@ -202,23 +248,4 @@ void scene::render()
             image[i][j] = color::average(colors, 4);
         }
     }
-}
-void scene::write(ostream &out)
-{
-    cout << "write" << endl;
-    out << "P3\n"
-        << width << " " << height << "\n256\n";
-    for (int i = 0; i < height; i++)
-    {
-        for (int j = 0; j < width; j++)
-        {
-            color c = image[i][j];
-            out << c.getRed() << " " << c.getGreen() << " " << c.getBlue() << " ";
-        }
-        out << endl;
-    }
-}
-void scene::push_back(object3d *object)
-{
-    objects.push_back(object);
 }
