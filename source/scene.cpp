@@ -1,5 +1,11 @@
 #include "scene.h"
 
+/**
+ * scene constructor
+ * 
+ * @note There is no default constructor with 0 arguments
+ * 
+ */
 scene::scene(int width, int height, plane camera, double focalLength) : width(width), height(height), camera(camera), focalLength(focalLength)
 {
     image = new color *[height];
@@ -8,6 +14,11 @@ scene::scene(int width, int height, plane camera, double focalLength) : width(wi
         image[i] = new color[width];
     }
 }
+
+/**
+ * Scene Destructor
+ * 
+ */
 scene::~scene()
 {
     for (int i = 0; i < height; i++)
@@ -88,6 +99,12 @@ ostream &operator<<(ostream &out, Entry &e)
         return out << "TRIANGLE";
     }
 }
+
+/**
+ * Populates the scene object from the istream
+ * @param in A reference to the istream input
+ * 
+ */
 void scene::populate(istream &in)
 {
     bool flag = false;
@@ -152,6 +169,11 @@ void scene::populate(istream &in)
     }
 }
 
+/**
+ * Writes the image data to the ostream
+ * @param out A reference to the ostream where the image data is written
+ * 
+ */
 void scene::write(ostream &out)
 {
     cout << "write" << endl;
@@ -167,10 +189,15 @@ void scene::write(ostream &out)
         out << endl;
     }
 }
+
 void scene::push_back(object3d *object)
 {
     objects.push_back(object);
 }
+
+/**
+ * Runs the computations to render the scene
+ */
 void scene::render()
 {
     //renderPart(0,width,0,height)
@@ -183,6 +210,7 @@ void scene::render()
     t3.join();
     t4.join();
 }
+
 void scene::renderPart(int xMin, int xMax, int yMin, int yMax)
 {
     vector3d start = camera.getPoint() + camera.getVector1().cross(camera.getVector2()).normalize() * -1 * focalLength;

@@ -5,6 +5,9 @@
 
 using namespace std;
 
+/**
+ * @brief A class for RGB colors
+ */
 class color
 {
 public:
