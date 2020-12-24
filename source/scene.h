@@ -20,6 +20,9 @@
 
 using namespace std;
 
+/**
+ * @brief A class for a 3d scene
+ */
 class scene
 {
 public:
@@ -28,7 +31,7 @@ public:
     void populate(istream &in);
     void render();
     void write(ostream &out);
-    void push_back(object3d *object);///< TODO: deprecate
+    void push_back(object3d *object);///< @deprecated
 
 private:
     void renderPart(int xMin, int xMax, int yMin, int yMax);

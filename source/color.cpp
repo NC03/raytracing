@@ -2,6 +2,7 @@
 
 /**
  * Constructor for the color object
+ * 
  * The minimum and maximum values for each channel are 0 and 255, respectively
  * @param red The value of the red channel
  * @param green The value of the green channel
@@ -12,27 +13,36 @@ color::color(int red, int green, int blue) : red(red), green(green), blue(blue)
 }
 
 /**
- * @return the value of the red channel
+ * Getter method for the red channel value of the color object
+ * @return The integer value of the red channel
  */
 int color::getRed() const
 {
     return red;
 }
+
 /**
- * @return the value of the green channel
+ * Getter method for the green channel value of the color object
+ * @return The integer value of the green channel
  */
 int color::getGreen() const
 {
     return green;
 }
+
 /**
- * @return the value of the blue channel
+ * Getter method for the blue channel value of the color object
+ * @return The integer value of the blue channel
  */
 int color::getBlue() const
 {
     return blue;
 }
 
+/**
+ * @deprecated
+ * 
+ */
 color color::average(color a, color b, color c, color d)
 {
     int red = a.red + b.red + c.red + d.red;
@@ -56,6 +66,8 @@ ostream &operator<<(ostream &out, const color &c)
  * Compute average color by averaging each channel independently
  * @param arr The array of colors to average
  * @param len The number of colors to average
+ * @return The color object representing the average of the arguments
+ * 
  * PRECONDITION: len must be less than or equal to the size of the array to avoid segmentation fault from buffer overflow
  */
 color color::average(color arr[], int len)

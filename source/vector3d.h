@@ -7,6 +7,9 @@
 
 using namespace std;
 
+/**
+ * @brief A class for 3d vectors
+ */
 class vector3d
 {
 public:
