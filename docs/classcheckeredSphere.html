@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.0</span>
+   &#160;<span id="projectnumber">v1.0.1</span>
    </div>
   </td>
  </tr>
@@ -115,6 +115,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getRadius</b> () co
 <tr class="separator:af8c94023266b8a4fef647d7973cc90bc inherit pub_methods_classsphere"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14e79ffb388670f30c409317330f7ce7 inherit pub_methods_classsphere"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classray.html">ray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsphere.html#a14e79ffb388670f30c409317330f7ce7">reflectedRay</a> (const <a class="el" href="classray.html">ray</a> &amp;r)</td></tr>
 <tr class="separator:a14e79ffb388670f30c409317330f7ce7 inherit pub_methods_classsphere"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5812630a692481b4b3f1b17f2b5f8b52 inherit pub_methods_classsphere"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsphere.html#a5812630a692481b4b3f1b17f2b5f8b52">print</a> (ostream &amp;out) const</td></tr>
+<tr class="separator:a5812630a692481b4b3f1b17f2b5f8b52 inherit pub_methods_classsphere"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a325035fd96eb0568f62216bcb27604c2"></a>
@@ -219,7 +221,12 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getRadius</b> () co
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Finds the color of the <a class="el" href="classobject3d.html">object3d</a> at the point of intersection with the ray PRECONDITION: The ray must intersect the object </p>
+<p>Finds the color of the <a class="el" href="classobject3d.html">object3d</a> at the point of intersection with the ray </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>The ray to evaluate PRECONDITION: The ray must intersect the object </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Reimplemented from <a class="el" href="classsphere.html#a19e39d66ece595939cccc73f4d9edf61">sphere</a>.</p>
 

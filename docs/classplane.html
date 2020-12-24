@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.0</span>
+   &#160;<span id="projectnumber">v1.0.1</span>
    </div>
   </td>
  </tr>
@@ -118,6 +118,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5556e41951ee1a284702f06c6ffd2acf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ee7adc1fceb48df0001fb9bdca02d3a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classcolor.html">color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplane.html#a1ee7adc1fceb48df0001fb9bdca02d3a">getColor</a> (const <a class="el" href="classray.html">ray</a> &amp;r)</td></tr>
 <tr class="separator:a1ee7adc1fceb48df0001fb9bdca02d3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3ec7cb18bde20d56d2807482d5bffba"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classplane.html#ab3ec7cb18bde20d56d2807482d5bffba">print</a> (ostream &amp;out) const</td></tr>
+<tr class="separator:ab3ec7cb18bde20d56d2807482d5bffba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -149,7 +151,12 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Finds the color of the <a class="el" href="classobject3d.html">object3d</a> at the point of intersection with the ray PRECONDITION: The ray must intersect the object </p>
+<p>Finds the color of the <a class="el" href="classobject3d.html">object3d</a> at the point of intersection with the ray </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>The ray to evaluate PRECONDITION: The ray must intersect the object </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implements <a class="el" href="classobject3d.html#ab7364ca83bdce020bc16b3260036272e">object3d</a>.</p>
 
@@ -180,7 +187,13 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Finds the "distance" from the source to intersection </p><dl class="section return"><dt>Returns</dt><dd>The parameter of the ray for which evaluating the equation coincides with the object </dd></dl>
+<p>Finds the "distance" from the source to intersection </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>The ray to evaluate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The parameter of the ray for which evaluating the equation coincides with the object </dd></dl>
 
 <p>Implements <a class="el" href="classobject3d.html#ac3902c4f176f29223381aebb4e4fa7b2">object3d</a>.</p>
 
@@ -209,9 +222,49 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Determines whether the ray intersects the <a class="el" href="classobject3d.html">object3d</a> </p><dl class="section return"><dt>Returns</dt><dd>True if the ray intersects the object, otherwise False </dd></dl>
+<p>Determines whether the ray intersects the <a class="el" href="classobject3d.html">object3d</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>The ray to evaluate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the ray intersects the object, otherwise False </dd></dl>
 
 <p>Implements <a class="el" href="classobject3d.html#ab6f634f9952a5b5a2419c669b42677e2">object3d</a>.</p>
+
+</div>
+</div>
+<a id="ab3ec7cb18bde20d56d2807482d5bffba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3ec7cb18bde20d56d2807482d5bffba">&#9670;&nbsp;</a></span>print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void plane::print </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Prints the current object to the ostream argument </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">out</td><td>A reference to the ostream to print the object with </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classobject3d.html#afe34c9b4a1c84424fcdbe8049480bc49">object3d</a>.</p>
 
 </div>
 </div>
@@ -238,7 +291,12 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Finds the ray that exits with the same angle as the incoming ray PRECONDITION: The ray must intersect the object </p>
+<p>Finds the ray that exits with the same angle as the incoming ray </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>The ray to evaluate PRECONDITION: The ray must intersect the object </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implements <a class="el" href="classobject3d.html#a4c38cb4583190e537a0367dec7d3a422">object3d</a>.</p>
 

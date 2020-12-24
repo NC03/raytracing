@@ -1,3 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classray.html" title=" " alt="" coords="5,5,48,32"/>
+<area shape="rect" id="node1" href="$classobject3d.html" title=" " alt="" coords="5,81,84,108"/>
+<area shape="rect" id="node2" href="$classlightSource.html" title=" " alt="" coords="132,5,227,32"/>
+<area shape="rect" id="node3" href="$classplane.html" title=" " alt="" coords="150,56,209,83"/>
+<area shape="rect" id="node5" href="$classsphere.html" title=" " alt="" coords="146,107,213,133"/>
+<area shape="rect" id="node7" href="$classtriangle.html" title=" " alt="" coords="143,157,215,184"/>
+<area shape="rect" id="node4" href="$classcheckeredPlane.html" title=" " alt="" coords="279,56,403,83"/>
+<area shape="rect" id="node6" href="$classcheckeredSphere.html" title=" " alt="" coords="275,107,408,133"/>
 </map>

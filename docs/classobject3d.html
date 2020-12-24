@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.0</span>
+   &#160;<span id="projectnumber">v1.0.1</span>
    </div>
   </td>
  </tr>
@@ -64,6 +64,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="classobject3d-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">object3d Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -74,11 +75,13 @@ Inheritance diagram for object3d:</div>
 <div class="dyncontent">
 <div class="center"><img src="classobject3d__inherit__graph.png" border="0" usemap="#object3d_inherit__map" alt="Inheritance graph"/></div>
 <map name="object3d_inherit__map" id="object3d_inherit__map">
-<area shape="rect" title=" " alt="" coords="104,5,183,32"/>
-<area shape="rect" href="classplane.html" title=" " alt="" coords="71,80,130,107"/>
-<area shape="rect" href="classsphere.html" title=" " alt="" coords="170,80,237,107"/>
-<area shape="rect" href="classcheckeredPlane.html" title=" " alt="" coords="5,155,129,181"/>
-<area shape="rect" href="classcheckeredSphere.html" title=" " alt="" coords="154,155,287,181"/>
+<area shape="rect" title=" " alt="" coords="157,5,236,32"/>
+<area shape="rect" href="classlightSource.html" title=" " alt="" coords="5,80,100,107"/>
+<area shape="rect" href="classplane.html" title=" " alt="" coords="125,80,183,107"/>
+<area shape="rect" href="classsphere.html" title=" " alt="" coords="207,80,274,107"/>
+<area shape="rect" href="classtriangle.html" title=" " alt="" coords="298,80,370,107"/>
+<area shape="rect" href="classcheckeredPlane.html" title=" " alt="" coords="59,155,183,181"/>
+<area shape="rect" href="classcheckeredSphere.html" title=" " alt="" coords="207,155,341,181"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -92,6 +95,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4c38cb4583190e537a0367dec7d3a422"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7364ca83bdce020bc16b3260036272e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classcolor.html">color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#ab7364ca83bdce020bc16b3260036272e">getColor</a> (const <a class="el" href="classray.html">ray</a> &amp;r)=0</td></tr>
 <tr class="separator:ab7364ca83bdce020bc16b3260036272e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe34c9b4a1c84424fcdbe8049480bc49"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#afe34c9b4a1c84424fcdbe8049480bc49">print</a> (ostream &amp;out) const =0</td></tr>
+<tr class="separator:afe34c9b4a1c84424fcdbe8049480bc49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a6ea67f58534fa00201a2aa0720d5bbad"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#a6ea67f58534fa00201a2aa0720d5bbad">operator&lt;&lt;</a> (ostream &amp;out, const <a class="el" href="classobject3d.html">object3d</a> &amp;o)</td></tr>
+<tr class="separator:a6ea67f58534fa00201a2aa0720d5bbad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab7364ca83bdce020bc16b3260036272e"></a>
@@ -117,9 +127,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Finds the color of the <a class="el" href="classobject3d.html">object3d</a> at the point of intersection with the ray PRECONDITION: The ray must intersect the object </p>
+<p>Finds the color of the <a class="el" href="classobject3d.html">object3d</a> at the point of intersection with the ray </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>The ray to evaluate PRECONDITION: The ray must intersect the object </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Implemented in <a class="el" href="classsphere.html#a19e39d66ece595939cccc73f4d9edf61">sphere</a>, <a class="el" href="classplane.html#a1ee7adc1fceb48df0001fb9bdca02d3a">plane</a>, <a class="el" href="classcheckeredSphere.html#ab53351198296b2d2e0f748ee1b628fc0">checkeredSphere</a>, and <a class="el" href="classcheckeredPlane.html#ad80e6fc6fc2cc6347d49d52a81df2c0d">checkeredPlane</a>.</p>
+<p>Implemented in <a class="el" href="classtriangle.html#a61b7db2527e256bbb0b74f30febff71b">triangle</a>, <a class="el" href="classsphere.html#a19e39d66ece595939cccc73f4d9edf61">sphere</a>, <a class="el" href="classplane.html#a1ee7adc1fceb48df0001fb9bdca02d3a">plane</a>, <a class="el" href="classcheckeredSphere.html#ab53351198296b2d2e0f748ee1b628fc0">checkeredSphere</a>, and <a class="el" href="classcheckeredPlane.html#ad80e6fc6fc2cc6347d49d52a81df2c0d">checkeredPlane</a>.</p>
 
 </div>
 </div>
@@ -146,9 +161,15 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Finds the "distance" from the source to intersection </p><dl class="section return"><dt>Returns</dt><dd>The parameter of the ray for which evaluating the equation coincides with the object </dd></dl>
+<p>Finds the "distance" from the source to intersection </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>The ray to evaluate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The parameter of the ray for which evaluating the equation coincides with the object </dd></dl>
 
-<p>Implemented in <a class="el" href="classsphere.html#af8c94023266b8a4fef647d7973cc90bc">sphere</a>, and <a class="el" href="classplane.html#a39f8ccb48fef1d9447db41bf3b62feca">plane</a>.</p>
+<p>Implemented in <a class="el" href="classtriangle.html#acb2597cc6dc51fdc8f78ea2290cb05b7">triangle</a>, <a class="el" href="classsphere.html#af8c94023266b8a4fef647d7973cc90bc">sphere</a>, and <a class="el" href="classplane.html#a39f8ccb48fef1d9447db41bf3b62feca">plane</a>.</p>
 
 </div>
 </div>
@@ -175,9 +196,49 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Determines whether the ray intersects the <a class="el" href="classobject3d.html">object3d</a> </p><dl class="section return"><dt>Returns</dt><dd>True if the ray intersects the object, otherwise False </dd></dl>
+<p>Determines whether the ray intersects the <a class="el" href="classobject3d.html">object3d</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>The ray to evaluate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the ray intersects the object, otherwise False </dd></dl>
 
-<p>Implemented in <a class="el" href="classsphere.html#a4144a881e2c37746df091f783334fa9c">sphere</a>, and <a class="el" href="classplane.html#a586ee5642d92779111c9d7011c3c6af8">plane</a>.</p>
+<p>Implemented in <a class="el" href="classtriangle.html#a3372862be2ea41804a102e0130a6d589">triangle</a>, <a class="el" href="classsphere.html#a4144a881e2c37746df091f783334fa9c">sphere</a>, and <a class="el" href="classplane.html#a586ee5642d92779111c9d7011c3c6af8">plane</a>.</p>
+
+</div>
+</div>
+<a id="afe34c9b4a1c84424fcdbe8049480bc49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe34c9b4a1c84424fcdbe8049480bc49">&#9670;&nbsp;</a></span>print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void object3d::print </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Prints the current object to the ostream argument </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">out</td><td>A reference to the ostream to print the object with </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classtriangle.html#a363d48c2d3fde1dbb7b42cbf9ef21799">triangle</a>, <a class="el" href="classsphere.html#a5812630a692481b4b3f1b17f2b5f8b52">sphere</a>, and <a class="el" href="classplane.html#ab3ec7cb18bde20d56d2807482d5bffba">plane</a>.</p>
 
 </div>
 </div>
@@ -204,9 +265,59 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Finds the ray that exits with the same angle as the incoming ray PRECONDITION: The ray must intersect the object </p>
+<p>Finds the ray that exits with the same angle as the incoming ray </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>The ray to evaluate PRECONDITION: The ray must intersect the object </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Implemented in <a class="el" href="classsphere.html#a14e79ffb388670f30c409317330f7ce7">sphere</a>, and <a class="el" href="classplane.html#a5556e41951ee1a284702f06c6ffd2acf">plane</a>.</p>
+<p>Implemented in <a class="el" href="classtriangle.html#ac6d28e8f35c2ea16e88c00ee3881fd18">triangle</a>, <a class="el" href="classsphere.html#a14e79ffb388670f30c409317330f7ce7">sphere</a>, and <a class="el" href="classplane.html#a5556e41951ee1a284702f06c6ffd2acf">plane</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a6ea67f58534fa00201a2aa0720d5bbad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ea67f58534fa00201a2aa0720d5bbad">&#9670;&nbsp;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classobject3d.html">object3d</a> &amp;&#160;</td>
+          <td class="paramname"><em>o</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Overloaded stream insertion operator for <a class="el" href="classobject3d.html">object3d</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">out</td><td>The reference to the ostream to insert the object in </td></tr>
+    <tr><td class="paramname">o</td><td>The <a class="el" href="classobject3d.html">object3d</a> to insert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the ostream argument to allow chaining </dd></dl>
 
 </div>
 </div>

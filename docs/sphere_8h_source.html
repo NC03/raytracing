@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.0</span>
+   &#160;<span id="projectnumber">v1.0.1</span>
    </div>
   </td>
  </tr>
@@ -97,21 +97,23 @@ $(function() {
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classsphere.html#af8c94023266b8a4fef647d7973cc90bc">intersectDistance</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classray.html">ray</a> <a class="code" href="classsphere.html#a14e79ffb388670f30c409317330f7ce7">reflectedRay</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r);</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classcolor.html">color</a> getColor(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> center;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">double</span> radius;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classcolor.html">color</a> objColor;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif //SPHERE_H</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsphere.html#a5812630a692481b4b3f1b17f2b5f8b52">print</a>(ostream &amp;out) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> center;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">double</span> radius;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classcolor.html">color</a> objColor;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif //SPHERE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclasssphere_html_a4144a881e2c37746df091f783334fa9c"><div class="ttname"><a href="classsphere.html#a4144a881e2c37746df091f783334fa9c">sphere::intersects</a></div><div class="ttdeci">virtual bool intersects(const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> sphere.cpp:22</div></div>
+<div class="ttc" id="aclasssphere_html_a4144a881e2c37746df091f783334fa9c"><div class="ttname"><a href="classsphere.html#a4144a881e2c37746df091f783334fa9c">sphere::intersects</a></div><div class="ttdeci">virtual bool intersects(const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> sphere.cpp:27</div></div>
 <div class="ttc" id="aclasscolor_html"><div class="ttname"><a href="classcolor.html">color</a></div><div class="ttdef"><b>Definition:</b> color.h:9</div></div>
-<div class="ttc" id="aclasssphere_html_af8c94023266b8a4fef647d7973cc90bc"><div class="ttname"><a href="classsphere.html#af8c94023266b8a4fef647d7973cc90bc">sphere::intersectDistance</a></div><div class="ttdeci">virtual double intersectDistance(const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> sphere.cpp:43</div></div>
+<div class="ttc" id="aclasssphere_html_a5812630a692481b4b3f1b17f2b5f8b52"><div class="ttname"><a href="classsphere.html#a5812630a692481b4b3f1b17f2b5f8b52">sphere::print</a></div><div class="ttdeci">virtual void print(ostream &amp;out) const</div><div class="ttdef"><b>Definition:</b> sphere.cpp:18</div></div>
+<div class="ttc" id="aclasssphere_html_af8c94023266b8a4fef647d7973cc90bc"><div class="ttname"><a href="classsphere.html#af8c94023266b8a4fef647d7973cc90bc">sphere::intersectDistance</a></div><div class="ttdeci">virtual double intersectDistance(const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> sphere.cpp:48</div></div>
 <div class="ttc" id="aclasssphere_html"><div class="ttname"><a href="classsphere.html">sphere</a></div><div class="ttdef"><b>Definition:</b> sphere.h:12</div></div>
 <div class="ttc" id="aclassvector3d_html"><div class="ttname"><a href="classvector3d.html">vector3d</a></div><div class="ttdef"><b>Definition:</b> vector3d.h:11</div></div>
-<div class="ttc" id="aclasssphere_html_a14e79ffb388670f30c409317330f7ce7"><div class="ttname"><a href="classsphere.html#a14e79ffb388670f30c409317330f7ce7">sphere::reflectedRay</a></div><div class="ttdeci">virtual ray reflectedRay(const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> sphere.cpp:72</div></div>
+<div class="ttc" id="aclasssphere_html_a14e79ffb388670f30c409317330f7ce7"><div class="ttname"><a href="classsphere.html#a14e79ffb388670f30c409317330f7ce7">sphere::reflectedRay</a></div><div class="ttdeci">virtual ray reflectedRay(const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> sphere.cpp:80</div></div>
 <div class="ttc" id="aclassray_html"><div class="ttname"><a href="classray.html">ray</a></div><div class="ttdef"><b>Definition:</b> ray.h:7</div></div>
 <div class="ttc" id="aclassobject3d_html"><div class="ttname"><a href="classobject3d.html">object3d</a></div><div class="ttdef"><b>Definition:</b> object3d.h:8</div></div>
 <!-- start footer part -->
