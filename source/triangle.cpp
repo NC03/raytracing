@@ -54,10 +54,11 @@ bool triangle::intersects(const ray &r)
             vector3d u = vertices[(i + 1) % 3] - vertices[i];
             vector3d v = vertices[(i + 2) % 3] - vertices[i];
             vector3d w = p - vertices[i];
+
+            double a1 = abs(acos(u.dot(w) / u.magnitude() / w.magnitude())), a2 = abs(acos(v.dot(w) / v.magnitude() / w.magnitude())), theta = abs(acos(u.dot(v) / u.magnitude() / v.magnitude()));
             //TODO: sin or cos?
-            double omega = abs(acos(u.dot(w) / u.magnitude() / w.magnitude())) + abs(acos(w.dot(v) / w.magnitude() / v.magnitude()));
-            double theta = abs(acos(u.dot(v) / u.magnitude() / v.magnitude()));
-            if (omega > theta)
+            // cout << a1 << ", " << a2 << ", " << theta << endl;
+            if (a1 + a2 > theta)
             {
                 return false;
             }

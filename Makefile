@@ -45,4 +45,4 @@ raytracing.o: $(SRCDIR)raytracing.cpp
 	$(CC) $(CFLAGS) $(INCLUDE) -c $(SRCDIR)raytracing.cpp
 
 clean:
-	rm *.o raytracing
+	rm *.o raytracing *.scene.stream

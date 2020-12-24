@@ -1,0 +1,17 @@
+#Base camera & floor
+camera: p(0,5,0) u(1,0,0) v(0,1,0) f(0.5)
+#camera: p(0,10,0) u(1,0,0) v(0,0,1) f(0.5)
+checkeredplane: p(0,0,0) u(1,0,0) v(0,0,1) c1(255,255,255) c2(0,0,0) w(5) h(5)
+
+#Checkered Sphere
+checkeredsphere: p(-1,0,2) r(1) n(0,1,-1) s(1,0,0) c1(255,128,128) c2(255,200,200)
+
+#Sphere
+#sphere: p(1,0,3) r(1)
+
+#Testing Triangles
+#triangle: v1(-1,0,2) v2(1,0,2) v3(0,1,2) c(0,0,255)
+#plane: p(-1,0,2) u(1,0,0) v(0,1,0) c(0,0,255)
+#checkeredsphere: p(-1,0,2) r(0.1) n(0,1,0) s(1,0,0) c1(255,128,128) c2(255,200,200)
+#checkeredsphere: p(1,0,2) r(0.1) n(0,1,0) s(1,0,0) c1(255,128,128) c2(255,200,200)
+#checkeredsphere: p(0,1,2) r(0.1) n(0,1,0) s(1,0,0) c1(255,128,128) c2(255,200,200)
