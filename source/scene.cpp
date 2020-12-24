@@ -101,6 +101,7 @@ void scene::populate(istream &in)
             in >> px >> py >> pz >> ux >> uy >> uz >> vx >> vy >> vz >> f;
             camera = plane(vector3d(px, py, pz), vector3d(ux, uy, uz), vector3d(vx, vy, vz));
             focalLength = f;
+            cout << camera << endl;
         }
         else if (e == Entry::PLANE)
         {
@@ -112,10 +113,10 @@ void scene::populate(istream &in)
         else if (e == Entry::CHECKEREDPLANE)
         {
 
-            double px, py, pz, ux, uy, uz, vx, vy, vz;
+            double px, py, pz, ux, uy, uz, vx, vy, vz, w, h;
             int r1, g1, b1, r2, g2, b2;
-            in >> px >> py >> pz >> ux >> uy >> uz >> vx >> vy >> vz >> r1 >> g1 >> b1 >> r2 >> g2 >> b2;
-            objects.push_back(new checkeredPlane(vector3d(px, py, pz), vector3d(ux, uy, uz), vector3d(vx, vy, vz), 5, 5, color(r1, g1, b1), color(r2, g2, b2)));
+            in >> px >> py >> pz >> ux >> uy >> uz >> vx >> vy >> vz >> r1 >> g1 >> b1 >> r2 >> g2 >> b2 >> w >> h;
+            objects.push_back(new checkeredPlane(vector3d(px, py, pz), vector3d(ux, uy, uz), vector3d(vx, vy, vz), w, h, color(r1, g1, b1), color(r2, g2, b2)));
         }
         else if (e == Entry::SPHERE)
         {
@@ -126,8 +127,8 @@ void scene::populate(istream &in)
         }
         else if (e == Entry::CHECKEREDSPHERE)
         {
-            double px, py, pz, nx, ny, nz, sx, sy, sz;
-            int r1, g1, b1, r2, g2, b2, r;
+            double px, py, pz, nx, ny, nz, sx, sy, sz, r;
+            int r1, g1, b1, r2, g2, b2;
             in >> px >> py >> pz >> r >> nx >> ny >> nz >> sx >> sy >> sz >> r1 >> g1 >> b1 >> r2 >> g2 >> b2;
             objects.push_back(new checkeredSphere(vector3d(px, py, pz), r, vector3d(nx, ny, nz), vector3d(sx, sy, sz), 2 * M_PI / 20, M_PI / 10, color(r1, g1, b1), color(r2, g2, b2)));
         }
@@ -170,42 +171,9 @@ void scene::push_back(object3d *object)
 {
     objects.push_back(object);
 }
-// void scene::render()
-// {
-//     vector3d start = camera.getVector1().cross(camera.getVector2()).normalize() * -1 * focalLength;
-//     for (int i = 0; i < height; i++)
-//     {
-//         for (int j = 0; j < width; j++)
-//         {
-//             double x = j - width / 2, y = i - height / 2;
-//             x /= max(width, height);
-//             y /= -1 * max(width, height);
-
-//             double ds = 1.0 / max(width, height), dr = ds / 4;
-//             color colors[4];
-//             for (int k = 0; k < 4; k++)
-//             {
-//                 bool firstIntersect = true;
-//                 double minDist = -1;
-//                 image[i][j] = color();
-//                 vector3d pos = camera.getPoint() + (x + dr * cos(M_PI * k / 2.0)) * camera.getVector1() + (y + dr * sin(M_PI * k / 2.0)) * camera.getVector2();
-//                 ray r(start, pos - start);
-//                 for (object3d *obj : objects)
-//                 {
-//                     if (obj->intersects(r) && (firstIntersect || obj->intersectDistance(r) < minDist))
-//                     {
-//                         firstIntersect = false;
-//                         minDist = obj->intersectDistance(r);
-//                         colors[k] = obj->getColor(r);
-//                     }
-//                 }
-//             }
-//             image[i][j] = color::average(colors, 4);
-//         }
-//     }
-// }
 void scene::render()
 {
+    //renderPart(0,width,0,height)
     void (scene::*func)(int, int, int, int) = &scene::renderPart;
 
     thread t1(func, this, 0, width / 2, 0, height / 2), t2(func, this, width / 2, width, 0, height / 2), t3(func, this, 0, width / 2, height / 2, height), t4(func, this, width / 2, width, height / 2, height);
@@ -217,7 +185,7 @@ void scene::render()
 }
 void scene::renderPart(int xMin, int xMax, int yMin, int yMax)
 {
-    vector3d start = camera.getVector1().cross(camera.getVector2()).normalize() * -1 * focalLength;
+    vector3d start = camera.getPoint() + camera.getVector1().cross(camera.getVector2()).normalize() * -1 * focalLength;
     for (int i = yMin; i < yMax; i++)
     {
         for (int j = xMin; j < xMax; j++)

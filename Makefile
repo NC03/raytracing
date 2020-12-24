@@ -4,3 +4,4 @@ gen_docs:
 	git merge main
 	doxygen Doxyfile
 	make -Clatex/
+

@@ -13,6 +13,7 @@
 #include "checkeredPlane.h"
 #include "checkeredSphere.h"
 #include "triangle.h"
+#include "lightSource.h"
 
 #ifndef SCENE_H
 #define SCENE_H
@@ -27,7 +28,7 @@ public:
     void populate(istream &in);
     void render();
     void write(ostream &out);
-    void push_back(object3d *object);
+    void push_back(object3d *object);///< TODO: deprecate
 
 private:
     void renderPart(int xMin, int xMax, int yMin, int yMax);
@@ -36,6 +37,7 @@ private:
     plane camera;
     double focalLength;
     vector<object3d *> objects;
+    vector<lightSource *> lights;
 };
 
 #endif //SCENE_H
