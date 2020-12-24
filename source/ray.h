@@ -3,6 +3,9 @@
 #ifndef RAY_H
 #define RAY_H
 
+/**
+ * @brief A class for 3d rays
+ */
 class ray
 {
 public:
@@ -12,6 +15,7 @@ public:
     vector3d getStart() const;
     vector3d getDir() const;
     vector3d eval(double t) const;
+
 private:
     vector3d start;
     vector3d dir;
