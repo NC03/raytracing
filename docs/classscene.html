@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.1</span>
+   &#160;<span id="projectnumber">v1.0.2</span>
    </div>
   </td>
  </tr>
@@ -69,26 +76,176 @@ $(function() {
 <div class="title">scene Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class for a 3d scene.  
+ <a href="classscene.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="scene_8h_source.html">scene.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a58a3e6bb17eaa822958e0a4f1ba171bd"><td class="memItemLeft" align="right" valign="top"><a id="a58a3e6bb17eaa822958e0a4f1ba171bd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>scene</b> (int width=1920, int height=1080, <a class="el" href="classplane.html">plane</a> camera=<a class="el" href="classplane.html">plane</a>(<a class="el" href="classvector3d.html">vector3d</a>(0, 0, 0), <a class="el" href="classvector3d.html">vector3d</a>(1, 0, 0), <a class="el" href="classvector3d.html">vector3d</a>(0, 1, 0)), double focalLength=0.5)</td></tr>
+<tr class="memitem:a58a3e6bb17eaa822958e0a4f1ba171bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene.html#a58a3e6bb17eaa822958e0a4f1ba171bd">scene</a> (int width=1920, int height=1080, <a class="el" href="classplane.html">plane</a> camera=<a class="el" href="classplane.html">plane</a>(<a class="el" href="classvector3d.html">vector3d</a>(0, 0, 0), <a class="el" href="classvector3d.html">vector3d</a>(1, 0, 0), <a class="el" href="classvector3d.html">vector3d</a>(0, 1, 0)), double focalLength=0.5)</td></tr>
 <tr class="separator:a58a3e6bb17eaa822958e0a4f1ba171bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a215635a71d13a16a5e493309499f7eab"><td class="memItemLeft" align="right" valign="top"><a id="a215635a71d13a16a5e493309499f7eab"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>populate</b> (istream &amp;in)</td></tr>
+<tr class="memitem:aa97c9c1f46aa44e63223a737fcdcb496"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene.html#aa97c9c1f46aa44e63223a737fcdcb496">~scene</a> ()</td></tr>
+<tr class="separator:aa97c9c1f46aa44e63223a737fcdcb496"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a215635a71d13a16a5e493309499f7eab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene.html#a215635a71d13a16a5e493309499f7eab">populate</a> (istream &amp;in)</td></tr>
 <tr class="separator:a215635a71d13a16a5e493309499f7eab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1098ade6cf501dc366e4bf85cf12ae2f"><td class="memItemLeft" align="right" valign="top"><a id="a1098ade6cf501dc366e4bf85cf12ae2f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>render</b> ()</td></tr>
+<tr class="memitem:a1098ade6cf501dc366e4bf85cf12ae2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene.html#a1098ade6cf501dc366e4bf85cf12ae2f">render</a> ()</td></tr>
 <tr class="separator:a1098ade6cf501dc366e4bf85cf12ae2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8623bae8f0ed0ea0c70b6d9a6f0d8fe"><td class="memItemLeft" align="right" valign="top"><a id="ad8623bae8f0ed0ea0c70b6d9a6f0d8fe"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (ostream &amp;out)</td></tr>
+<tr class="memitem:ad8623bae8f0ed0ea0c70b6d9a6f0d8fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene.html#ad8623bae8f0ed0ea0c70b6d9a6f0d8fe">write</a> (ostream &amp;out)</td></tr>
 <tr class="separator:ad8623bae8f0ed0ea0c70b6d9a6f0d8fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a704119e0fbc458e962e68c4dcba1121a"><td class="memItemLeft" align="right" valign="top"><a id="a704119e0fbc458e962e68c4dcba1121a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene.html#a704119e0fbc458e962e68c4dcba1121a">push_back</a> (<a class="el" href="classobject3d.html">object3d</a> *object)</td></tr>
-<tr class="memdesc:a704119e0fbc458e962e68c4dcba1121a"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO: deprecate. <br /></td></tr>
+<tr class="memitem:a704119e0fbc458e962e68c4dcba1121a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classscene.html#a704119e0fbc458e962e68c4dcba1121a">push_back</a> (<a class="el" href="classobject3d.html">object3d</a> *object)</td></tr>
 <tr class="separator:a704119e0fbc458e962e68c4dcba1121a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class for a 3d scene. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a58a3e6bb17eaa822958e0a4f1ba171bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58a3e6bb17eaa822958e0a4f1ba171bd">&#9670;&nbsp;</a></span>scene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">scene::scene </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em> = <code>1920</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em> = <code>1080</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classplane.html">plane</a>&#160;</td>
+          <td class="paramname"><em>camera</em> = <code><a class="el" href="classplane.html">plane</a>(<a class="el" href="classvector3d.html">vector3d</a>(0,&#160;0,&#160;0),&#160;<a class="el" href="classvector3d.html">vector3d</a>(1,&#160;0,&#160;0),&#160;<a class="el" href="classvector3d.html">vector3d</a>(0,&#160;1,&#160;0))</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>focalLength</em> = <code>0.5</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>scene constructor</p>
+<dl class="section note"><dt>Note</dt><dd>There is no default constructor with 0 arguments </dd></dl>
+
+</div>
+</div>
+<a id="aa97c9c1f46aa44e63223a737fcdcb496"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa97c9c1f46aa44e63223a737fcdcb496">&#9670;&nbsp;</a></span>~scene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">scene::~scene </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Scene Destructor </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a215635a71d13a16a5e493309499f7eab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a215635a71d13a16a5e493309499f7eab">&#9670;&nbsp;</a></span>populate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scene::populate </td>
+          <td>(</td>
+          <td class="paramtype">istream &amp;&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Populates the scene object from the istream </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">in</td><td>A reference to the istream input </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a704119e0fbc458e962e68c4dcba1121a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a704119e0fbc458e962e68c4dcba1121a">&#9670;&nbsp;</a></span>push_back()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scene::push_back </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classobject3d.html">object3d</a> *&#160;</td>
+          <td class="paramname"><em>object</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000002">Deprecated:</a></b></dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a1098ade6cf501dc366e4bf85cf12ae2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1098ade6cf501dc366e4bf85cf12ae2f">&#9670;&nbsp;</a></span>render()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scene::render </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Runs the computations to render the scene </p>
+
+</div>
+</div>
+<a id="ad8623bae8f0ed0ea0c70b6d9a6f0d8fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8623bae8f0ed0ea0c70b6d9a6f0d8fe">&#9670;&nbsp;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scene::write </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Writes the image data to the ostream </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">out</td><td>A reference to the ostream where the image data is written </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>source/<a class="el" href="scene_8h_source.html">scene.h</a></li>
 <li>source/scene.cpp</li>

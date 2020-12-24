@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.1</span>
+   &#160;<span id="projectnumber">v1.0.2</span>
    </div>
   </td>
  </tr>
@@ -110,15 +117,15 @@ $(function() {
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif //TRIANGLE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclasscolor_html"><div class="ttname"><a href="classcolor.html">color</a></div><div class="ttdef"><b>Definition:</b> color.h:9</div></div>
+<div class="ttc" id="aclasscolor_html"><div class="ttname"><a href="classcolor.html">color</a></div><div class="ttdoc">A class for RGB colors.</div><div class="ttdef"><b>Definition:</b> color.h:12</div></div>
 <div class="ttc" id="aclasstriangle_html"><div class="ttname"><a href="classtriangle.html">triangle</a></div><div class="ttdef"><b>Definition:</b> triangle.h:13</div></div>
 <div class="ttc" id="aclasstriangle_html_ac6d28e8f35c2ea16e88c00ee3881fd18"><div class="ttname"><a href="classtriangle.html#ac6d28e8f35c2ea16e88c00ee3881fd18">triangle::reflectedRay</a></div><div class="ttdeci">virtual ray reflectedRay(const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> triangle.cpp:73</div></div>
 <div class="ttc" id="aclasstriangle_html_a363d48c2d3fde1dbb7b42cbf9ef21799"><div class="ttname"><a href="classtriangle.html#a363d48c2d3fde1dbb7b42cbf9ef21799">triangle::print</a></div><div class="ttdeci">virtual void print(ostream &amp;out) const</div><div class="ttdef"><b>Definition:</b> triangle.cpp:11</div></div>
-<div class="ttc" id="aclassvector3d_html"><div class="ttname"><a href="classvector3d.html">vector3d</a></div><div class="ttdef"><b>Definition:</b> vector3d.h:11</div></div>
+<div class="ttc" id="aclassvector3d_html"><div class="ttname"><a href="classvector3d.html">vector3d</a></div><div class="ttdoc">A class for 3d vectors.</div><div class="ttdef"><b>Definition:</b> vector3d.h:14</div></div>
 <div class="ttc" id="aclasstriangle_html_acb2597cc6dc51fdc8f78ea2290cb05b7"><div class="ttname"><a href="classtriangle.html#acb2597cc6dc51fdc8f78ea2290cb05b7">triangle::intersectDistance</a></div><div class="ttdeci">virtual double intersectDistance(const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> triangle.cpp:69</div></div>
-<div class="ttc" id="aclassray_html"><div class="ttname"><a href="classray.html">ray</a></div><div class="ttdef"><b>Definition:</b> ray.h:7</div></div>
+<div class="ttc" id="aclassray_html"><div class="ttname"><a href="classray.html">ray</a></div><div class="ttdoc">A class for 3d rays.</div><div class="ttdef"><b>Definition:</b> ray.h:10</div></div>
 <div class="ttc" id="aclassplane_html"><div class="ttname"><a href="classplane.html">plane</a></div><div class="ttdef"><b>Definition:</b> plane.h:8</div></div>
-<div class="ttc" id="aclassobject3d_html"><div class="ttname"><a href="classobject3d.html">object3d</a></div><div class="ttdef"><b>Definition:</b> object3d.h:8</div></div>
+<div class="ttc" id="aclassobject3d_html"><div class="ttname"><a href="classobject3d.html">object3d</a></div><div class="ttdoc">An abstract base class for all 3d objects in the scene.</div><div class="ttdef"><b>Definition:</b> object3d.h:11</div></div>
 <div class="ttc" id="aclasstriangle_html_a3372862be2ea41804a102e0130a6d589"><div class="ttname"><a href="classtriangle.html#a3372862be2ea41804a102e0130a6d589">triangle::intersects</a></div><div class="ttdeci">virtual bool intersects(const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> triangle.cpp:42</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

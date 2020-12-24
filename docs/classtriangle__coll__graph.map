@@ -1,4 +1,4 @@
 <map id="triangle" name="triangle">
 <area shape="rect" id="node1" title=" " alt="" coords="9,80,81,107"/>
-<area shape="rect" id="node2" href="$classobject3d.html" title=" " alt="" coords="5,5,84,32"/>
+<area shape="rect" id="node2" href="$classobject3d.html" title="An abstract base class for all 3d objects in the scene." alt="" coords="5,5,84,32"/>
 </map>

@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.1</span>
+   &#160;<span id="projectnumber">v1.0.2</span>
    </div>
   </td>
  </tr>
@@ -62,16 +69,43 @@ $(function() {
 </div>
 
 <div class="contents">
-&#160;<ul>
+&#160;
+
+<h3><a id="index_a"></a>- a -</h3><ul>
 <li>average()
-: <a class="el" href="classcolor.html#af1c928fca585460f5e21b12628cdcf77">color</a>
+: <a class="el" href="classcolor.html#a813369e8c86920a16aa7cca0fb364888">color</a>
 </li>
+</ul>
+
+
+<h3><a id="index_c"></a>- c -</h3><ul>
 <li>checkeredSphere()
 : <a class="el" href="classcheckeredSphere.html#a325035fd96eb0568f62216bcb27604c2">checkeredSphere</a>
 </li>
 <li>color()
 : <a class="el" href="classcolor.html#ae6348662d7e5e56861df2dbd6705afb8">color</a>
 </li>
+<li>cross()
+: <a class="el" href="classvector3d.html#a338236c7c184e94f4de7f15f36f36e10">vector3d</a>
+</li>
+</ul>
+
+
+<h3><a id="index_d"></a>- d -</h3><ul>
+<li>dot()
+: <a class="el" href="classvector3d.html#a1b0e499c5b1a858a48435bff9e20f6ae">vector3d</a>
+</li>
+</ul>
+
+
+<h3><a id="index_e"></a>- e -</h3><ul>
+<li>eval()
+: <a class="el" href="classray.html#aeb9702b28f87be566091f3601992156f">ray</a>
+</li>
+</ul>
+
+
+<h3><a id="index_g"></a>- g -</h3><ul>
 <li>getBlue()
 : <a class="el" href="classcolor.html#ab247e53b276db7f55843a37fe968bde3">color</a>
 </li>
@@ -83,12 +117,31 @@ $(function() {
 , <a class="el" href="classsphere.html#a19e39d66ece595939cccc73f4d9edf61">sphere</a>
 , <a class="el" href="classtriangle.html#a61b7db2527e256bbb0b74f30febff71b">triangle</a>
 </li>
+<li>getDir()
+: <a class="el" href="classray.html#a272659048b27830a6c16350d98fdf5ff">ray</a>
+</li>
 <li>getGreen()
 : <a class="el" href="classcolor.html#aa835fe53fc141463b69b7516644e9121">color</a>
 </li>
 <li>getRed()
 : <a class="el" href="classcolor.html#a986192914919de9b584aa065e8e3f433">color</a>
 </li>
+<li>getStart()
+: <a class="el" href="classray.html#a83cb45909d3dd3d4ec8ff24f9865c945">ray</a>
+</li>
+<li>getX()
+: <a class="el" href="classvector3d.html#a13e68267a2f5b49e99a4c0fdae8675d6">vector3d</a>
+</li>
+<li>getY()
+: <a class="el" href="classvector3d.html#a8f8e7d4ecce50f83f40013d86008b961">vector3d</a>
+</li>
+<li>getZ()
+: <a class="el" href="classvector3d.html#a4b46fed580659c403341a7f6afaa4720">vector3d</a>
+</li>
+</ul>
+
+
+<h3><a id="index_i"></a>- i -</h3><ul>
 <li>intersectDistance()
 : <a class="el" href="classobject3d.html#ac3902c4f176f29223381aebb4e4fa7b2">object3d</a>
 , <a class="el" href="classplane.html#a39f8ccb48fef1d9447db41bf3b62feca">plane</a>
@@ -101,6 +154,43 @@ $(function() {
 , <a class="el" href="classsphere.html#a4144a881e2c37746df091f783334fa9c">sphere</a>
 , <a class="el" href="classtriangle.html#a3372862be2ea41804a102e0130a6d589">triangle</a>
 </li>
+</ul>
+
+
+<h3><a id="index_m"></a>- m -</h3><ul>
+<li>magnitude()
+: <a class="el" href="classvector3d.html#a4753a6185984568ae959a88c46cee0bf">vector3d</a>
+</li>
+</ul>
+
+
+<h3><a id="index_n"></a>- n -</h3><ul>
+<li>normalize()
+: <a class="el" href="classvector3d.html#ae37dbfddb9b52bd9b720a689329ae4c3">vector3d</a>
+</li>
+</ul>
+
+
+<h3><a id="index_o"></a>- o -</h3><ul>
+<li>operator*()
+: <a class="el" href="classvector3d.html#a7b4390e49247e011a741ba15e7ca5100">vector3d</a>
+</li>
+<li>operator+()
+: <a class="el" href="classvector3d.html#a2a34abfd1501ad97a464d4c252ecbc17">vector3d</a>
+</li>
+<li>operator-()
+: <a class="el" href="classvector3d.html#a1ab7b4d6ce790b6f653f6dfb76519db7">vector3d</a>
+</li>
+<li>operator==()
+: <a class="el" href="classvector3d.html#a9d0fbe8bd0c701a0cff84060dacec54e">vector3d</a>
+</li>
+</ul>
+
+
+<h3><a id="index_p"></a>- p -</h3><ul>
+<li>populate()
+: <a class="el" href="classscene.html#a215635a71d13a16a5e493309499f7eab">scene</a>
+</li>
 <li>print()
 : <a class="el" href="classobject3d.html#afe34c9b4a1c84424fcdbe8049480bc49">object3d</a>
 , <a class="el" href="classplane.html#ab3ec7cb18bde20d56d2807482d5bffba">plane</a>
@@ -110,11 +200,52 @@ $(function() {
 <li>push_back()
 : <a class="el" href="classscene.html#a704119e0fbc458e962e68c4dcba1121a">scene</a>
 </li>
+</ul>
+
+
+<h3><a id="index_r"></a>- r -</h3><ul>
+<li>ray()
+: <a class="el" href="classray.html#af201b994656e240b65583024d3f92296">ray</a>
+</li>
 <li>reflectedRay()
 : <a class="el" href="classobject3d.html#a4c38cb4583190e537a0367dec7d3a422">object3d</a>
 , <a class="el" href="classplane.html#a5556e41951ee1a284702f06c6ffd2acf">plane</a>
 , <a class="el" href="classsphere.html#a14e79ffb388670f30c409317330f7ce7">sphere</a>
 , <a class="el" href="classtriangle.html#ac6d28e8f35c2ea16e88c00ee3881fd18">triangle</a>
+</li>
+<li>render()
+: <a class="el" href="classscene.html#a1098ade6cf501dc366e4bf85cf12ae2f">scene</a>
+</li>
+</ul>
+
+
+<h3><a id="index_s"></a>- s -</h3><ul>
+<li>scene()
+: <a class="el" href="classscene.html#a58a3e6bb17eaa822958e0a4f1ba171bd">scene</a>
+</li>
+</ul>
+
+
+<h3><a id="index_v"></a>- v -</h3><ul>
+<li>vector3d()
+: <a class="el" href="classvector3d.html#a4508da46e39b7a30bdecf6a1527c9dde">vector3d</a>
+</li>
+</ul>
+
+
+<h3><a id="index_w"></a>- w -</h3><ul>
+<li>write()
+: <a class="el" href="classscene.html#ad8623bae8f0ed0ea0c70b6d9a6f0d8fe">scene</a>
+</li>
+</ul>
+
+
+<h3><a id="index__7E"></a>- ~ -</h3><ul>
+<li>~object3d()
+: <a class="el" href="classobject3d.html#a8c0306974111460a73a9f64fcd33c326">object3d</a>
+</li>
+<li>~scene()
+: <a class="el" href="classscene.html#aa97c9c1f46aa44e63223a737fcdcb496">scene</a>
 </li>
 </ul>
 </div><!-- contents -->

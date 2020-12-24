@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.1</span>
+   &#160;<span id="projectnumber">v1.0.2</span>
    </div>
   </td>
  </tr>
@@ -103,14 +110,14 @@ $(function() {
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif //PLANE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclasscolor_html"><div class="ttname"><a href="classcolor.html">color</a></div><div class="ttdef"><b>Definition:</b> color.h:9</div></div>
+<div class="ttc" id="aclasscolor_html"><div class="ttname"><a href="classcolor.html">color</a></div><div class="ttdoc">A class for RGB colors.</div><div class="ttdef"><b>Definition:</b> color.h:12</div></div>
 <div class="ttc" id="aclassplane_html_ab3ec7cb18bde20d56d2807482d5bffba"><div class="ttname"><a href="classplane.html#ab3ec7cb18bde20d56d2807482d5bffba">plane::print</a></div><div class="ttdeci">virtual void print(ostream &amp;out) const</div><div class="ttdef"><b>Definition:</b> plane.cpp:54</div></div>
 <div class="ttc" id="aclassplane_html_a39f8ccb48fef1d9447db41bf3b62feca"><div class="ttname"><a href="classplane.html#a39f8ccb48fef1d9447db41bf3b62feca">plane::intersectDistance</a></div><div class="ttdeci">virtual double intersectDistance(const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> plane.cpp:33</div></div>
-<div class="ttc" id="aclassvector3d_html"><div class="ttname"><a href="classvector3d.html">vector3d</a></div><div class="ttdef"><b>Definition:</b> vector3d.h:11</div></div>
-<div class="ttc" id="aclassray_html"><div class="ttname"><a href="classray.html">ray</a></div><div class="ttdef"><b>Definition:</b> ray.h:7</div></div>
+<div class="ttc" id="aclassvector3d_html"><div class="ttname"><a href="classvector3d.html">vector3d</a></div><div class="ttdoc">A class for 3d vectors.</div><div class="ttdef"><b>Definition:</b> vector3d.h:14</div></div>
+<div class="ttc" id="aclassray_html"><div class="ttname"><a href="classray.html">ray</a></div><div class="ttdoc">A class for 3d rays.</div><div class="ttdef"><b>Definition:</b> ray.h:10</div></div>
 <div class="ttc" id="aclassplane_html_a586ee5642d92779111c9d7011c3c6af8"><div class="ttname"><a href="classplane.html#a586ee5642d92779111c9d7011c3c6af8">plane::intersects</a></div><div class="ttdeci">virtual bool intersects(const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> plane.cpp:29</div></div>
 <div class="ttc" id="aclassplane_html"><div class="ttname"><a href="classplane.html">plane</a></div><div class="ttdef"><b>Definition:</b> plane.h:8</div></div>
-<div class="ttc" id="aclassobject3d_html"><div class="ttname"><a href="classobject3d.html">object3d</a></div><div class="ttdef"><b>Definition:</b> object3d.h:8</div></div>
+<div class="ttc" id="aclassobject3d_html"><div class="ttname"><a href="classobject3d.html">object3d</a></div><div class="ttdoc">An abstract base class for all 3d objects in the scene.</div><div class="ttdef"><b>Definition:</b> object3d.h:11</div></div>
 <div class="ttc" id="aclassplane_html_a5556e41951ee1a284702f06c6ffd2acf"><div class="ttname"><a href="classplane.html#a5556e41951ee1a284702f06c6ffd2acf">plane::reflectedRay</a></div><div class="ttdeci">virtual ray reflectedRay(const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> plane.cpp:39</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

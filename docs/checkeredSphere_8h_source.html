@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.1</span>
+   &#160;<span id="projectnumber">v1.0.2</span>
    </div>
   </td>
  </tr>
@@ -93,12 +100,12 @@ $(function() {
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif //CHECKEREDSPHERE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclasscolor_html"><div class="ttname"><a href="classcolor.html">color</a></div><div class="ttdef"><b>Definition:</b> color.h:9</div></div>
+<div class="ttc" id="aclasscolor_html"><div class="ttname"><a href="classcolor.html">color</a></div><div class="ttdoc">A class for RGB colors.</div><div class="ttdef"><b>Definition:</b> color.h:12</div></div>
 <div class="ttc" id="aclasssphere_html"><div class="ttname"><a href="classsphere.html">sphere</a></div><div class="ttdef"><b>Definition:</b> sphere.h:12</div></div>
-<div class="ttc" id="aclassvector3d_html"><div class="ttname"><a href="classvector3d.html">vector3d</a></div><div class="ttdef"><b>Definition:</b> vector3d.h:11</div></div>
+<div class="ttc" id="aclassvector3d_html"><div class="ttname"><a href="classvector3d.html">vector3d</a></div><div class="ttdoc">A class for 3d vectors.</div><div class="ttdef"><b>Definition:</b> vector3d.h:14</div></div>
 <div class="ttc" id="aclasscheckeredSphere_html_a325035fd96eb0568f62216bcb27604c2"><div class="ttname"><a href="classcheckeredSphere.html#a325035fd96eb0568f62216bcb27604c2">checkeredSphere::checkeredSphere</a></div><div class="ttdeci">checkeredSphere(vector3d pos, double r, vector3d n, vector3d s, double width=2 *M_PI/10, double height=M_PI/10, color c1=color(255, 255, 255), color c2=color(0, 0, 0))</div><div class="ttdef"><b>Definition:</b> checkeredSphere.cpp:16</div></div>
 <div class="ttc" id="aclasscheckeredSphere_html"><div class="ttname"><a href="classcheckeredSphere.html">checkeredSphere</a></div><div class="ttdef"><b>Definition:</b> checkeredSphere.h:10</div></div>
-<div class="ttc" id="aclassray_html"><div class="ttname"><a href="classray.html">ray</a></div><div class="ttdef"><b>Definition:</b> ray.h:7</div></div>
+<div class="ttc" id="aclassray_html"><div class="ttname"><a href="classray.html">ray</a></div><div class="ttdoc">A class for 3d rays.</div><div class="ttdef"><b>Definition:</b> ray.h:10</div></div>
 <div class="ttc" id="aclasscheckeredSphere_html_ab53351198296b2d2e0f748ee1b628fc0"><div class="ttname"><a href="classcheckeredSphere.html#ab53351198296b2d2e0f748ee1b628fc0">checkeredSphere::getColor</a></div><div class="ttdeci">virtual color getColor(const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> checkeredSphere.cpp:20</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

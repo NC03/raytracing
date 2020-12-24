@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.1</span>
+   &#160;<span id="projectnumber">v1.0.2</span>
    </div>
   </td>
  </tr>
@@ -71,6 +78,11 @@ $(function() {
 <div class="title">color Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class for RGB colors.  
+ <a href="classcolor.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="color_8h_source.html">color.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -85,8 +97,7 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a813369e8c86920a16aa7cca0fb364888"><td class="memItemLeft" align="right" valign="top"><a id="a813369e8c86920a16aa7cca0fb364888"></a>
-static <a class="el" href="classcolor.html">color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>average</b> (<a class="el" href="classcolor.html">color</a> a, <a class="el" href="classcolor.html">color</a> b, <a class="el" href="classcolor.html">color</a> c, <a class="el" href="classcolor.html">color</a> d)</td></tr>
+<tr class="memitem:a813369e8c86920a16aa7cca0fb364888"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classcolor.html">color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcolor.html#a813369e8c86920a16aa7cca0fb364888">average</a> (<a class="el" href="classcolor.html">color</a> a, <a class="el" href="classcolor.html">color</a> b, <a class="el" href="classcolor.html">color</a> c, <a class="el" href="classcolor.html">color</a> d)</td></tr>
 <tr class="separator:a813369e8c86920a16aa7cca0fb364888"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1c928fca585460f5e21b12628cdcf77"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classcolor.html">color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcolor.html#af1c928fca585460f5e21b12628cdcf77">average</a> (<a class="el" href="classcolor.html">color</a> arr[], int len)</td></tr>
 <tr class="separator:af1c928fca585460f5e21b12628cdcf77"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -96,7 +107,9 @@ Friends</h2></td></tr>
 <tr class="memitem:a60c9f721972a467f489f9db713d55e8b"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcolor.html#a60c9f721972a467f489f9db713d55e8b">operator&lt;&lt;</a> (ostream &amp;out, const <a class="el" href="classcolor.html">color</a> &amp;c)</td></tr>
 <tr class="separator:a60c9f721972a467f489f9db713d55e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class for RGB colors. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae6348662d7e5e56861df2dbd6705afb8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae6348662d7e5e56861df2dbd6705afb8">&#9670;&nbsp;</a></span>color()</h2>
 
@@ -128,7 +141,8 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructor for the color object The minimum and maximum values for each channel are 0 and 255, respectively </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Constructor for the color object</p>
+<p>The minimum and maximum values for each channel are 0 and 255, respectively </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">red</td><td>The value of the red channel </td></tr>
     <tr><td class="paramname">green</td><td>The value of the green channel </td></tr>
@@ -140,8 +154,57 @@ Friends</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a813369e8c86920a16aa7cca0fb364888"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a813369e8c86920a16aa7cca0fb364888">&#9670;&nbsp;</a></span>average() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcolor.html">color</a> color::average </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classcolor.html">color</a>&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classcolor.html">color</a>&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classcolor.html">color</a>&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classcolor.html">color</a>&#160;</td>
+          <td class="paramname"><em>d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd></dd></dl>
+
+</div>
+</div>
 <a id="af1c928fca585460f5e21b12628cdcf77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1c928fca585460f5e21b12628cdcf77">&#9670;&nbsp;</a></span>average()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af1c928fca585460f5e21b12628cdcf77">&#9670;&nbsp;</a></span>average() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -176,10 +239,12 @@ Friends</h2></td></tr>
 <p>Compute average color by averaging each channel independently </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">arr</td><td>The array of colors to average </td></tr>
-    <tr><td class="paramname">len</td><td>The number of colors to average PRECONDITION: len must be less than or equal to the size of the array to avoid segmentation fault from buffer overflow </td></tr>
+    <tr><td class="paramname">len</td><td>The number of colors to average </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>The color object representing the average of the arguments</dd></dl>
+<p>PRECONDITION: len must be less than or equal to the size of the array to avoid segmentation fault from buffer overflow </p>
 
 </div>
 </div>
@@ -197,7 +262,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the value of the blue channel </dd></dl>
+<p>Getter method for the blue channel value of the color object </p><dl class="section return"><dt>Returns</dt><dd>The integer value of the blue channel </dd></dl>
 
 </div>
 </div>
@@ -215,7 +280,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the value of the green channel </dd></dl>
+<p>Getter method for the green channel value of the color object </p><dl class="section return"><dt>Returns</dt><dd>The integer value of the green channel </dd></dl>
 
 </div>
 </div>
@@ -233,7 +298,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the value of the red channel </dd></dl>
+<p>Getter method for the red channel value of the color object </p><dl class="section return"><dt>Returns</dt><dd>The integer value of the red channel </dd></dl>
 
 </div>
 </div>

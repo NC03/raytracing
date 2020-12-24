@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.1</span>
+   &#160;<span id="projectnumber">v1.0.2</span>
    </div>
   </td>
  </tr>
@@ -81,7 +88,7 @@ $(function() {
   <tr bgcolor="#f0f0f0"><td class="entry"><b>plane</b>(vector3d point, vector3d u, vector3d v, color c=color(128, 128, 128)) (defined in <a class="el" href="classplane.html">plane</a>)</td><td class="entry"><a class="el" href="classplane.html">plane</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classplane.html#ab3ec7cb18bde20d56d2807482d5bffba">print</a>(ostream &amp;out) const</td><td class="entry"><a class="el" href="classplane.html">plane</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="classplane.html#a5556e41951ee1a284702f06c6ffd2acf">reflectedRay</a>(const ray &amp;r)</td><td class="entry"><a class="el" href="classplane.html">plane</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~object3d</b>() (defined in <a class="el" href="classobject3d.html">object3d</a>)</td><td class="entry"><a class="el" href="classobject3d.html">object3d</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classobject3d.html#a8c0306974111460a73a9f64fcd33c326">~object3d</a>()</td><td class="entry"><a class="el" href="classobject3d.html">object3d</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

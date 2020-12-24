@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.1</span>
+   &#160;<span id="projectnumber">v1.0.2</span>
    </div>
   </td>
  </tr>
@@ -75,7 +82,7 @@ Inheritance diagram for lightSource:</div>
 <div class="center"><img src="classlightSource__inherit__graph.png" border="0" usemap="#lightSource_inherit__map" alt="Inheritance graph"/></div>
 <map name="lightSource_inherit__map" id="lightSource_inherit__map">
 <area shape="rect" title=" " alt="" coords="5,80,100,107"/>
-<area shape="rect" href="classobject3d.html" title=" " alt="" coords="13,5,92,32"/>
+<area shape="rect" href="classobject3d.html" title="An abstract base class for all 3d objects in the scene." alt="" coords="13,5,92,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -84,7 +91,7 @@ Collaboration diagram for lightSource:</div>
 <div class="center"><img src="classlightSource__coll__graph.png" border="0" usemap="#lightSource_coll__map" alt="Collaboration graph"/></div>
 <map name="lightSource_coll__map" id="lightSource_coll__map">
 <area shape="rect" title=" " alt="" coords="5,80,100,107"/>
-<area shape="rect" href="classobject3d.html" title=" " alt="" coords="13,5,92,32"/>
+<area shape="rect" href="classobject3d.html" title="An abstract base class for all 3d objects in the scene." alt="" coords="13,5,92,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -97,6 +104,8 @@ virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>intensityVa
 virtual <a class="el" href="classcolor.html">color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>color</b> ()=0</td></tr>
 <tr class="separator:a6c810483888194127a3bc63a60bc4ac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classobject3d"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classobject3d')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classobject3d.html">object3d</a></td></tr>
+<tr class="memitem:a8c0306974111460a73a9f64fcd33c326 inherit pub_methods_classobject3d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#a8c0306974111460a73a9f64fcd33c326">~object3d</a> ()</td></tr>
+<tr class="separator:a8c0306974111460a73a9f64fcd33c326 inherit pub_methods_classobject3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6f634f9952a5b5a2419c669b42677e2 inherit pub_methods_classobject3d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#ab6f634f9952a5b5a2419c669b42677e2">intersects</a> (const <a class="el" href="classray.html">ray</a> &amp;r)=0</td></tr>
 <tr class="separator:ab6f634f9952a5b5a2419c669b42677e2 inherit pub_methods_classobject3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3902c4f176f29223381aebb4e4fa7b2 inherit pub_methods_classobject3d"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#ac3902c4f176f29223381aebb4e4fa7b2">intersectDistance</a> (const <a class="el" href="classray.html">ray</a> &amp;r)=0</td></tr>

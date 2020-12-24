@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.1</span>
+   &#160;<span id="projectnumber">v1.0.2</span>
    </div>
   </td>
  </tr>
@@ -75,24 +82,30 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef RAY_H</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define RAY_H</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="classray.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="classray.html">ray</a></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="classray.html">ray</a>(<a class="code" href="classvector3d.html">vector3d</a> start, <a class="code" href="classvector3d.html">vector3d</a> dir);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">friend</span> ostream &amp;operator&lt;&lt;(ostream &amp;out, <span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> getStart() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> getDir() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> eval(<span class="keywordtype">double</span> t) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> start;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> dir;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif //RAY_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classray.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="classray.html">ray</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="classray.html#af201b994656e240b65583024d3f92296">ray</a>(<a class="code" href="classvector3d.html">vector3d</a> start, <a class="code" href="classvector3d.html">vector3d</a> dir);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">friend</span> ostream &amp;<a class="code" href="classray.html#a8f5162e10c3da6bd59b1332355d540b3">operator&lt;&lt;</a>(ostream &amp;out, <span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> <a class="code" href="classray.html#a83cb45909d3dd3d4ec8ff24f9865c945">getStart</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> <a class="code" href="classray.html#a272659048b27830a6c16350d98fdf5ff">getDir</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> <a class="code" href="classray.html#aeb9702b28f87be566091f3601992156f">eval</a>(<span class="keywordtype">double</span> t) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> start;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> dir;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif //RAY_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassvector3d_html"><div class="ttname"><a href="classvector3d.html">vector3d</a></div><div class="ttdef"><b>Definition:</b> vector3d.h:11</div></div>
-<div class="ttc" id="aclassray_html"><div class="ttname"><a href="classray.html">ray</a></div><div class="ttdef"><b>Definition:</b> ray.h:7</div></div>
+<div class="ttc" id="aclassray_html_af201b994656e240b65583024d3f92296"><div class="ttname"><a href="classray.html#af201b994656e240b65583024d3f92296">ray::ray</a></div><div class="ttdeci">ray(vector3d start, vector3d dir)</div><div class="ttdef"><b>Definition:</b> ray.cpp:10</div></div>
+<div class="ttc" id="aclassray_html_a272659048b27830a6c16350d98fdf5ff"><div class="ttname"><a href="classray.html#a272659048b27830a6c16350d98fdf5ff">ray::getDir</a></div><div class="ttdeci">vector3d getDir() const</div><div class="ttdef"><b>Definition:</b> ray.cpp:38</div></div>
+<div class="ttc" id="aclassvector3d_html"><div class="ttname"><a href="classvector3d.html">vector3d</a></div><div class="ttdoc">A class for 3d vectors.</div><div class="ttdef"><b>Definition:</b> vector3d.h:14</div></div>
+<div class="ttc" id="aclassray_html"><div class="ttname"><a href="classray.html">ray</a></div><div class="ttdoc">A class for 3d rays.</div><div class="ttdef"><b>Definition:</b> ray.h:10</div></div>
+<div class="ttc" id="aclassray_html_aeb9702b28f87be566091f3601992156f"><div class="ttname"><a href="classray.html#aeb9702b28f87be566091f3601992156f">ray::eval</a></div><div class="ttdeci">vector3d eval(double t) const</div><div class="ttdef"><b>Definition:</b> ray.cpp:50</div></div>
+<div class="ttc" id="aclassray_html_a83cb45909d3dd3d4ec8ff24f9865c945"><div class="ttname"><a href="classray.html#a83cb45909d3dd3d4ec8ff24f9865c945">ray::getStart</a></div><div class="ttdeci">vector3d getStart() const</div><div class="ttdef"><b>Definition:</b> ray.cpp:29</div></div>
+<div class="ttc" id="aclassray_html_a8f5162e10c3da6bd59b1332355d540b3"><div class="ttname"><a href="classray.html#a8f5162e10c3da6bd59b1332355d540b3">ray::operator&lt;&lt;</a></div><div class="ttdeci">friend ostream &amp; operator&lt;&lt;(ostream &amp;out, const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> ray.cpp:20</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

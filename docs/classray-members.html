@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.1</span>
+   &#160;<span id="projectnumber">v1.0.2</span>
    </div>
   </td>
  </tr>
@@ -69,11 +76,11 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="classray.html">ray</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>eval</b>(double t) const (defined in <a class="el" href="classray.html">ray</a>)</td><td class="entry"><a class="el" href="classray.html">ray</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getDir</b>() const (defined in <a class="el" href="classray.html">ray</a>)</td><td class="entry"><a class="el" href="classray.html">ray</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getStart</b>() const (defined in <a class="el" href="classray.html">ray</a>)</td><td class="entry"><a class="el" href="classray.html">ray</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator&lt;&lt;</b> (defined in <a class="el" href="classray.html">ray</a>)</td><td class="entry"><a class="el" href="classray.html">ray</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>ray</b>(vector3d start, vector3d dir) (defined in <a class="el" href="classray.html">ray</a>)</td><td class="entry"><a class="el" href="classray.html">ray</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classray.html#aeb9702b28f87be566091f3601992156f">eval</a>(double t) const</td><td class="entry"><a class="el" href="classray.html">ray</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classray.html#a272659048b27830a6c16350d98fdf5ff">getDir</a>() const</td><td class="entry"><a class="el" href="classray.html">ray</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classray.html#a83cb45909d3dd3d4ec8ff24f9865c945">getStart</a>() const</td><td class="entry"><a class="el" href="classray.html">ray</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classray.html#a8f5162e10c3da6bd59b1332355d540b3">operator&lt;&lt;</a>(ostream &amp;out, const ray &amp;r)</td><td class="entry"><a class="el" href="classray.html">ray</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classray.html#af201b994656e240b65583024d3f92296">ray</a>(vector3d start, vector3d dir)</td><td class="entry"><a class="el" href="classray.html">ray</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

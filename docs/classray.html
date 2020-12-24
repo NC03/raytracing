@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.1</span>
+   &#160;<span id="projectnumber">v1.0.2</span>
    </div>
   </td>
  </tr>
@@ -70,28 +77,176 @@ $(function() {
 <div class="title">ray Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class for 3d rays.  
+ <a href="classray.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="ray_8h_source.html">ray.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af201b994656e240b65583024d3f92296"><td class="memItemLeft" align="right" valign="top"><a id="af201b994656e240b65583024d3f92296"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ray</b> (<a class="el" href="classvector3d.html">vector3d</a> start, <a class="el" href="classvector3d.html">vector3d</a> dir)</td></tr>
+<tr class="memitem:af201b994656e240b65583024d3f92296"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classray.html#af201b994656e240b65583024d3f92296">ray</a> (<a class="el" href="classvector3d.html">vector3d</a> start, <a class="el" href="classvector3d.html">vector3d</a> dir)</td></tr>
 <tr class="separator:af201b994656e240b65583024d3f92296"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83cb45909d3dd3d4ec8ff24f9865c945"><td class="memItemLeft" align="right" valign="top"><a id="a83cb45909d3dd3d4ec8ff24f9865c945"></a>
-<a class="el" href="classvector3d.html">vector3d</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getStart</b> () const</td></tr>
+<tr class="memitem:a83cb45909d3dd3d4ec8ff24f9865c945"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvector3d.html">vector3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classray.html#a83cb45909d3dd3d4ec8ff24f9865c945">getStart</a> () const</td></tr>
 <tr class="separator:a83cb45909d3dd3d4ec8ff24f9865c945"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a272659048b27830a6c16350d98fdf5ff"><td class="memItemLeft" align="right" valign="top"><a id="a272659048b27830a6c16350d98fdf5ff"></a>
-<a class="el" href="classvector3d.html">vector3d</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getDir</b> () const</td></tr>
+<tr class="memitem:a272659048b27830a6c16350d98fdf5ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvector3d.html">vector3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classray.html#a272659048b27830a6c16350d98fdf5ff">getDir</a> () const</td></tr>
 <tr class="separator:a272659048b27830a6c16350d98fdf5ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb9702b28f87be566091f3601992156f"><td class="memItemLeft" align="right" valign="top"><a id="aeb9702b28f87be566091f3601992156f"></a>
-<a class="el" href="classvector3d.html">vector3d</a>&#160;</td><td class="memItemRight" valign="bottom"><b>eval</b> (double t) const</td></tr>
+<tr class="memitem:aeb9702b28f87be566091f3601992156f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classvector3d.html">vector3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classray.html#aeb9702b28f87be566091f3601992156f">eval</a> (double t) const</td></tr>
 <tr class="separator:aeb9702b28f87be566091f3601992156f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a8f5162e10c3da6bd59b1332355d540b3"><td class="memItemLeft" align="right" valign="top"><a id="a8f5162e10c3da6bd59b1332355d540b3"></a>
-ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (ostream &amp;out, const <a class="el" href="classray.html">ray</a> &amp;r)</td></tr>
+<tr class="memitem:a8f5162e10c3da6bd59b1332355d540b3"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classray.html#a8f5162e10c3da6bd59b1332355d540b3">operator&lt;&lt;</a> (ostream &amp;out, const <a class="el" href="classray.html">ray</a> &amp;r)</td></tr>
 <tr class="separator:a8f5162e10c3da6bd59b1332355d540b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class for 3d rays. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="af201b994656e240b65583024d3f92296"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af201b994656e240b65583024d3f92296">&#9670;&nbsp;</a></span>ray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ray::ray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classvector3d.html">vector3d</a>&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classvector3d.html">vector3d</a>&#160;</td>
+          <td class="paramname"><em>dir</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ray constructor</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>The <a class="el" href="classvector3d.html" title="A class for 3d vectors.">vector3d</a> position of the start of the ray </td></tr>
+    <tr><td class="paramname">dir</td><td>The <a class="el" href="classvector3d.html" title="A class for 3d vectors.">vector3d</a> in the direction of the ray </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>There is no default constructor with 0 arguments </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aeb9702b28f87be566091f3601992156f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb9702b28f87be566091f3601992156f">&#9670;&nbsp;</a></span>eval()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classvector3d.html">vector3d</a> ray::eval </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Evaluates the parametric equation of the ray</p>
+<p>The result is given by \( \vec{r}=\vec{a}+\vec{b}t \), where \(\vec{a}\) is the <a class="el" href="classvector3d.html" title="A class for 3d vectors.">vector3d</a> start and \(\vec{b}\) is the <a class="el" href="classvector3d.html" title="A class for 3d vectors.">vector3d</a> unit vector direction </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>The parameter at which the ray equation is evaluated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classvector3d.html" title="A class for 3d vectors.">vector3d</a> result </dd></dl>
+
+</div>
+</div>
+<a id="a272659048b27830a6c16350d98fdf5ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a272659048b27830a6c16350d98fdf5ff">&#9670;&nbsp;</a></span>getDir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classvector3d.html">vector3d</a> ray::getDir </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Getter method for the direction of the ray </p><dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classvector3d.html" title="A class for 3d vectors.">vector3d</a> in the direction of the ray </dd></dl>
+
+</div>
+</div>
+<a id="a83cb45909d3dd3d4ec8ff24f9865c945"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83cb45909d3dd3d4ec8ff24f9865c945">&#9670;&nbsp;</a></span>getStart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classvector3d.html">vector3d</a> ray::getStart </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Getter method for the start of the ray </p><dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classvector3d.html" title="A class for 3d vectors.">vector3d</a> position of the start of the ray </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a8f5162e10c3da6bd59b1332355d540b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f5162e10c3da6bd59b1332355d540b3">&#9670;&nbsp;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classray.html">ray</a> &amp;&#160;</td>
+          <td class="paramname"><em>r</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Overloaded operator for stream insertion of a ray </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">out</td><td>A reference to the left-hand-side argument(ostream) </td></tr>
+    <tr><td class="paramname">r</td><td>A const reference to the right-hand-side argument(ray) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the ostream argument, enabling chaining of insertion statements </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>source/<a class="el" href="ray_8h_source.html">ray.h</a></li>
 <li>source/ray.cpp</li>

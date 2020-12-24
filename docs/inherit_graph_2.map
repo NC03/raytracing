@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classobject3d.html" title=" " alt="" coords="5,81,84,108"/>
+<area shape="rect" id="node1" href="$classobject3d.html" title="An abstract base class for all 3d objects in the scene." alt="" coords="5,81,84,108"/>
 <area shape="rect" id="node2" href="$classlightSource.html" title=" " alt="" coords="132,5,227,32"/>
 <area shape="rect" id="node3" href="$classplane.html" title=" " alt="" coords="150,56,209,83"/>
 <area shape="rect" id="node5" href="$classsphere.html" title=" " alt="" coords="146,107,213,133"/>

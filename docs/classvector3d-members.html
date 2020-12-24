@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.1</span>
+   &#160;<span id="projectnumber">v1.0.2</span>
    </div>
   </td>
  </tr>
@@ -69,20 +76,20 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="classvector3d.html">vector3d</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>cross</b>(const vector3d &amp;other) const (defined in <a class="el" href="classvector3d.html">vector3d</a>)</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>dot</b>(const vector3d &amp;other) const (defined in <a class="el" href="classvector3d.html">vector3d</a>)</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getX</b>() const (defined in <a class="el" href="classvector3d.html">vector3d</a>)</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getY</b>() const (defined in <a class="el" href="classvector3d.html">vector3d</a>)</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getZ</b>() const (defined in <a class="el" href="classvector3d.html">vector3d</a>)</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>magnitude</b>() const (defined in <a class="el" href="classvector3d.html">vector3d</a>)</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>normalize</b>() const (defined in <a class="el" href="classvector3d.html">vector3d</a>)</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator*</b>(double scalar) const (defined in <a class="el" href="classvector3d.html">vector3d</a>)</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator*</b> (defined in <a class="el" href="classvector3d.html">vector3d</a>)</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator+</b>(const vector3d &amp;other) const (defined in <a class="el" href="classvector3d.html">vector3d</a>)</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator-</b>(const vector3d &amp;other) const (defined in <a class="el" href="classvector3d.html">vector3d</a>)</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator&lt;&lt;</b> (defined in <a class="el" href="classvector3d.html">vector3d</a>)</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator==</b>(const vector3d &amp;vec) (defined in <a class="el" href="classvector3d.html">vector3d</a>)</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>vector3d</b>(double x, double y, double z) (defined in <a class="el" href="classvector3d.html">vector3d</a>)</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classvector3d.html#a338236c7c184e94f4de7f15f36f36e10">cross</a>(const vector3d &amp;other) const</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classvector3d.html#a1b0e499c5b1a858a48435bff9e20f6ae">dot</a>(const vector3d &amp;other) const</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classvector3d.html#a13e68267a2f5b49e99a4c0fdae8675d6">getX</a>() const</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classvector3d.html#a8f8e7d4ecce50f83f40013d86008b961">getY</a>() const</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classvector3d.html#a4b46fed580659c403341a7f6afaa4720">getZ</a>() const</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classvector3d.html#a4753a6185984568ae959a88c46cee0bf">magnitude</a>() const</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classvector3d.html#ae37dbfddb9b52bd9b720a689329ae4c3">normalize</a>() const</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classvector3d.html#a7b4390e49247e011a741ba15e7ca5100">operator*</a>(double scalar) const</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classvector3d.html#a9fda6113d704b09580c5b4b0989d3f89">operator*</a>(double scalar, const vector3d &amp;vec)</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classvector3d.html#a2a34abfd1501ad97a464d4c252ecbc17">operator+</a>(const vector3d &amp;other) const</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classvector3d.html#a1ab7b4d6ce790b6f653f6dfb76519db7">operator-</a>(const vector3d &amp;other) const</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classvector3d.html#aba1ad87becc5551dc6432b87780f1be8">operator&lt;&lt;</a>(ostream &amp;out, const vector3d &amp;vec)</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classvector3d.html#a9d0fbe8bd0c701a0cff84060dacec54e">operator==</a>(const vector3d &amp;vec)</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classvector3d.html#a4508da46e39b7a30bdecf6a1527c9dde">vector3d</a>(double x, double y, double z)</td><td class="entry"><a class="el" href="classvector3d.html">vector3d</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

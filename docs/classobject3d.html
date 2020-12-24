@@ -12,6 +12,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -22,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.1</span>
+   &#160;<span id="projectnumber">v1.0.2</span>
    </div>
   </td>
  </tr>
@@ -70,12 +77,17 @@ $(function() {
 <div class="title">object3d Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>An abstract base class for all 3d objects in the scene.  
+ <a href="classobject3d.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="object3d_8h_source.html">object3d.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for object3d:</div>
 <div class="dyncontent">
 <div class="center"><img src="classobject3d__inherit__graph.png" border="0" usemap="#object3d_inherit__map" alt="Inheritance graph"/></div>
 <map name="object3d_inherit__map" id="object3d_inherit__map">
-<area shape="rect" title=" " alt="" coords="157,5,236,32"/>
+<area shape="rect" title="An abstract base class for all 3d objects in the scene." alt="" coords="157,5,236,32"/>
 <area shape="rect" href="classlightSource.html" title=" " alt="" coords="5,80,100,107"/>
 <area shape="rect" href="classplane.html" title=" " alt="" coords="125,80,183,107"/>
 <area shape="rect" href="classsphere.html" title=" " alt="" coords="207,80,274,107"/>
@@ -87,6 +99,8 @@ Inheritance diagram for object3d:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a8c0306974111460a73a9f64fcd33c326"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#a8c0306974111460a73a9f64fcd33c326">~object3d</a> ()</td></tr>
+<tr class="separator:a8c0306974111460a73a9f64fcd33c326"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6f634f9952a5b5a2419c669b42677e2"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#ab6f634f9952a5b5a2419c669b42677e2">intersects</a> (const <a class="el" href="classray.html">ray</a> &amp;r)=0</td></tr>
 <tr class="separator:ab6f634f9952a5b5a2419c669b42677e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3902c4f176f29223381aebb4e4fa7b2"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#ac3902c4f176f29223381aebb4e4fa7b2">intersectDistance</a> (const <a class="el" href="classray.html">ray</a> &amp;r)=0</td></tr>
@@ -103,6 +117,35 @@ Friends</h2></td></tr>
 <tr class="memitem:a6ea67f58534fa00201a2aa0720d5bbad"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#a6ea67f58534fa00201a2aa0720d5bbad">operator&lt;&lt;</a> (ostream &amp;out, const <a class="el" href="classobject3d.html">object3d</a> &amp;o)</td></tr>
 <tr class="separator:a6ea67f58534fa00201a2aa0720d5bbad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>An abstract base class for all 3d objects in the scene. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8c0306974111460a73a9f64fcd33c326"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c0306974111460a73a9f64fcd33c326">&#9670;&nbsp;</a></span>~object3d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual object3d::~object3d </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Virtual destructor </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab7364ca83bdce020bc16b3260036272e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab7364ca83bdce020bc16b3260036272e">&#9670;&nbsp;</a></span>getColor()</h2>
@@ -127,7 +170,7 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Finds the color of the <a class="el" href="classobject3d.html">object3d</a> at the point of intersection with the ray </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Finds the color of the <a class="el" href="classobject3d.html" title="An abstract base class for all 3d objects in the scene.">object3d</a> at the point of intersection with the ray </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">r</td><td>The ray to evaluate PRECONDITION: The ray must intersect the object </td></tr>
   </table>
@@ -196,7 +239,7 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Determines whether the ray intersects the <a class="el" href="classobject3d.html">object3d</a> </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Determines whether the ray intersects the <a class="el" href="classobject3d.html" title="An abstract base class for all 3d objects in the scene.">object3d</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">r</td><td>The ray to evaluate </td></tr>
   </table>
@@ -310,10 +353,10 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Overloaded stream insertion operator for <a class="el" href="classobject3d.html">object3d</a> </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Overloaded stream insertion operator for <a class="el" href="classobject3d.html" title="An abstract base class for all 3d objects in the scene.">object3d</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">out</td><td>The reference to the ostream to insert the object in </td></tr>
-    <tr><td class="paramname">o</td><td>The <a class="el" href="classobject3d.html">object3d</a> to insert </td></tr>
+    <tr><td class="paramname">o</td><td>The <a class="el" href="classobject3d.html" title="An abstract base class for all 3d objects in the scene.">object3d</a> to insert </td></tr>
   </table>
   </dd>
 </dl>
