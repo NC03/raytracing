@@ -1,9 +1,13 @@
+#ifndef SCENE_H
+#define SCENE_H
+
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <regex>
 #include <thread>
 #include <functional>
+#include <cmath>
 
 #include "ray.h"
 #include "vector3d.h"
@@ -14,9 +18,7 @@
 #include "checkeredSphere.h"
 #include "triangle.h"
 #include "lightSource.h"
-
-#ifndef SCENE_H
-#define SCENE_H
+#include "material.h"
 
 using namespace std;
 
@@ -31,9 +33,16 @@ public:
     void populate(istream &in);
     void render();
     void write(ostream &out);
-    void push_back(object3d *object);///< @deprecated
+    void push_object_back(object3d *object); ///< @deprecated
+    void push_light_back(lightSource *light);
+    vector<object3d *> getObjects() const;
+    vector<lightSource *> getLights() const;
+    double getIntensity(const vector3d &pos);
+
+    color trace(const ray &r, double eps=1e-1);
 
 private:
+    double minObjectDistance(const ray &r);
     void renderPart(int xMin, int xMax, int yMin, int yMax);
     int width, height;
     color **image;
@@ -41,6 +50,7 @@ private:
     double focalLength;
     vector<object3d *> objects;
     vector<lightSource *> lights;
+    material atmosphere;
 };
 
 #endif //SCENE_H

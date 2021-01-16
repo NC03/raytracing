@@ -17,7 +17,7 @@ checkeredSphere::checkeredSphere(vector3d pos, double r, vector3d n, vector3d s,
 {
 }
 
-color checkeredSphere::getColor(const ray &r)
+color checkeredSphere::getColor(const ray &r) const
 {
     vector3d point = r.eval(intersectDistance(r));
     vector3d spherical = point - getPosition();

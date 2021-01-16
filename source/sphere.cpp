@@ -24,7 +24,7 @@ color sphere::getColor() const
 {
     return objColor;
 }
-bool sphere::intersects(const ray &r)
+bool sphere::intersects(const ray &r) const
 {
     double a = pow(r.getDir().magnitude(), 2);
     double b = 2 * r.getDir().dot(r.getStart() - getPosition());
@@ -45,7 +45,7 @@ bool sphere::intersects(const ray &r)
         return false;
     }
 }
-double sphere::intersectDistance(const ray &r)
+double sphere::intersectDistance(const ray &r) const
 {
     double a = pow(r.getDir().magnitude(), 2);
     double b = 2 * r.getDir().dot(r.getStart() - getPosition());
@@ -77,14 +77,12 @@ double sphere::intersectDistance(const ray &r)
         return -1;
     }
 }
-ray sphere::reflectedRay(const ray &r)
+vector3d sphere::normal(const ray &r) const
 {
     vector3d pos = r.eval(intersectDistance(r));
-    vector3d norm = (pos - center).normalize();
-    vector3d reflect = -2 * r.getDir().dot(norm) * norm + r.getDir();
-    return ray(pos, reflect);
+    return (pos - center).normalize();
 }
-color sphere::getColor(const ray &r)
+color sphere::getColor(const ray &r) const
 {
     return getColor();
 }

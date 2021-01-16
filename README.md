@@ -50,6 +50,12 @@ doxygen Doxyfile
 -   External References:
     -   Some implementation features based on [slides](https://www.cs.utexas.edu/~theshark/courses/cs354/lectures/cs354-4.pdf)
 
+## Observations
+
+-   When 2 c++ classes both have a "has-a" relationship with one-another, one may only be able to store pointers/references to the other and it may be necessary to "frontload" a c++ class.
+-   Put the `#include`s between the `#ifdef#ifndef` and `#endif`.
+-   When overriding a virtual method from the base class, the compiler may warn about hiding overloaded virtual functions, so `using Base::method;` fixes this issue.
+
 ## About
 
 Created by [NC03](https://nc03.github.io/)

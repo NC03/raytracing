@@ -1,3 +1,6 @@
+#ifndef TEXTUREDSPHERE_H
+#define TEXTUREDSPHERE_H
+
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -5,16 +8,14 @@
 
 #include "sphere.h"
 
-#ifndef TEXTUREDSPHERE_H
-#define TEXTUREDSPHERE_H
-
 class texturedSphere : public sphere
 {
 public:
     texturedSphere(vector3d pos, double r, vector3d n, vector3d s, int w, int h, string filePath);
     // ~texturedSphere();
     
-    virtual color getColor(const ray &r);
+    using sphere::getColor;
+    virtual color getColor(const ray &r) const;
 
 private:
     vector3d north, start;

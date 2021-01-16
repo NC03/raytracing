@@ -25,9 +25,13 @@ vector3d triangle::getVertex3() const
 {
     return vertex3;
 }
-vector3d triangle::getNormal() const
+vector3d triangle::normal(const ray &r) const
 {
-    return getPlane().getNormal();
+    return normal();
+}
+vector3d triangle::normal() const
+{
+    return getPlane().normal();
 }
 plane triangle::getPlane() const
 {
@@ -39,7 +43,7 @@ color triangle::getColor() const
     return objColor;
 }
 
-bool triangle::intersects(const ray &r)
+bool triangle::intersects(const ray &r) const
 {
     if (!getPlane().intersects(r))
     {
@@ -69,15 +73,11 @@ bool triangle::intersects(const ray &r)
         return true;
     }
 }
-double triangle::intersectDistance(const ray &r)
+double triangle::intersectDistance(const ray &r) const
 {
     return getPlane().intersectDistance(r);
 }
-ray triangle::reflectedRay(const ray &r)
-{
-    return getPlane().reflectedRay(r);
-}
-color triangle::getColor(const ray &r)
+color triangle::getColor(const ray &r) const
 {
     return getColor();
 }

@@ -1,9 +1,9 @@
+#ifndef VECTOR3D_H
+#define VECTOR3D_H
+
 #include <iostream>
 #include <string>
 #include <cmath>
-
-#ifndef VECTOR3D_H
-#define VECTOR3D_H
 
 using namespace std;
 

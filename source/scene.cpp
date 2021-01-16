@@ -190,7 +190,7 @@ void scene::write(ostream &out)
     }
 }
 
-void scene::push_back(object3d *object)
+void scene::push_object_back(object3d *object)
 {
     objects.push_back(object);
 }
@@ -202,29 +202,19 @@ void scene::render()
 {
     // renderPart(0,width,0,height);
 
-    vector<thread*> threads;
-    void (scene::*func)(int,int,int,int) = &scene::renderPart;
+    vector<thread *> threads;
+    void (scene::*func)(int, int, int, int) = &scene::renderPart;
     int N = 10;
-    for(int i = 0; i < N; i++)
+    for (int i = 0; i < N; i++)
     {
-        thread *t = new thread(func,this,0,width,height*i/N,height*(i+1)/N);
+        thread *t = new thread(func, this, 0, width, height * i / N, height * (i + 1) / N);
         threads.push_back(t);
     }
-    for(int i = 0; i < 10; i++)
+    for (int i = 0; i < 10; i++)
     {
         threads[i]->join();
         delete threads[i];
     }
-
-
-    // void (scene::*func)(int, int, int, int) = &scene::renderPart;
-
-    // thread t1(func, this, 0, width / 2, 0, height / 2), t2(func, this, width / 2, width, 0, height / 2), t3(func, this, 0, width / 2, height / 2, height), t4(func, this, width / 2, width, height / 2, height);
-
-    // t1.join();
-    // t2.join();
-    // t3.join();
-    // t4.join();
 }
 
 void scene::renderPart(int xMin, int xMax, int yMin, int yMax)
@@ -242,22 +232,123 @@ void scene::renderPart(int xMin, int xMax, int yMin, int yMax)
             color colors[4];
             for (int k = 0; k < 4; k++)
             {
-                bool firstIntersect = true;
-                double minDist = -1;
+
                 image[i][j] = color();
                 vector3d pos = camera.getPoint() + (x + dr * cos(M_PI * k / 2.0)) * camera.getVector1() + (y + dr * sin(M_PI * k / 2.0)) * camera.getVector2();
                 ray r(start, pos - start);
-                for (object3d *obj : objects)
-                {
-                    if (obj->intersects(r) && (firstIntersect || obj->intersectDistance(r) < minDist))
-                    {
-                        firstIntersect = false;
-                        minDist = obj->intersectDistance(r);
-                        colors[k] = obj->getColor(r);
-                    }
-                }
+                colors[k] = trace(r);
             }
             image[i][j] = color::average(colors, 4);
         }
     }
+}
+
+vector<object3d *> scene::getObjects() const
+{
+    return objects;
+}
+vector<lightSource *> scene::getLights() const
+{
+    return lights;
+}
+
+ray reflectedRay(const ray &r, const vector3d &pos, const vector3d &normal)
+{
+    vector3d reflect = -2 * r.getDir().dot(normal) * normal + r.getDir();
+    return ray(pos, reflect);
+}
+ray transmittedRay(const ray &r, const vector3d &pos, const vector3d &normal, material atmosphere, material inner)
+{
+    double a = acos(reflectedRay(r, pos, normal).getDir().dot(normal));
+    double angle = asin(atmosphere.getDensity() / inner.getDensity() * sin(a));
+    vector3d dir = (r.getDir().dot(normal) * normal + r.getDir()).normalize();
+    vector3d nHat = -1 * normal;
+    vector3d transmit = cos(angle) * nHat + sin(angle) * dir;
+    //TODO implement Snell's law with total internal reflection
+    return ray(pos, transmit);
+}
+
+double scene::getIntensity(const vector3d &pos)
+{
+    double out = 0;
+    for (int i = 0; i < lights.size(); i++)
+    {
+        ray r(pos, lights[i]->getPosition() - pos);
+        double objDist = minObjectDistance(r);
+        double lightDist = lights[i]->distance(pos);
+        if (lightDist < objDist || objDist < 0)
+        {
+            out += lightSource::attenuate(lightDist) * lights[i]->intensityValue();
+        }
+    }
+    return out;
+}
+
+double scene::minObjectDistance(const ray &r)
+{
+    double minDist = -1;
+    for (int i = 0; i < objects.size(); i++)
+    {
+        object3d *obj = objects[i];
+        if (obj->intersects(r) && (obj->intersectDistance(r) < minDist || minDist < 0))
+        {
+            minDist = obj->intersectDistance(r);
+        }
+    }
+    return minDist;
+}
+
+double min(double a, double b)
+{
+    return a < b ? a : b;
+}
+
+color scene::trace(const ray &r, double eps)
+{
+    //TODO consider recursively tracing the reflected, transmitted, and other rays
+    double minDist = -1;
+    int minIdx = 0;
+    for (int i = 0; i < objects.size(); i++)
+    {
+        object3d *obj = objects[i];
+        if (obj->intersects(r) && (obj->intersectDistance(r) < minDist || minDist < 0))
+        {
+            minDist = obj->intersectDistance(r);
+            minIdx = i;
+        }
+    }
+    
+
+    if (minDist < 0)
+    {
+        return color();
+    }
+    else
+    {
+        object3d *object = objects[minIdx];
+
+        double dist = minDist;
+        vector3d pos = r.eval(dist);
+        vector3d normal = object->normal(r);
+        if(normal.dot(r.getDir()) < 0){
+            normal = normal * -1;
+        }
+        double red, green, blue = 0;
+        // ray reflected = reflectedRay(r, pos, object->normal(r));
+        // ray transmitted = transmittedRay(r, pos, object->normal(r));
+        // material m = object->getMaterial();
+        double intensity = getIntensity(pos + normal * eps) * lightSource::attenuate(dist);
+        // cout << intensity << endl;
+        color c = object->getColor(r);
+        red = min(c.getRed() * intensity, 255);
+        green = min(c.getGreen() * intensity, 255);
+        blue = min(c.getBlue() * intensity, 255);
+
+        return c;
+        return color(static_cast<int>(red), static_cast<int>(green), static_cast<int>(blue));
+    }
+}
+void scene::push_light_back(lightSource *light)
+{
+    lights.push_back(light);
 }

@@ -44,7 +44,7 @@ int map(double v, double min, double max, int nmin, int nmax)
     return static_cast<int>((v - min) / (max - min) * (nmax - nmin) + nmin);
 }
 
-color texturedSphere::getColor(const ray &r)
+color texturedSphere::getColor(const ray &r) const
 {
     color c1(255, 0, 0), c2(0, 128, 128);
     vector3d point = r.eval(intersectDistance(r));
