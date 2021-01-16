@@ -2,6 +2,7 @@
 #define SCENE_H
 
 #include <iostream>
+#include <string>
 #include <fstream>
 #include <vector>
 #include <regex>
@@ -19,6 +20,9 @@
 #include "triangle.h"
 #include "lightSource.h"
 #include "material.h"
+#include "libimage.h"
+#include "pointLight.h"
+#include "texturedSphere.h"
 #include "libimage.h"
 
 using namespace std;
@@ -38,9 +42,15 @@ public:
     void push_light_back(lightSource *light);
     vector<object3d *> getObjects() const;
     vector<lightSource *> getLights() const;
-    double getIntensity(const vector3d &pos);
+    double getLightIntensity(const vector3d &pos);
 
-    color trace(const ray &r, double eps=1e-1);
+    color trace(const ray &r, int depth = 5, double eps = 1e-3);
+    double traceIntensity(const ray &r, int depth = 5, double eps = 1e-3);
+
+    plane getCamera()
+    {
+        return camera;
+    }
 
 private:
     double minObjectDistance(const ray &r);

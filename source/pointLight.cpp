@@ -1,12 +1,16 @@
 #include "pointLight.h"
 
-pointLight::pointLight(vector3d r) : position(r)
+pointLight::pointLight(vector3d r, double i) : position(r), intensity(i)
 {
 }
 
+double pointLight::intensityValue(const ray& r)
+{
+    return intensity;
+}
 double pointLight::intensityValue()
 {
-    return 1e4;
+    return intensity;
 }
 color pointLight::getColor()
 {
@@ -15,4 +19,8 @@ color pointLight::getColor()
 vector3d pointLight::getPosition()
 {
     return position;
+}
+void pointLight::print(ostream &out) const
+{
+    out << position << " - " << intensity;
 }

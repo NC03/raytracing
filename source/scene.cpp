@@ -44,6 +44,8 @@ enum class Entry
     CHECKEREDSPHERE,
     CAMERA,
     TRIANGLE,
+    POINTLIGHT,
+    TEXTUREDSPHERE,
     NONE
 };
 istream &operator>>(istream &in, Entry &e)
@@ -75,6 +77,14 @@ istream &operator>>(istream &in, Entry &e)
     {
         e = Entry::TRIANGLE;
     }
+    else if (key == "POINTLIGHT")
+    {
+        e = Entry::POINTLIGHT;
+    }
+    else if (key == "TEXTUREDSPHERE")
+    {
+        e = Entry::TEXTUREDSPHERE;
+    }
     else
     {
         e = Entry::NONE;
@@ -99,6 +109,10 @@ ostream &operator<<(ostream &out, Entry &e)
         return out << "CHECKEREDSPHERE";
     case Entry::TRIANGLE:
         return out << "TRIANGLE";
+    case Entry::POINTLIGHT:
+        return out << "POINTLIGHT";
+    case Entry::TEXTUREDSPHERE:
+        return out << "TEXTUREDSPHERE";
     }
 }
 
@@ -157,6 +171,23 @@ void scene::populate(istream &in)
             int r, g, b;
             in >> v1x >> v1y >> v1z >> v2x >> v2y >> v2z >> v3x >> v3y >> v3z >> r >> g >> b;
             objects.push_back(new triangle(vector3d(v1x, v1y, v1z), vector3d(v2x, v2y, v2z), vector3d(v3x, v3y, v3z), color(r, g, b)));
+        }
+        else if (e == Entry::POINTLIGHT)
+        {
+            double px, py, pz, i;
+            in >> px >> py >> pz >> i;
+            lights.push_back(new pointLight(vector3d(px, py, pz), i));
+            cout << *lights.back() << endl;
+        }
+        else if (e == Entry::TEXTUREDSPHERE)
+        {
+            double px, py, pz, nx, ny, nz, sx, sy, sz, r;
+            string fname;
+            in >> px >> py >> pz >> r >> nx >> ny >> nz >> sx >> sy >> sz;
+            in.ignore(1000,'\"');
+            getline(in,fname,'\"');
+            cout << "READING FILE: " << fname << endl;
+            objects.push_back(new texturedSphere(vector3d(px, py, pz), r, vector3d(nx, ny, nz), vector3d(sx, sy, sz), fname));
         }
         else if (e == Entry::NONE)
         {
@@ -277,7 +308,7 @@ ray transmittedRay(const ray &r, const vector3d &pos, const vector3d &normal, ma
     return ray(pos, transmit);
 }
 
-double scene::getIntensity(const vector3d &pos)
+double scene::getLightIntensity(const vector3d &pos)
 {
     double out = 0;
     for (int i = 0; i < lights.size(); i++)
@@ -287,7 +318,7 @@ double scene::getIntensity(const vector3d &pos)
         double lightDist = lights[i]->distance(pos);
         if (lightDist < objDist || objDist < 0)
         {
-            out += lightSource::attenuate(lightDist) * lights[i]->intensityValue();
+            out += lightSource::attenuate(lightDist) * lights[i]->intensityValue(r);
         }
     }
     return out;
@@ -312,8 +343,55 @@ double min(double a, double b)
     return a < b ? a : b;
 }
 
-color scene::trace(const ray &r, double eps)
+double scene::traceIntensity(const ray &r, int depth, double eps)
 {
+    if (depth <= 0)
+    {
+        //recursive depth, should it be ambient?
+        return 0;
+    }
+
+    //TODO consider recursively tracing the reflected, transmitted, and other rays
+    double minDist = -1;
+    int minIdx = 0;
+    for (int i = 0; i < objects.size(); i++)
+    {
+        object3d *obj = objects[i];
+        if (obj->intersects(r) && (obj->intersectDistance(r) < minDist || minDist < 0))
+        {
+            minDist = obj->intersectDistance(r);
+            minIdx = i;
+        }
+    }
+
+    if (minDist < 0)
+    {
+        //ambient light
+        return 0;
+    }
+    else
+    {
+        object3d *object = objects[minIdx];
+
+        double dist = minDist;
+        vector3d pos = r.eval(dist);
+        vector3d normal = object->normal(r);
+        if (normal.dot(r.getDir()) > 0)
+        {
+            normal = normal * -1;
+        }
+        ray reflected = reflectedRay(r, pos + normal * eps, object->normal(r));
+        // ray transmitted = transmittedRay(r, pos, object->normal(r));
+        material m = object->getMaterial();
+        double intensity = getLightIntensity(pos + normal * eps) + traceIntensity(reflected, depth - 1) * m.getReflectedCoefficient();
+        intensity *= lightSource::attenuate(dist);
+        return intensity;
+    }
+}
+
+color scene::trace(const ray &r, int depth, double eps)
+{
+
     //TODO consider recursively tracing the reflected, transmitted, and other rays
     double minDist = -1;
     int minIdx = 0;
@@ -335,10 +413,10 @@ color scene::trace(const ray &r, double eps)
     {
         object3d *object = objects[minIdx];
 
-        double dist = minDist;
-        vector3d pos = r.eval(dist);
+        // double dist = minDist;
+        // vector3d pos = r.eval(dist);
         vector3d normal = object->normal(r);
-        if (normal.dot(r.getDir()) < 0)
+        if (normal.dot(r.getDir()) > 0)
         {
             normal = normal * -1;
         }
@@ -346,14 +424,14 @@ color scene::trace(const ray &r, double eps)
         // ray reflected = reflectedRay(r, pos, object->normal(r));
         // ray transmitted = transmittedRay(r, pos, object->normal(r));
         // material m = object->getMaterial();
-        double intensity = getIntensity(pos + normal * eps) * lightSource::attenuate(dist);
-        // cout << intensity << endl;
+        double intensity = traceIntensity(r, depth, eps);
+
         color c = object->getColor(r);
         red = min(c.getRed() * intensity, 255);
         green = min(c.getGreen() * intensity, 255);
         blue = min(c.getBlue() * intensity, 255);
 
-        return c;
+        // return c;
         return color(static_cast<int>(red), static_cast<int>(green), static_cast<int>(blue));
     }
 }

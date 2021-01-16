@@ -6,7 +6,7 @@
 class material
 {
 public:
-    material(double kr = 0, double kt = 0, double density = 1) : reflectedCoefficient(kr), transmittedCoefficient(kt), density(density)
+    material(double kr = 0.125, double kt = 0, double density = 1) : reflectedCoefficient(kr), transmittedCoefficient(kt), density(density)
     {
     }
 

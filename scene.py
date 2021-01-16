@@ -48,6 +48,15 @@ class Object:
             out += " "+self.d["v2"].replace(","," ")
             out += " "+self.d["v3"].replace(","," ")
             out += " "+self.d["c"].replace(","," ")
+        elif self.isInstance("pointLight"):
+            out += " "+self.d["p"].replace(","," ")
+            out += " "+self.d["i"]
+        elif self.isInstance("texturedSphere"):
+            out += " "+self.d["p"].replace(","," ")
+            out += " "+self.d["r"]
+            out += " "+self.d["n"].replace(","," ")
+            out += " "+self.d["s"].replace(","," ")
+            out += " "+self.d["fname"]
         return out
 
 def getArguments(line):
