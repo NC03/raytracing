@@ -8,11 +8,13 @@
  */
 scene::scene(int width, int height, plane camera, double focalLength) : width(width), height(height), camera(camera), focalLength(focalLength)
 {
-    image = new color *[height];
-    for (int i = 0; i < height; i++)
-    {
-        image[i] = new color[width];
-    }
+    image = libimage::Image(width, height, 255);
+    cout << image << endl;
+    // image = new color *[height];
+    // for (int i = 0; i < height; i++)
+    // {
+    //     image[i] = new color[width];
+    // }
 }
 
 /**
@@ -21,11 +23,11 @@ scene::scene(int width, int height, plane camera, double focalLength) : width(wi
  */
 scene::~scene()
 {
-    for (int i = 0; i < height; i++)
-    {
-        delete[] image[i];
-    }
-    delete[] image;
+    // for (int i = 0; i < height; i++)
+    // {
+    //     delete[] image[i];
+    // }
+    // delete[] image;
     while (objects.size() > 0)
     {
         object3d *last = objects.back();
@@ -174,20 +176,21 @@ void scene::populate(istream &in)
  * @param out A reference to the ostream where the image data is written
  * 
  */
-void scene::write(ostream &out)
+void scene::write(ofstream &out)
 {
-    cout << "write" << endl;
-    out << "P3\n"
-        << width << " " << height << "\n256\n";
-    for (int i = 0; i < height; i++)
-    {
-        for (int j = 0; j < width; j++)
-        {
-            color c = image[i][j];
-            out << c.getRed() << " " << c.getGreen() << " " << c.getBlue() << " ";
-        }
-        out << endl;
-    }
+    // cout << "write" << endl;
+    // out << "P3\n"
+    //     << width << " " << height << "\n256\n";
+    // for (int i = 0; i < height; i++)
+    // {
+    //     for (int j = 0; j < width; j++)
+    //     {
+    //         color c = image[i][j];
+    //         out << c.getRed() << " " << c.getGreen() << " " << c.getBlue() << " ";
+    //     }
+    //     out << endl;
+    // }
+    image.write(out, libimage::Image::Format::PPM);
 }
 
 void scene::push_object_back(object3d *object)
@@ -217,6 +220,11 @@ void scene::render()
     }
 }
 
+libimage::Color convert(color c)
+{
+    return libimage::Color(c.getRed(), c.getGreen(), c.getBlue(), 255, 255);
+}
+
 void scene::renderPart(int xMin, int xMax, int yMin, int yMax)
 {
     vector3d start = camera.getPoint() + camera.getVector1().cross(camera.getVector2()).normalize() * -1 * focalLength;
@@ -233,12 +241,13 @@ void scene::renderPart(int xMin, int xMax, int yMin, int yMax)
             for (int k = 0; k < 4; k++)
             {
 
-                image[i][j] = color();
+                // image[i][j] = color();
                 vector3d pos = camera.getPoint() + (x + dr * cos(M_PI * k / 2.0)) * camera.getVector1() + (y + dr * sin(M_PI * k / 2.0)) * camera.getVector2();
                 ray r(start, pos - start);
                 colors[k] = trace(r);
             }
-            image[i][j] = color::average(colors, 4);
+            image(j, i) = convert(color::average(colors, 4));
+            // image[i][j] = color::average(colors, 4);
         }
     }
 }
@@ -317,7 +326,6 @@ color scene::trace(const ray &r, double eps)
             minIdx = i;
         }
     }
-    
 
     if (minDist < 0)
     {
@@ -330,7 +338,8 @@ color scene::trace(const ray &r, double eps)
         double dist = minDist;
         vector3d pos = r.eval(dist);
         vector3d normal = object->normal(r);
-        if(normal.dot(r.getDir()) < 0){
+        if (normal.dot(r.getDir()) < 0)
+        {
             normal = normal * -1;
         }
         double red, green, blue = 0;

@@ -5,7 +5,8 @@ CPPFLAGS = -g -Wall -Werror
 CXXFLAGS = -pthread
 SRC = source
 BIN = bin
-INCLUDE = -I$(SRC)/
+LIB = lib
+INCLUDE = -I$(SRC)/ -I$(LIB)/
 
 SRCS = vector3d.cpp triangle.cpp texturedSphere.cpp texturedPlane.cpp \
 	sphere.cpp scene.cpp ray.cpp pointLight.cpp plane.cpp color.cpp \
@@ -14,7 +15,7 @@ SRCS = vector3d.cpp triangle.cpp texturedSphere.cpp texturedPlane.cpp \
 all: raytracing
 
 raytracing: $(patsubst %, $(BIN)/%, $(SRCS:.cpp=.o))
-	$(CXX) $(CXXFLAGS) -o raytracing $(patsubst %, $(BIN)/%, $(SRCS:.cpp=.o)) $(INCLUDE)
+	$(CXX) $(CXXFLAGS) -o raytracing $(patsubst %, $(BIN)/%, $(SRCS:.cpp=.o)) $(INCLUDE) -Llib -limage
 
 $(BIN)/%.o: $(SRC)/%.cpp $(SRC)/%.h 
 	$(CXX) $(CPPFLAGS) -c -o $@ $< $(INCLUDE)

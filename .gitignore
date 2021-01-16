@@ -40,3 +40,4 @@ latex/
 *.scene.stream
 docs/
 ignore/
+lib/*

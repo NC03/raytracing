@@ -19,6 +19,7 @@
 #include "triangle.h"
 #include "lightSource.h"
 #include "material.h"
+#include "libimage.h"
 
 using namespace std;
 
@@ -32,7 +33,7 @@ public:
     ~scene();
     void populate(istream &in);
     void render();
-    void write(ostream &out);
+    void write(ofstream &out);
     void push_object_back(object3d *object); ///< @deprecated
     void push_light_back(lightSource *light);
     vector<object3d *> getObjects() const;
@@ -45,7 +46,8 @@ private:
     double minObjectDistance(const ray &r);
     void renderPart(int xMin, int xMax, int yMin, int yMax);
     int width, height;
-    color **image;
+    // color **image;
+    libimage::Image image;
     plane camera;
     double focalLength;
     vector<object3d *> objects;
