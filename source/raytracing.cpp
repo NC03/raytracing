@@ -1,30 +1,31 @@
 #include <iostream>
 #include <fstream>
-#include <vector>
-#include <regex>
 #include <chrono>
+#include <string>
 
-#include "ray.h"
-#include "vector3d.h"
-#include "plane.h"
-#include "color.h"
-#include "sphere.h"
-#include "checkeredPlane.h"
+
 #include "scene.h"
+#include "texturedSphere.h"
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
-    chrono::high_resolution_clock::time_point start = chrono::high_resolution_clock::now();
     if (argc == 3)
     {
+        chrono::high_resolution_clock::time_point start = chrono::high_resolution_clock::now();
         string finName = argv[1];
         string foutName = argv[2];
         scene s;
 
         ifstream in(finName);
         s.populate(in);
+        // checkeredsphere: p(-1,0,2) r(1) n(0,1,-1) s(1,0,0) c1(255,128,128) c2(255,200,200)
+        string img = "output/earth2.ppm";
+
+        texturedSphere *ts = new texturedSphere(vector3d(-1,0,2),1,vector3d(0,1,-1),vector3d(1,0,0),2048,1024,img);
+
+        s.push_back(ts);
         in.close();
 
         s.render();
@@ -32,13 +33,13 @@ int main(int argc, char *argv[])
         ofstream out(foutName);
         s.write(out);
         out.close();
+        chrono::high_resolution_clock::time_point end = chrono::high_resolution_clock::now();
+        chrono::duration<double, std::milli> deltaTime = end - start;
+        cout << "Time elapsed(millis): " << deltaTime.count() << endl;
     }
     else
     {
-        cout << "Usage: ./raytracing input_file.scene.stream output_file.ppm" << endl;
+        cerr << "Usage: ./raytracing input_file.scene.stream output_file.ppm" << endl;
     }
-    chrono::high_resolution_clock::time_point end = chrono::high_resolution_clock::now();
-    chrono::duration<double, std::milli> deltaTime = end - start;
-    cout << "Time elapsed(millis): " << deltaTime.count() << endl;
     return 0;
 }

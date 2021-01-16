@@ -200,15 +200,31 @@ void scene::push_back(object3d *object)
  */
 void scene::render()
 {
-    //renderPart(0,width,0,height)
-    void (scene::*func)(int, int, int, int) = &scene::renderPart;
+    // renderPart(0,width,0,height);
 
-    thread t1(func, this, 0, width / 2, 0, height / 2), t2(func, this, width / 2, width, 0, height / 2), t3(func, this, 0, width / 2, height / 2, height), t4(func, this, width / 2, width, height / 2, height);
+    vector<thread*> threads;
+    void (scene::*func)(int,int,int,int) = &scene::renderPart;
+    int N = 10;
+    for(int i = 0; i < N; i++)
+    {
+        thread *t = new thread(func,this,0,width,height*i/N,height*(i+1)/N);
+        threads.push_back(t);
+    }
+    for(int i = 0; i < 10; i++)
+    {
+        threads[i]->join();
+        delete threads[i];
+    }
 
-    t1.join();
-    t2.join();
-    t3.join();
-    t4.join();
+
+    // void (scene::*func)(int, int, int, int) = &scene::renderPart;
+
+    // thread t1(func, this, 0, width / 2, 0, height / 2), t2(func, this, width / 2, width, 0, height / 2), t3(func, this, 0, width / 2, height / 2, height), t4(func, this, width / 2, width, height / 2, height);
+
+    // t1.join();
+    // t2.join();
+    // t3.join();
+    // t4.join();
 }
 
 void scene::renderPart(int xMin, int xMax, int yMin, int yMax)

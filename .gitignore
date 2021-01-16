@@ -39,3 +39,4 @@ html/
 latex/
 *.scene.stream
 docs/
+ignore/
