@@ -30,7 +30,9 @@ and executed with
 ```shell
 ./raytracing input_file.scene.stream output_file.ppm
 ```
+
 A `*.scene` file can be formatted to the `*.scene.stream` file through
+
 ```shell
 python3 scene.py input_file.scene
 ```
