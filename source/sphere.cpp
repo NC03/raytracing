@@ -1,16 +1,34 @@
 #include "sphere.h"
 
+/**
+ * Constructor for sphere
+ * @param center The vector3d position of the center of the sphere
+ * @param radius The radius of the sphere
+ * @param c The color of the sphere
+ */
 sphere::sphere(vector3d center, double radius, color c) : center(center), radius(radius), objColor(c)
 {
 }
+/**
+ * @return The radius of the sphere
+ */
 double sphere::getRadius() const
 {
     return radius;
 }
+/**
+ * @return The vector3d location of the sphere
+ */
 vector3d sphere::getPosition() const
 {
     return center;
 }
+/**
+ * Overloaded stream insertion operator for sphere objects
+ * @param out A reference to an ostream object
+ * @param s The sphere to print
+ * @return A reference to the ostream parameter enabling chaining
+ */
 ostream &operator<<(ostream &out, const sphere &s)
 {
     return out << "{radius:" + to_string(s.radius) + ",position: " << s.getPosition() << "}";
@@ -19,12 +37,14 @@ void sphere::print(ostream &out) const
 {
     out << "{radius:" << radius << ",position: " << getPosition() << "}";
 }
-
+/**
+ * @return The color of the sphere
+ */
 color sphere::getColor() const
 {
     return objColor;
 }
-bool sphere::intersects(const ray &r)
+bool sphere::intersects(const ray &r) const
 {
     double a = pow(r.getDir().magnitude(), 2);
     double b = 2 * r.getDir().dot(r.getStart() - getPosition());
@@ -45,7 +65,7 @@ bool sphere::intersects(const ray &r)
         return false;
     }
 }
-double sphere::intersectDistance(const ray &r)
+double sphere::intersectDistance(const ray &r) const
 {
     double a = pow(r.getDir().magnitude(), 2);
     double b = 2 * r.getDir().dot(r.getStart() - getPosition());
@@ -77,14 +97,12 @@ double sphere::intersectDistance(const ray &r)
         return -1;
     }
 }
-ray sphere::reflectedRay(const ray &r)
+vector3d sphere::normal(const ray &r) const
 {
     vector3d pos = r.eval(intersectDistance(r));
-    vector3d norm = (pos - center).normalize();
-    vector3d reflect = -2 * r.getDir().dot(norm) * norm + r.getDir();
-    return ray(pos, reflect);
+    return (pos - center).normalize();
 }
-color sphere::getColor(const ray &r)
+color sphere::getColor(const ray &r) const
 {
     return getColor();
 }

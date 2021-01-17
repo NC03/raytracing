@@ -8,11 +8,13 @@
  */
 scene::scene(int width, int height, plane camera, double focalLength) : width(width), height(height), camera(camera), focalLength(focalLength)
 {
-    image = new color *[height];
-    for (int i = 0; i < height; i++)
-    {
-        image[i] = new color[width];
-    }
+    image = libimage::Image(width, height, 255);
+    cout << image << endl;
+    // image = new color *[height];
+    // for (int i = 0; i < height; i++)
+    // {
+    //     image[i] = new color[width];
+    // }
 }
 
 /**
@@ -21,15 +23,21 @@ scene::scene(int width, int height, plane camera, double focalLength) : width(wi
  */
 scene::~scene()
 {
-    for (int i = 0; i < height; i++)
-    {
-        delete[] image[i];
-    }
-    delete[] image;
+    // for (int i = 0; i < height; i++)
+    // {
+    //     delete[] image[i];
+    // }
+    // delete[] image;
     while (objects.size() > 0)
     {
         object3d *last = objects.back();
         objects.pop_back();
+        delete last;
+    }
+    while (lights.size() > 0)
+    {
+        lightSource *last = lights.back();
+        lights.pop_back();
         delete last;
     }
 }
@@ -42,6 +50,8 @@ enum class Entry
     CHECKEREDSPHERE,
     CAMERA,
     TRIANGLE,
+    POINTLIGHT,
+    TEXTUREDSPHERE,
     NONE
 };
 istream &operator>>(istream &in, Entry &e)
@@ -73,6 +83,14 @@ istream &operator>>(istream &in, Entry &e)
     {
         e = Entry::TRIANGLE;
     }
+    else if (key == "POINTLIGHT")
+    {
+        e = Entry::POINTLIGHT;
+    }
+    else if (key == "TEXTUREDSPHERE")
+    {
+        e = Entry::TEXTUREDSPHERE;
+    }
     else
     {
         e = Entry::NONE;
@@ -97,6 +115,10 @@ ostream &operator<<(ostream &out, Entry &e)
         return out << "CHECKEREDSPHERE";
     case Entry::TRIANGLE:
         return out << "TRIANGLE";
+    case Entry::POINTLIGHT:
+        return out << "POINTLIGHT";
+    case Entry::TEXTUREDSPHERE:
+        return out << "TEXTUREDSPHERE";
     }
 }
 
@@ -156,6 +178,23 @@ void scene::populate(istream &in)
             in >> v1x >> v1y >> v1z >> v2x >> v2y >> v2z >> v3x >> v3y >> v3z >> r >> g >> b;
             objects.push_back(new triangle(vector3d(v1x, v1y, v1z), vector3d(v2x, v2y, v2z), vector3d(v3x, v3y, v3z), color(r, g, b)));
         }
+        else if (e == Entry::POINTLIGHT)
+        {
+            double px, py, pz, i;
+            in >> px >> py >> pz >> i;
+            lights.push_back(new pointLight(vector3d(px, py, pz), i));
+            cout << *lights.back() << endl;
+        }
+        else if (e == Entry::TEXTUREDSPHERE)
+        {
+            double px, py, pz, nx, ny, nz, sx, sy, sz, r;
+            string fname;
+            in >> px >> py >> pz >> r >> nx >> ny >> nz >> sx >> sy >> sz;
+            in.ignore(1000,'\"');
+            getline(in,fname,'\"');
+            cout << "READING FILE: " << fname << endl;
+            objects.push_back(new texturedSphere(vector3d(px, py, pz), r, vector3d(nx, ny, nz), vector3d(sx, sy, sz), fname));
+        }
         else if (e == Entry::NONE)
         {
             flag = true;
@@ -174,23 +213,24 @@ void scene::populate(istream &in)
  * @param out A reference to the ostream where the image data is written
  * 
  */
-void scene::write(ostream &out)
+void scene::write(ofstream &out)
 {
-    cout << "write" << endl;
-    out << "P3\n"
-        << width << " " << height << "\n256\n";
-    for (int i = 0; i < height; i++)
-    {
-        for (int j = 0; j < width; j++)
-        {
-            color c = image[i][j];
-            out << c.getRed() << " " << c.getGreen() << " " << c.getBlue() << " ";
-        }
-        out << endl;
-    }
+    // cout << "write" << endl;
+    // out << "P3\n"
+    //     << width << " " << height << "\n256\n";
+    // for (int i = 0; i < height; i++)
+    // {
+    //     for (int j = 0; j < width; j++)
+    //     {
+    //         color c = image[i][j];
+    //         out << c.getRed() << " " << c.getGreen() << " " << c.getBlue() << " ";
+    //     }
+    //     out << endl;
+    // }
+    image.write(out, libimage::Image::Format::PPM);
 }
 
-void scene::push_back(object3d *object)
+void scene::push_object_back(object3d *object)
 {
     objects.push_back(object);
 }
@@ -200,15 +240,26 @@ void scene::push_back(object3d *object)
  */
 void scene::render()
 {
-    //renderPart(0,width,0,height)
+    // renderPart(0,width,0,height);
+
+    vector<thread *> threads;
     void (scene::*func)(int, int, int, int) = &scene::renderPart;
+    int N = 10;
+    for (int i = 0; i < N; i++)
+    {
+        thread *t = new thread(func, this, 0, width, height * i / N, height * (i + 1) / N);
+        threads.push_back(t);
+    }
+    for (int i = 0; i < 10; i++)
+    {
+        threads[i]->join();
+        delete threads[i];
+    }
+}
 
-    thread t1(func, this, 0, width / 2, 0, height / 2), t2(func, this, width / 2, width, 0, height / 2), t3(func, this, 0, width / 2, height / 2, height), t4(func, this, width / 2, width, height / 2, height);
-
-    t1.join();
-    t2.join();
-    t3.join();
-    t4.join();
+libimage::Color convert(color c)
+{
+    return libimage::Color(c.getRed(), c.getGreen(), c.getBlue(), 255, 255);
 }
 
 void scene::renderPart(int xMin, int xMax, int yMin, int yMax)
@@ -226,22 +277,171 @@ void scene::renderPart(int xMin, int xMax, int yMin, int yMax)
             color colors[4];
             for (int k = 0; k < 4; k++)
             {
-                bool firstIntersect = true;
-                double minDist = -1;
-                image[i][j] = color();
+
+                // image[i][j] = color();
                 vector3d pos = camera.getPoint() + (x + dr * cos(M_PI * k / 2.0)) * camera.getVector1() + (y + dr * sin(M_PI * k / 2.0)) * camera.getVector2();
                 ray r(start, pos - start);
-                for (object3d *obj : objects)
-                {
-                    if (obj->intersects(r) && (firstIntersect || obj->intersectDistance(r) < minDist))
-                    {
-                        firstIntersect = false;
-                        minDist = obj->intersectDistance(r);
-                        colors[k] = obj->getColor(r);
-                    }
-                }
+                colors[k] = trace(r);
             }
-            image[i][j] = color::average(colors, 4);
+            image(j, i) = convert(color::average(colors, 4));
+            // image[i][j] = color::average(colors, 4);
         }
     }
+}
+
+vector<object3d *> scene::getObjects() const
+{
+    return objects;
+}
+vector<lightSource *> scene::getLights() const
+{
+    return lights;
+}
+
+ray reflectedRay(const ray &r, const vector3d &pos, const vector3d &normal)
+{
+    vector3d reflect = -2 * r.getDir().dot(normal) * normal + r.getDir();
+    return ray(pos, reflect);
+}
+ray transmittedRay(const ray &r, const vector3d &pos, const vector3d &normal, material atmosphere, material inner)
+{
+    double a = acos(reflectedRay(r, pos, normal).getDir().dot(normal));
+    double angle = asin(atmosphere.getDensity() / inner.getDensity() * sin(a));
+    vector3d dir = (r.getDir().dot(normal) * normal + r.getDir()).normalize();
+    vector3d nHat = -1 * normal;
+    vector3d transmit = cos(angle) * nHat + sin(angle) * dir;
+    //TODO implement Snell's law with total internal reflection
+    return ray(pos, transmit);
+}
+
+double scene::getLightIntensity(const vector3d &pos)
+{
+    double out = 0;
+    for (int i = 0; i < lights.size(); i++)
+    {
+        ray r(pos, lights[i]->getPosition() - pos);
+        double objDist = minObjectDistance(r);
+        double lightDist = lights[i]->distance(pos);
+        if (lightDist < objDist || objDist < 0)
+        {
+            out += lightSource::attenuate(lightDist) * lights[i]->intensityValue(r);
+        }
+    }
+    return out;
+}
+
+double scene::minObjectDistance(const ray &r)
+{
+    double minDist = -1;
+    for (int i = 0; i < objects.size(); i++)
+    {
+        object3d *obj = objects[i];
+        if (obj->intersects(r) && (obj->intersectDistance(r) < minDist || minDist < 0))
+        {
+            minDist = obj->intersectDistance(r);
+        }
+    }
+    return minDist;
+}
+
+double min(double a, double b)
+{
+    return a < b ? a : b;
+}
+
+double scene::traceIntensity(const ray &r, int depth, double eps)
+{
+    if (depth <= 0)
+    {
+        //recursive depth, should it be ambient?
+        return 0;
+    }
+
+    //TODO consider recursively tracing the reflected, transmitted, and other rays
+    double minDist = -1;
+    int minIdx = 0;
+    for (int i = 0; i < objects.size(); i++)
+    {
+        object3d *obj = objects[i];
+        if (obj->intersects(r) && (obj->intersectDistance(r) < minDist || minDist < 0))
+        {
+            minDist = obj->intersectDistance(r);
+            minIdx = i;
+        }
+    }
+
+    if (minDist < 0)
+    {
+        //ambient light
+        return 0;
+    }
+    else
+    {
+        object3d *object = objects[minIdx];
+
+        double dist = minDist;
+        vector3d pos = r.eval(dist);
+        vector3d normal = object->normal(r);
+        if (normal.dot(r.getDir()) > 0)
+        {
+            normal = normal * -1;
+        }
+        ray reflected = reflectedRay(r, pos + normal * eps, object->normal(r));
+        // ray transmitted = transmittedRay(r, pos, object->normal(r));
+        material m = object->getMaterial();
+        double intensity = getLightIntensity(pos + normal * eps) + traceIntensity(reflected, depth - 1) * m.getReflectedCoefficient();
+        intensity *= lightSource::attenuate(dist);
+        return intensity;
+    }
+}
+
+color scene::trace(const ray &r, int depth, double eps)
+{
+
+    //TODO consider recursively tracing the reflected, transmitted, and other rays
+    double minDist = -1;
+    int minIdx = 0;
+    for (int i = 0; i < objects.size(); i++)
+    {
+        object3d *obj = objects[i];
+        if (obj->intersects(r) && (obj->intersectDistance(r) < minDist || minDist < 0))
+        {
+            minDist = obj->intersectDistance(r);
+            minIdx = i;
+        }
+    }
+
+    if (minDist < 0)
+    {
+        return color();
+    }
+    else
+    {
+        object3d *object = objects[minIdx];
+
+        // double dist = minDist;
+        // vector3d pos = r.eval(dist);
+        vector3d normal = object->normal(r);
+        if (normal.dot(r.getDir()) > 0)
+        {
+            normal = normal * -1;
+        }
+        double red, green, blue = 0;
+        // ray reflected = reflectedRay(r, pos, object->normal(r));
+        // ray transmitted = transmittedRay(r, pos, object->normal(r));
+        // material m = object->getMaterial();
+        double intensity = traceIntensity(r, depth, eps);
+
+        color c = object->getColor(r);
+        red = min(c.getRed() * intensity, 255);
+        green = min(c.getGreen() * intensity, 255);
+        blue = min(c.getBlue() * intensity, 255);
+
+        // return c;
+        return color(static_cast<int>(red), static_cast<int>(green), static_cast<int>(blue));
+    }
+}
+void scene::push_light_back(lightSource *light)
+{
+    lights.push_back(light);
 }

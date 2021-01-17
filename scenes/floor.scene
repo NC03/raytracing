@@ -1,0 +1,4 @@
+#Base camera & floor
+camera: p(0,0,0) u(1,0,0) v(0,1,0) f(0.5)
+checkeredplane: p(0,-5,0) u(1,0,0) v(0,0,1) c1(255,255,255) c2(0,0,0) w(5) h(5)
+pointLight: p(0,4,0) i(5e6)

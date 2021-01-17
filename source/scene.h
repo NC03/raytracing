@@ -1,9 +1,14 @@
+#ifndef SCENE_H
+#define SCENE_H
+
 #include <iostream>
+#include <string>
 #include <fstream>
 #include <vector>
 #include <regex>
 #include <thread>
 #include <functional>
+#include <cmath>
 
 #include "ray.h"
 #include "vector3d.h"
@@ -14,9 +19,11 @@
 #include "checkeredSphere.h"
 #include "triangle.h"
 #include "lightSource.h"
-
-#ifndef SCENE_H
-#define SCENE_H
+#include "material.h"
+#include "libimage.h"
+#include "pointLight.h"
+#include "texturedSphere.h"
+#include "libimage.h"
 
 using namespace std;
 
@@ -30,17 +37,32 @@ public:
     ~scene();
     void populate(istream &in);
     void render();
-    void write(ostream &out);
-    void push_back(object3d *object);///< @deprecated
+    void write(ofstream &out);
+    void push_object_back(object3d *object); ///< @deprecated
+    void push_light_back(lightSource *light);
+    vector<object3d *> getObjects() const;
+    vector<lightSource *> getLights() const;
+    double getLightIntensity(const vector3d &pos);
+
+    color trace(const ray &r, int depth = 5, double eps = 1e-3);
+    double traceIntensity(const ray &r, int depth = 5, double eps = 1e-3);
+
+    plane getCamera()
+    {
+        return camera;
+    }
 
 private:
+    double minObjectDistance(const ray &r);
     void renderPart(int xMin, int xMax, int yMin, int yMax);
     int width, height;
-    color **image;
+    // color **image;
+    libimage::Image image;
     plane camera;
     double focalLength;
     vector<object3d *> objects;
     vector<lightSource *> lights;
+    material atmosphere;
 };
 
 #endif //SCENE_H

@@ -1,14 +1,14 @@
+#ifndef VECTOR3D_H
+#define VECTOR3D_H
+
 #include <iostream>
 #include <string>
 #include <cmath>
 
-#ifndef VECTOR3D_H
-#define VECTOR3D_H
-
 using namespace std;
 
 /**
- * @brief A class for 3d vectors
+ * @brief 3d vectors
  */
 class vector3d
 {

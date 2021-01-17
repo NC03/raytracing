@@ -25,9 +25,13 @@ vector3d triangle::getVertex3() const
 {
     return vertex3;
 }
-vector3d triangle::getNormal() const
+vector3d triangle::normal(const ray &r) const
 {
-    return getPlane().getNormal();
+    return normal();
+}
+vector3d triangle::normal() const
+{
+    return getPlane().normal();
 }
 plane triangle::getPlane() const
 {
@@ -39,7 +43,7 @@ color triangle::getColor() const
     return objColor;
 }
 
-bool triangle::intersects(const ray &r)
+bool triangle::intersects(const ray &r) const
 {
     if (!getPlane().intersects(r))
     {
@@ -55,10 +59,13 @@ bool triangle::intersects(const ray &r)
             vector3d v = vertices[(i + 2) % 3] - vertices[i];
             vector3d w = p - vertices[i];
 
-            double a1 = abs(acos(u.dot(w) / u.magnitude() / w.magnitude())), a2 = abs(acos(v.dot(w) / v.magnitude() / w.magnitude())), theta = abs(acos(u.dot(v) / u.magnitude() / v.magnitude()));
+            double outerAngle = abs(acos(u.dot(v) / u.magnitude() / v.magnitude())),
+                   inner1 = abs(acos(u.dot(w) / u.magnitude() / w.magnitude())),
+                   inner2 = abs(acos(w.dot(v) / w.magnitude() / v.magnitude())),
+                   epsilon = 1e-3;
             //TODO: sin or cos?
-            // cout << a1 << ", " << a2 << ", " << theta << endl;
-            if (a1 + a2 > theta)
+            //TODO: barycentric coordinates?
+            if (!(abs(inner1 + inner2 - outerAngle) < epsilon))
             {
                 return false;
             }
@@ -66,15 +73,11 @@ bool triangle::intersects(const ray &r)
         return true;
     }
 }
-double triangle::intersectDistance(const ray &r)
+double triangle::intersectDistance(const ray &r) const
 {
     return getPlane().intersectDistance(r);
 }
-ray triangle::reflectedRay(const ray &r)
-{
-    return getPlane().reflectedRay(r);
-}
-color triangle::getColor(const ray &r)
+color triangle::getColor(const ray &r) const
 {
     return getColor();
 }

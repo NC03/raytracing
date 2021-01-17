@@ -1,7 +1,7 @@
-#include "vector3d.h"
-
 #ifndef RAY_H
 #define RAY_H
+
+#include "vector3d.h"
 
 /**
  * @brief A class for 3d rays

@@ -4,7 +4,7 @@ checkeredPlane::checkeredPlane(vector3d pos, vector3d u, vector3d v, double widt
 {
 }
 
-color checkeredPlane::getColor(const ray &r)
+color checkeredPlane::getColor(const ray &r) const
 {
     vector3d point = r.eval(intersectDistance(r));
     vector3d planar = point - getPoint();

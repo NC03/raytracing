@@ -30,7 +30,9 @@ and executed with
 ```shell
 ./raytracing input_file.scene.stream output_file.ppm
 ```
+
 A `*.scene` file can be formatted to the `*.scene.stream` file through
+
 ```shell
 python3 scene.py input_file.scene
 ```
@@ -47,6 +49,12 @@ doxygen Doxyfile
 -   Documentation: https://nc03.github.io/raytracing/
 -   External References:
     -   Some implementation features based on [slides](https://www.cs.utexas.edu/~theshark/courses/cs354/lectures/cs354-4.pdf)
+
+## Observations
+
+-   When 2 c++ classes both have a "has-a" relationship with one-another, one may only be able to store pointers/references to the other and it may be necessary to "frontload" a c++ class.
+-   Put the `#include`s between the `#ifdef#ifndef` and `#endif`.
+-   When overriding a virtual method from the base class, the compiler may warn about hiding overloaded virtual functions, so `using Base::method;` fixes this issue.
 
 ## About
 

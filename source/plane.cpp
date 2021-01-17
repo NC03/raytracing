@@ -1,4 +1,5 @@
 #include "plane.h"
+#include "scene.h"
 
 ostream &operator<<(ostream &out, const plane &p)
 {
@@ -22,28 +23,25 @@ vector3d plane::getVector2() const
     return v;
 }
 
-vector3d plane::getNormal()
+vector3d plane::normal(const ray &r) const
+{
+    return normal();
+}
+vector3d plane::normal() const
 {
     return (u.cross(v)).normalize();
 }
-bool plane::intersects(const ray &r)
+bool plane::intersects(const ray &r) const
 {
     return intersectDistance(r) >= 0;
 }
-double plane::intersectDistance(const ray &r)
+double plane::intersectDistance(const ray &r) const
 {
-    vector3d normal = getNormal();
-    double t = (getPoint().dot(normal) - r.getStart().dot(normal)) / (r.getDir().dot(normal));
+    vector3d n = normal();
+    double t = (getPoint().dot(n) - r.getStart().dot(n)) / (r.getDir().dot(n));
     return t;
 }
-ray plane::reflectedRay(const ray &r)
-{
-    vector3d pos = r.eval(intersectDistance(r));
-    vector3d norm = getNormal();
-    vector3d reflect = -2 * r.getDir().dot(norm) * norm + r.getDir();
-    return ray(pos, reflect);
-}
-color plane::getColor(const ray &r)
+color plane::getColor(const ray &r) const
 {
     return getColor();
 }
