@@ -5,6 +5,9 @@
 
 #include "plane.h"
 
+/**
+ * @brief NOT DOCUMENTED
+ */
 class checkeredPlane : public plane
 {
 public:

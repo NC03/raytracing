@@ -10,6 +10,9 @@
 
 class scene;
 
+/**
+ * @brief NOT DOCUMENTED
+ */
 class plane : public object3d
 {
 public:

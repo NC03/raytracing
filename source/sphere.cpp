@@ -1,16 +1,34 @@
 #include "sphere.h"
 
+/**
+ * Constructor for sphere
+ * @param center The vector3d position of the center of the sphere
+ * @param radius The radius of the sphere
+ * @param c The color of the sphere
+ */
 sphere::sphere(vector3d center, double radius, color c) : center(center), radius(radius), objColor(c)
 {
 }
+/**
+ * @return The radius of the sphere
+ */
 double sphere::getRadius() const
 {
     return radius;
 }
+/**
+ * @return The vector3d location of the sphere
+ */
 vector3d sphere::getPosition() const
 {
     return center;
 }
+/**
+ * Overloaded stream insertion operator for sphere objects
+ * @param out A reference to an ostream object
+ * @param s The sphere to print
+ * @return A reference to the ostream parameter enabling chaining
+ */
 ostream &operator<<(ostream &out, const sphere &s)
 {
     return out << "{radius:" + to_string(s.radius) + ",position: " << s.getPosition() << "}";
@@ -19,7 +37,9 @@ void sphere::print(ostream &out) const
 {
     out << "{radius:" << radius << ",position: " << getPosition() << "}";
 }
-
+/**
+ * @return The color of the sphere
+ */
 color sphere::getColor() const
 {
     return objColor;

@@ -34,6 +34,12 @@ scene::~scene()
         objects.pop_back();
         delete last;
     }
+    while (lights.size() > 0)
+    {
+        lightSource *last = lights.back();
+        lights.pop_back();
+        delete last;
+    }
 }
 
 enum class Entry

@@ -25,6 +25,7 @@ $(BIN)/%.o: $(SRC)/%.cpp
 
 clean:
 	rm -f $(BIN)/*.o
+	rm -f scenes/*.scene.stream
 
 distclean: clean
 	rm -f raytracing *.scene.stream

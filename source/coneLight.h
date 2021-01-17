@@ -7,6 +7,9 @@
 #include "vector3d.h"
 #include "lightSource.h"
 
+/**
+ * @brief NOT DOCUMENTED
+ */
 class coneLight : public lightSource
 {
     coneLight(vector3d r, vector3d dir, double angle, double i);

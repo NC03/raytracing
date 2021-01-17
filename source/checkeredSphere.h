@@ -6,6 +6,9 @@
 
 #include "sphere.h"
 
+/**
+ * @brief NOT DOCUMENTED
+ */
 class checkeredSphere : public sphere
 {
 public:

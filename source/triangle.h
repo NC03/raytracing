@@ -9,6 +9,9 @@
 #include "plane.h"
 #include "color.h"
 
+/**
+ * @brief NOT DOCUMENTED 3d triangles
+ */
 class triangle : public object3d
 {
 public:

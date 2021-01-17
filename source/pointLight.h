@@ -7,6 +7,9 @@
 #include "color.h"
 #include "vector3d.h"
 
+/**
+ * @brief Not Documented
+ */
 class pointLight : public lightSource
 {
 public:

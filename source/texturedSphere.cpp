@@ -5,12 +5,12 @@
  * 
  * @param pos The vector3d position vector of the center of the sphere
  * @param r The radius of the sphere
+ * 
+ * For pos, r @see sphere
+ * 
  * @param n The vector pointing in the "north" direction of the sphere
  * @param s The vector pointing in the "start" direction of the sphere. Must be linearly independent from the "north" vector.
- * @param width The width of the tile in the longitude direction
- * @param height The height of the tile in the latitude direction
- * @param c1 The color of one of the tiles of the sphere
- * @param c2 The color of one of the tiles of the sphere
+ * @param filePath The string path to the image
  * 
  */
 texturedSphere::texturedSphere(vector3d pos, double r, vector3d n, vector3d s, string filePath) : sphere(pos, r), north(n.normalize()), start((s - n * (s.dot(n) / n.magnitude())).normalize())
@@ -30,7 +30,7 @@ texturedSphere::texturedSphere(vector3d pos, double r, vector3d n, vector3d s, s
  * @param r The radius of the sphere
  * @param n The vector pointing in the "north" direction of the sphere
  * @param s The vector pointing in the "start" direction of the sphere. Must be linearly independent from the "north" vector.
- * @param image TODO
+ * @param image The libimage::Image to be mapped on the texturedSphere
  * 
  */
 texturedSphere::texturedSphere(vector3d pos, double r, vector3d n, vector3d s, libimage::Image image) : sphere(pos, r), north(n.normalize()), start((s - n * (s.dot(n) / n.magnitude())).normalize()), image(image)
@@ -39,12 +39,20 @@ texturedSphere::texturedSphere(vector3d pos, double r, vector3d n, vector3d s, l
     height = image.getHeight();
 }
 
-int map(double v, double min, double max, int nmin, int nmax)
+/**
+ * Maps a real number to another real number via linear interpolation
+ * 
+ */
+int texturedSphere::map(double v, double min, double max, int nmin, int nmax)
 {
     return static_cast<int>((v - min) / (max - min) * (nmax - nmin) + nmin);
 }
 
-color convert(libimage::Color c)
+/**
+ * Converts from libimage::Color to color
+ * 
+ */
+color texturedSphere::convert(libimage::Color c)
 {
     return color(c.getRed(), c.getGreen(), c.getBlue());
 }

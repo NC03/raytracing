@@ -3,6 +3,9 @@
 
 #include "object3d.h"
 
+/**
+ * @brief NOT DOCUMENTED - INCOMPLETE
+ */
 class texturedPlane : public object3d
 {
 

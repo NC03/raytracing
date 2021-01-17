@@ -8,6 +8,9 @@
 #include "object3d.h"
 #include "vector3d.h"
 
+/**
+ * @brief NOT DOCUMENTED
+ */
 class lightSource //: public object3d
 {
 public:

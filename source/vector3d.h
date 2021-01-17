@@ -8,7 +8,7 @@
 using namespace std;
 
 /**
- * @brief A class for 3d vectors
+ * @brief 3d vectors
  */
 class vector3d
 {

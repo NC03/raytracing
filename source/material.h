@@ -3,6 +3,9 @@
 
 #include <cmath>
 
+/**
+ * @brief NOT DOCUMENTED
+ */
 class material
 {
 public:
