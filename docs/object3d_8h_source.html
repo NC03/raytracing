@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.2</span>
+   &#160;<span id="projectnumber">v1.1.0</span>
    </div>
   </td>
  </tr>
@@ -77,48 +77,60 @@ $(function() {
 <div class="title">object3d.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;ray.h&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;color.h&quot;</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef OBJECT3D_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define OBJECT3D_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef OBJECT3D_H</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define OBJECT3D_H</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classobject3d.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classobject3d.html">object3d</a></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classobject3d.html#a8c0306974111460a73a9f64fcd33c326">   16</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classobject3d.html#a8c0306974111460a73a9f64fcd33c326">~object3d</a>()</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classobject3d.html#ab6f634f9952a5b5a2419c669b42677e2">   25</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classobject3d.html#ab6f634f9952a5b5a2419c669b42677e2">intersects</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r) = 0;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classobject3d.html#ac3902c4f176f29223381aebb4e4fa7b2">   32</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classobject3d.html#ac3902c4f176f29223381aebb4e4fa7b2">intersectDistance</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r) = 0;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classobject3d.html#a4c38cb4583190e537a0367dec7d3a422">   39</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classray.html">ray</a> <a class="code" href="classobject3d.html#a4c38cb4583190e537a0367dec7d3a422">reflectedRay</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r) = 0;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classobject3d.html#ab7364ca83bdce020bc16b3260036272e">   46</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classcolor.html">color</a> <a class="code" href="classobject3d.html#ab7364ca83bdce020bc16b3260036272e">getColor</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r) = 0;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classobject3d.html#a6ea67f58534fa00201a2aa0720d5bbad">   55</a></span>&#160;    <span class="keyword">friend</span> ostream &amp;<a class="code" href="classobject3d.html#a6ea67f58534fa00201a2aa0720d5bbad">operator&lt;&lt;</a>(ostream &amp;out, <span class="keyword">const</span> <a class="code" href="classobject3d.html">object3d</a> &amp;o)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        o.<a class="code" href="classobject3d.html#afe34c9b4a1c84424fcdbe8049480bc49">print</a>(out);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> out;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classobject3d.html#afe34c9b4a1c84424fcdbe8049480bc49">   65</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classobject3d.html#afe34c9b4a1c84424fcdbe8049480bc49">print</a>(ostream &amp;out) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif //OBJECT3D_H</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;ray.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;color.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;material.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">class </span><a class="code" href="classscene.html">scene</a>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classobject3d.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classobject3d.html">object3d</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classobject3d.html#a8c0306974111460a73a9f64fcd33c326">   19</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classobject3d.html#a8c0306974111460a73a9f64fcd33c326">~object3d</a>()</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classobject3d.html#ae31e5cd782810919803948aaa4e757bd">   28</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classobject3d.html#ae31e5cd782810919803948aaa4e757bd">intersects</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classobject3d.html#a5f3647b2e6e0e4add41e9e384c54bab7">   35</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classobject3d.html#a5f3647b2e6e0e4add41e9e384c54bab7">intersectDistance</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classobject3d.html#a361ae65d94e5e4c50e66e8ac323aace2">   42</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classcolor.html">color</a> <a class="code" href="classobject3d.html#a361ae65d94e5e4c50e66e8ac323aace2">getColor</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classobject3d.html#a6ea67f58534fa00201a2aa0720d5bbad">   51</a></span>&#160;    <span class="keyword">friend</span> ostream &amp;<a class="code" href="classobject3d.html#a6ea67f58534fa00201a2aa0720d5bbad">operator&lt;&lt;</a>(ostream &amp;out, <span class="keyword">const</span> <a class="code" href="classobject3d.html">object3d</a> &amp;o)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        o.<a class="code" href="classobject3d.html#afe34c9b4a1c84424fcdbe8049480bc49">print</a>(out);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> out;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classobject3d.html#afe34c9b4a1c84424fcdbe8049480bc49">   61</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classobject3d.html#afe34c9b4a1c84424fcdbe8049480bc49">print</a>(ostream &amp;out) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classobject3d.html#a6e9266a4b708ad3491ee2ded7f4c8d30">   69</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classvector3d.html">vector3d</a> <a class="code" href="classobject3d.html#a6e9266a4b708ad3491ee2ded7f4c8d30">normal</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classobject3d.html#a3e25c7fe8e31f1bb770a70d6db672c98">   74</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classmaterial.html">material</a> <a class="code" href="classobject3d.html#a3e25c7fe8e31f1bb770a70d6db672c98">getMaterial</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classmaterial.html">material</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;};</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif //OBJECT3D_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclasscolor_html"><div class="ttname"><a href="classcolor.html">color</a></div><div class="ttdoc">A class for RGB colors.</div><div class="ttdef"><b>Definition:</b> color.h:12</div></div>
-<div class="ttc" id="aclassobject3d_html_a4c38cb4583190e537a0367dec7d3a422"><div class="ttname"><a href="classobject3d.html#a4c38cb4583190e537a0367dec7d3a422">object3d::reflectedRay</a></div><div class="ttdeci">virtual ray reflectedRay(const ray &amp;r)=0</div></div>
-<div class="ttc" id="aclassobject3d_html_ab7364ca83bdce020bc16b3260036272e"><div class="ttname"><a href="classobject3d.html#ab7364ca83bdce020bc16b3260036272e">object3d::getColor</a></div><div class="ttdeci">virtual color getColor(const ray &amp;r)=0</div></div>
-<div class="ttc" id="aclassobject3d_html_ab6f634f9952a5b5a2419c669b42677e2"><div class="ttname"><a href="classobject3d.html#ab6f634f9952a5b5a2419c669b42677e2">object3d::intersects</a></div><div class="ttdeci">virtual bool intersects(const ray &amp;r)=0</div></div>
-<div class="ttc" id="aclassobject3d_html_a8c0306974111460a73a9f64fcd33c326"><div class="ttname"><a href="classobject3d.html#a8c0306974111460a73a9f64fcd33c326">object3d::~object3d</a></div><div class="ttdeci">virtual ~object3d()</div><div class="ttdef"><b>Definition:</b> object3d.h:16</div></div>
-<div class="ttc" id="aclassobject3d_html_a6ea67f58534fa00201a2aa0720d5bbad"><div class="ttname"><a href="classobject3d.html#a6ea67f58534fa00201a2aa0720d5bbad">object3d::operator&lt;&lt;</a></div><div class="ttdeci">friend ostream &amp; operator&lt;&lt;(ostream &amp;out, const object3d &amp;o)</div><div class="ttdef"><b>Definition:</b> object3d.h:55</div></div>
+<div class="ttc" id="aclassobject3d_html_a5f3647b2e6e0e4add41e9e384c54bab7"><div class="ttname"><a href="classobject3d.html#a5f3647b2e6e0e4add41e9e384c54bab7">object3d::intersectDistance</a></div><div class="ttdeci">virtual double intersectDistance(const ray &amp;r) const =0</div></div>
+<div class="ttc" id="aclassmaterial_html"><div class="ttname"><a href="classmaterial.html">material</a></div><div class="ttdoc">NOT DOCUMENTED.</div><div class="ttdef"><b>Definition:</b> material.h:10</div></div>
+<div class="ttc" id="aclassobject3d_html_a6e9266a4b708ad3491ee2ded7f4c8d30"><div class="ttname"><a href="classobject3d.html#a6e9266a4b708ad3491ee2ded7f4c8d30">object3d::normal</a></div><div class="ttdeci">virtual vector3d normal(const ray &amp;r) const =0</div></div>
+<div class="ttc" id="aclassvector3d_html"><div class="ttname"><a href="classvector3d.html">vector3d</a></div><div class="ttdoc">3d vectors</div><div class="ttdef"><b>Definition:</b> vector3d.h:14</div></div>
+<div class="ttc" id="aclassobject3d_html_a8c0306974111460a73a9f64fcd33c326"><div class="ttname"><a href="classobject3d.html#a8c0306974111460a73a9f64fcd33c326">object3d::~object3d</a></div><div class="ttdeci">virtual ~object3d()</div><div class="ttdef"><b>Definition:</b> object3d.h:19</div></div>
+<div class="ttc" id="aclassobject3d_html_a6ea67f58534fa00201a2aa0720d5bbad"><div class="ttname"><a href="classobject3d.html#a6ea67f58534fa00201a2aa0720d5bbad">object3d::operator&lt;&lt;</a></div><div class="ttdeci">friend ostream &amp; operator&lt;&lt;(ostream &amp;out, const object3d &amp;o)</div><div class="ttdef"><b>Definition:</b> object3d.h:51</div></div>
 <div class="ttc" id="aclassobject3d_html_afe34c9b4a1c84424fcdbe8049480bc49"><div class="ttname"><a href="classobject3d.html#afe34c9b4a1c84424fcdbe8049480bc49">object3d::print</a></div><div class="ttdeci">virtual void print(ostream &amp;out) const =0</div></div>
 <div class="ttc" id="aclassray_html"><div class="ttname"><a href="classray.html">ray</a></div><div class="ttdoc">A class for 3d rays.</div><div class="ttdef"><b>Definition:</b> ray.h:10</div></div>
-<div class="ttc" id="aclassobject3d_html"><div class="ttname"><a href="classobject3d.html">object3d</a></div><div class="ttdoc">An abstract base class for all 3d objects in the scene.</div><div class="ttdef"><b>Definition:</b> object3d.h:11</div></div>
-<div class="ttc" id="aclassobject3d_html_ac3902c4f176f29223381aebb4e4fa7b2"><div class="ttname"><a href="classobject3d.html#ac3902c4f176f29223381aebb4e4fa7b2">object3d::intersectDistance</a></div><div class="ttdeci">virtual double intersectDistance(const ray &amp;r)=0</div></div>
+<div class="ttc" id="aclassobject3d_html_a3e25c7fe8e31f1bb770a70d6db672c98"><div class="ttname"><a href="classobject3d.html#a3e25c7fe8e31f1bb770a70d6db672c98">object3d::getMaterial</a></div><div class="ttdeci">virtual material getMaterial() const</div><div class="ttdef"><b>Definition:</b> object3d.h:74</div></div>
+<div class="ttc" id="aclassobject3d_html"><div class="ttname"><a href="classobject3d.html">object3d</a></div><div class="ttdoc">An abstract base class for all 3d objects in the scene.</div><div class="ttdef"><b>Definition:</b> object3d.h:14</div></div>
+<div class="ttc" id="aclassobject3d_html_a361ae65d94e5e4c50e66e8ac323aace2"><div class="ttname"><a href="classobject3d.html#a361ae65d94e5e4c50e66e8ac323aace2">object3d::getColor</a></div><div class="ttdeci">virtual color getColor(const ray &amp;r) const =0</div></div>
+<div class="ttc" id="aclassobject3d_html_ae31e5cd782810919803948aaa4e757bd"><div class="ttname"><a href="classobject3d.html#ae31e5cd782810919803948aaa4e757bd">object3d::intersects</a></div><div class="ttdeci">virtual bool intersects(const ray &amp;r) const =0</div></div>
+<div class="ttc" id="aclassscene_html"><div class="ttname"><a href="classscene.html">scene</a></div><div class="ttdoc">A class for a 3d scene.</div><div class="ttdef"><b>Definition:</b> scene.h:34</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

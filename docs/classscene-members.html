@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.2</span>
+   &#160;<span id="projectnumber">v1.1.0</span>
    </div>
   </td>
  </tr>
@@ -76,12 +76,19 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="classscene.html">scene</a>, including all inherited members.</p>
 <table class="directory">
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getCamera</b>() (defined in <a class="el" href="classscene.html">scene</a>)</td><td class="entry"><a class="el" href="classscene.html">scene</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getLightIntensity</b>(const vector3d &amp;pos) (defined in <a class="el" href="classscene.html">scene</a>)</td><td class="entry"><a class="el" href="classscene.html">scene</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getLights</b>() const (defined in <a class="el" href="classscene.html">scene</a>)</td><td class="entry"><a class="el" href="classscene.html">scene</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getObjects</b>() const (defined in <a class="el" href="classscene.html">scene</a>)</td><td class="entry"><a class="el" href="classscene.html">scene</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classscene.html#a215635a71d13a16a5e493309499f7eab">populate</a>(istream &amp;in)</td><td class="entry"><a class="el" href="classscene.html">scene</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classscene.html#a704119e0fbc458e962e68c4dcba1121a">push_back</a>(object3d *object)</td><td class="entry"><a class="el" href="classscene.html">scene</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classscene.html#a1098ade6cf501dc366e4bf85cf12ae2f">render</a>()</td><td class="entry"><a class="el" href="classscene.html">scene</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classscene.html#a58a3e6bb17eaa822958e0a4f1ba171bd">scene</a>(int width=1920, int height=1080, plane camera=plane(vector3d(0, 0, 0), vector3d(1, 0, 0), vector3d(0, 1, 0)), double focalLength=0.5)</td><td class="entry"><a class="el" href="classscene.html">scene</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classscene.html#ad8623bae8f0ed0ea0c70b6d9a6f0d8fe">write</a>(ostream &amp;out)</td><td class="entry"><a class="el" href="classscene.html">scene</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classscene.html#aa97c9c1f46aa44e63223a737fcdcb496">~scene</a>()</td><td class="entry"><a class="el" href="classscene.html">scene</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>push_light_back</b>(lightSource *light) (defined in <a class="el" href="classscene.html">scene</a>)</td><td class="entry"><a class="el" href="classscene.html">scene</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classscene.html#a1d5151e5f062d85d42cfe4830ca66ead">push_object_back</a>(object3d *object)</td><td class="entry"><a class="el" href="classscene.html">scene</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classscene.html#a1098ade6cf501dc366e4bf85cf12ae2f">render</a>()</td><td class="entry"><a class="el" href="classscene.html">scene</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classscene.html#a58a3e6bb17eaa822958e0a4f1ba171bd">scene</a>(int width=1920, int height=1080, plane camera=plane(vector3d(0, 0, 0), vector3d(1, 0, 0), vector3d(0, 1, 0)), double focalLength=0.5)</td><td class="entry"><a class="el" href="classscene.html">scene</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>trace</b>(const ray &amp;r, int depth=5, double eps=1e-3) (defined in <a class="el" href="classscene.html">scene</a>)</td><td class="entry"><a class="el" href="classscene.html">scene</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>traceIntensity</b>(const ray &amp;r, int depth=5, double eps=1e-3) (defined in <a class="el" href="classscene.html">scene</a>)</td><td class="entry"><a class="el" href="classscene.html">scene</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classscene.html#a543787c6a2873b6ca6c994672ed75b1d">write</a>(ofstream &amp;out)</td><td class="entry"><a class="el" href="classscene.html">scene</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classscene.html#aa97c9c1f46aa44e63223a737fcdcb496">~scene</a>()</td><td class="entry"><a class="el" href="classscene.html">scene</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

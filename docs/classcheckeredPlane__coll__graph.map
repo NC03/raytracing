@@ -1,5 +1,5 @@
 <map id="checkeredPlane" name="checkeredPlane">
-<area shape="rect" id="node1" title=" " alt="" coords="5,155,129,181"/>
-<area shape="rect" id="node2" href="$classplane.html" title=" " alt="" coords="38,80,97,107"/>
+<area shape="rect" id="node1" title="NOT DOCUMENTED." alt="" coords="5,155,129,181"/>
+<area shape="rect" id="node2" href="$classplane.html" title="NOT DOCUMENTED." alt="" coords="38,80,97,107"/>
 <area shape="rect" id="node3" href="$classobject3d.html" title="An abstract base class for all 3d objects in the scene." alt="" coords="28,5,107,32"/>
 </map>

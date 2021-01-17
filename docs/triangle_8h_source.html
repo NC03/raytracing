@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.2</span>
+   &#160;<span id="projectnumber">v1.1.0</span>
    </div>
   </td>
  </tr>
@@ -77,56 +77,56 @@ $(function() {
 <div class="title">triangle.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef TRIANGLE_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define TRIANGLE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;vector3d.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;object3d.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;plane.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;color.h&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef TRIANGLE_H</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define TRIANGLE_H</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;vector3d.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;object3d.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;plane.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;color.h&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classtriangle.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtriangle.html">triangle</a> : <span class="keyword">public</span> <a class="code" href="classobject3d.html">object3d</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classtriangle.html">triangle</a>(<a class="code" href="classvector3d.html">vector3d</a> v1, <a class="code" href="classvector3d.html">vector3d</a> v2, <a class="code" href="classvector3d.html">vector3d</a> v3, <a class="code" href="classcolor.html">color</a> c=<a class="code" href="classcolor.html">color</a>(128,128,128));</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">friend</span> ostream &amp;operator&lt;&lt;(ostream &amp;out, <span class="keyword">const</span> <a class="code" href="classtriangle.html">triangle</a> &amp;p);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> getVertex1() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> getVertex2() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> getVertex3() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> getNormal() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    vector&lt;vector3d&gt; getVertices() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classplane.html">plane</a> getPlane() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="classcolor.html">color</a> getColor() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classtriangle.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtriangle.html">triangle</a> : <span class="keyword">public</span> <a class="code" href="classobject3d.html">object3d</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="classtriangle.html">triangle</a>(<a class="code" href="classvector3d.html">vector3d</a> v1, <a class="code" href="classvector3d.html">vector3d</a> v2, <a class="code" href="classvector3d.html">vector3d</a> v3, <a class="code" href="classcolor.html">color</a> c = <a class="code" href="classcolor.html">color</a>(128, 128, 128));</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">friend</span> ostream &amp;operator&lt;&lt;(ostream &amp;out, <span class="keyword">const</span> <a class="code" href="classtriangle.html">triangle</a> &amp;p);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> getVertex1() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> getVertex2() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> getVertex3() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    vector&lt;vector3d&gt; getVertices() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="classplane.html">plane</a> getPlane() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtriangle.html#a3372862be2ea41804a102e0130a6d589">intersects</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classtriangle.html#acb2597cc6dc51fdc8f78ea2290cb05b7">intersectDistance</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classray.html">ray</a> <a class="code" href="classtriangle.html#ac6d28e8f35c2ea16e88c00ee3881fd18">reflectedRay</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classcolor.html">color</a> getColor(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtriangle.html#a363d48c2d3fde1dbb7b42cbf9ef21799">print</a>(ostream &amp;out) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> vertex1, vertex2, vertex3;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classcolor.html">color</a> objColor;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif //TRIANGLE_H</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classcolor.html">color</a> getColor() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtriangle.html#a76f01f71b9bedbbc544df8c6def67a6f">intersects</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classtriangle.html#a4d38d38c95ea53ffa2da5fee7a5b3458">intersectDistance</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classcolor.html">color</a> getColor(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtriangle.html#a363d48c2d3fde1dbb7b42cbf9ef21799">print</a>(ostream &amp;out) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classvector3d.html">vector3d</a> <a class="code" href="classtriangle.html#a29f2e2a504a697fc5ab2cfe21059962e">normal</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> normal() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> vertex1, vertex2, vertex3;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="classcolor.html">color</a> objColor;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif //TRIANGLE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclasstriangle_html_a4d38d38c95ea53ffa2da5fee7a5b3458"><div class="ttname"><a href="classtriangle.html#a4d38d38c95ea53ffa2da5fee7a5b3458">triangle::intersectDistance</a></div><div class="ttdeci">virtual double intersectDistance(const ray &amp;r) const</div><div class="ttdef"><b>Definition:</b> triangle.cpp:76</div></div>
 <div class="ttc" id="aclasscolor_html"><div class="ttname"><a href="classcolor.html">color</a></div><div class="ttdoc">A class for RGB colors.</div><div class="ttdef"><b>Definition:</b> color.h:12</div></div>
-<div class="ttc" id="aclasstriangle_html"><div class="ttname"><a href="classtriangle.html">triangle</a></div><div class="ttdef"><b>Definition:</b> triangle.h:13</div></div>
-<div class="ttc" id="aclasstriangle_html_ac6d28e8f35c2ea16e88c00ee3881fd18"><div class="ttname"><a href="classtriangle.html#ac6d28e8f35c2ea16e88c00ee3881fd18">triangle::reflectedRay</a></div><div class="ttdeci">virtual ray reflectedRay(const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> triangle.cpp:73</div></div>
+<div class="ttc" id="aclasstriangle_html"><div class="ttname"><a href="classtriangle.html">triangle</a></div><div class="ttdoc">NOT DOCUMENTED 3d triangles.</div><div class="ttdef"><b>Definition:</b> triangle.h:16</div></div>
 <div class="ttc" id="aclasstriangle_html_a363d48c2d3fde1dbb7b42cbf9ef21799"><div class="ttname"><a href="classtriangle.html#a363d48c2d3fde1dbb7b42cbf9ef21799">triangle::print</a></div><div class="ttdeci">virtual void print(ostream &amp;out) const</div><div class="ttdef"><b>Definition:</b> triangle.cpp:11</div></div>
-<div class="ttc" id="aclassvector3d_html"><div class="ttname"><a href="classvector3d.html">vector3d</a></div><div class="ttdoc">A class for 3d vectors.</div><div class="ttdef"><b>Definition:</b> vector3d.h:14</div></div>
-<div class="ttc" id="aclasstriangle_html_acb2597cc6dc51fdc8f78ea2290cb05b7"><div class="ttname"><a href="classtriangle.html#acb2597cc6dc51fdc8f78ea2290cb05b7">triangle::intersectDistance</a></div><div class="ttdeci">virtual double intersectDistance(const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> triangle.cpp:69</div></div>
+<div class="ttc" id="aclassvector3d_html"><div class="ttname"><a href="classvector3d.html">vector3d</a></div><div class="ttdoc">3d vectors</div><div class="ttdef"><b>Definition:</b> vector3d.h:14</div></div>
+<div class="ttc" id="aclasstriangle_html_a76f01f71b9bedbbc544df8c6def67a6f"><div class="ttname"><a href="classtriangle.html#a76f01f71b9bedbbc544df8c6def67a6f">triangle::intersects</a></div><div class="ttdeci">virtual bool intersects(const ray &amp;r) const</div><div class="ttdef"><b>Definition:</b> triangle.cpp:46</div></div>
 <div class="ttc" id="aclassray_html"><div class="ttname"><a href="classray.html">ray</a></div><div class="ttdoc">A class for 3d rays.</div><div class="ttdef"><b>Definition:</b> ray.h:10</div></div>
-<div class="ttc" id="aclassplane_html"><div class="ttname"><a href="classplane.html">plane</a></div><div class="ttdef"><b>Definition:</b> plane.h:8</div></div>
-<div class="ttc" id="aclassobject3d_html"><div class="ttname"><a href="classobject3d.html">object3d</a></div><div class="ttdoc">An abstract base class for all 3d objects in the scene.</div><div class="ttdef"><b>Definition:</b> object3d.h:11</div></div>
-<div class="ttc" id="aclasstriangle_html_a3372862be2ea41804a102e0130a6d589"><div class="ttname"><a href="classtriangle.html#a3372862be2ea41804a102e0130a6d589">triangle::intersects</a></div><div class="ttdeci">virtual bool intersects(const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> triangle.cpp:42</div></div>
+<div class="ttc" id="aclassplane_html"><div class="ttname"><a href="classplane.html">plane</a></div><div class="ttdoc">NOT DOCUMENTED.</div><div class="ttdef"><b>Definition:</b> plane.h:17</div></div>
+<div class="ttc" id="aclassobject3d_html"><div class="ttname"><a href="classobject3d.html">object3d</a></div><div class="ttdoc">An abstract base class for all 3d objects in the scene.</div><div class="ttdef"><b>Definition:</b> object3d.h:14</div></div>
+<div class="ttc" id="aclasstriangle_html_a29f2e2a504a697fc5ab2cfe21059962e"><div class="ttname"><a href="classtriangle.html#a29f2e2a504a697fc5ab2cfe21059962e">triangle::normal</a></div><div class="ttdeci">virtual vector3d normal(const ray &amp;r) const</div><div class="ttdef"><b>Definition:</b> triangle.cpp:28</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

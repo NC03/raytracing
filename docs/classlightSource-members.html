@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.2</span>
+   &#160;<span id="projectnumber">v1.1.0</span>
    </div>
   </td>
  </tr>
@@ -76,15 +76,14 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="classlightSource.html">lightSource</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>color</b>()=0 (defined in <a class="el" href="classlightSource.html">lightSource</a>)</td><td class="entry"><a class="el" href="classlightSource.html">lightSource</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classobject3d.html#ab7364ca83bdce020bc16b3260036272e">getColor</a>(const ray &amp;r)=0</td><td class="entry"><a class="el" href="classobject3d.html">object3d</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>intensityValue</b>()=0 (defined in <a class="el" href="classlightSource.html">lightSource</a>)</td><td class="entry"><a class="el" href="classlightSource.html">lightSource</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classobject3d.html#ac3902c4f176f29223381aebb4e4fa7b2">intersectDistance</a>(const ray &amp;r)=0</td><td class="entry"><a class="el" href="classobject3d.html">object3d</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classobject3d.html#ab6f634f9952a5b5a2419c669b42677e2">intersects</a>(const ray &amp;r)=0</td><td class="entry"><a class="el" href="classobject3d.html">object3d</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classobject3d.html#afe34c9b4a1c84424fcdbe8049480bc49">print</a>(ostream &amp;out) const =0</td><td class="entry"><a class="el" href="classobject3d.html">object3d</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classobject3d.html#a4c38cb4583190e537a0367dec7d3a422">reflectedRay</a>(const ray &amp;r)=0</td><td class="entry"><a class="el" href="classobject3d.html">object3d</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>attenuate</b>(double distance) (defined in <a class="el" href="classlightSource.html">lightSource</a>)</td><td class="entry"><a class="el" href="classlightSource.html">lightSource</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>distance</b>(vector3d r) (defined in <a class="el" href="classlightSource.html">lightSource</a>)</td><td class="entry"><a class="el" href="classlightSource.html">lightSource</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getColor</b>()=0 (defined in <a class="el" href="classlightSource.html">lightSource</a>)</td><td class="entry"><a class="el" href="classlightSource.html">lightSource</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getPosition</b>()=0 (defined in <a class="el" href="classlightSource.html">lightSource</a>)</td><td class="entry"><a class="el" href="classlightSource.html">lightSource</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>intensityValue</b>(const ray &amp;r)=0 (defined in <a class="el" href="classlightSource.html">lightSource</a>)</td><td class="entry"><a class="el" href="classlightSource.html">lightSource</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classlightSource.html#a18ca016ab2d628a36f0a3d461ff1bcfe">operator&lt;&lt;</a>(ostream &amp;out, const lightSource &amp;i)</td><td class="entry"><a class="el" href="classlightSource.html">lightSource</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classlightSource.html#a5b3ce8a06fa0fd4bdf4b7ae985718f74">print</a>(ostream &amp;out) const =0</td><td class="entry"><a class="el" href="classlightSource.html">lightSource</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>~lightSource</b>() (defined in <a class="el" href="classlightSource.html">lightSource</a>)</td><td class="entry"><a class="el" href="classlightSource.html">lightSource</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classobject3d.html#a8c0306974111460a73a9f64fcd33c326">~object3d</a>()</td><td class="entry"><a class="el" href="classobject3d.html">object3d</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

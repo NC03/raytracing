@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.2</span>
+   &#160;<span id="projectnumber">v1.1.0</span>
    </div>
   </td>
  </tr>
@@ -77,48 +77,57 @@ $(function() {
 <div class="title">plane.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;vector3d.h&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;object3d.h&quot;</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef PLANE_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define PLANE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef PLANE_H</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define PLANE_H</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classplane.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classplane.html">plane</a> : <span class="keyword">public</span> <a class="code" href="classobject3d.html">object3d</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="classplane.html">plane</a>(<a class="code" href="classvector3d.html">vector3d</a> point, <a class="code" href="classvector3d.html">vector3d</a> u, <a class="code" href="classvector3d.html">vector3d</a> v, <a class="code" href="classcolor.html">color</a> c=<a class="code" href="classcolor.html">color</a>(128,128,128));</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">friend</span> ostream &amp;operator&lt;&lt;(ostream &amp;out, <span class="keyword">const</span> <a class="code" href="classplane.html">plane</a> &amp;p);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> getPoint() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> getVector1() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> getVector2() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> getNormal();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classcolor.html">color</a> getColor() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;vector3d.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;object3d.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;material.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;lightSource.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span><a class="code" href="classscene.html">scene</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classplane.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classplane.html">plane</a> : <span class="keyword">public</span> <a class="code" href="classobject3d.html">object3d</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classplane.html">plane</a>(<a class="code" href="classvector3d.html">vector3d</a> point, <a class="code" href="classvector3d.html">vector3d</a> u, <a class="code" href="classvector3d.html">vector3d</a> v, <a class="code" href="classcolor.html">color</a> c = <a class="code" href="classcolor.html">color</a>(128, 128, 128));</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classplane.html#a586ee5642d92779111c9d7011c3c6af8">intersects</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classplane.html#a39f8ccb48fef1d9447db41bf3b62feca">intersectDistance</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classray.html">ray</a> <a class="code" href="classplane.html#a5556e41951ee1a284702f06c6ffd2acf">reflectedRay</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classcolor.html">color</a> getColor(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classplane.html#ab3ec7cb18bde20d56d2807482d5bffba">print</a>(ostream &amp;out) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">friend</span> ostream &amp;operator&lt;&lt;(ostream &amp;out, <span class="keyword">const</span> <a class="code" href="classplane.html">plane</a> &amp;p);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> getPoint() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> getVector1() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> getVector2() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> point, u, v;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classcolor.html">color</a> objColor;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif //PLANE_H</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classcolor.html">color</a> getColor() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classplane.html#a1da59018c38a34b8cce1a86ce2ef5ec3">intersects</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classplane.html#ad3455c1f19f203ed491c023ad94ae43b">intersectDistance</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classcolor.html">color</a> getColor(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classplane.html#ab3ec7cb18bde20d56d2807482d5bffba">print</a>(ostream &amp;out) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classvector3d.html">vector3d</a> <a class="code" href="classplane.html#a66fcd8f0400c1005684d59e0a00cd3ae">normal</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> normal() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classvector3d.html">vector3d</a> point, u, v;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="classcolor.html">color</a> objColor;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="classmaterial.html">material</a> m;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif //PLANE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclasscolor_html"><div class="ttname"><a href="classcolor.html">color</a></div><div class="ttdoc">A class for RGB colors.</div><div class="ttdef"><b>Definition:</b> color.h:12</div></div>
-<div class="ttc" id="aclassplane_html_ab3ec7cb18bde20d56d2807482d5bffba"><div class="ttname"><a href="classplane.html#ab3ec7cb18bde20d56d2807482d5bffba">plane::print</a></div><div class="ttdeci">virtual void print(ostream &amp;out) const</div><div class="ttdef"><b>Definition:</b> plane.cpp:54</div></div>
-<div class="ttc" id="aclassplane_html_a39f8ccb48fef1d9447db41bf3b62feca"><div class="ttname"><a href="classplane.html#a39f8ccb48fef1d9447db41bf3b62feca">plane::intersectDistance</a></div><div class="ttdeci">virtual double intersectDistance(const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> plane.cpp:33</div></div>
-<div class="ttc" id="aclassvector3d_html"><div class="ttname"><a href="classvector3d.html">vector3d</a></div><div class="ttdoc">A class for 3d vectors.</div><div class="ttdef"><b>Definition:</b> vector3d.h:14</div></div>
+<div class="ttc" id="aclassplane_html_ab3ec7cb18bde20d56d2807482d5bffba"><div class="ttname"><a href="classplane.html#ab3ec7cb18bde20d56d2807482d5bffba">plane::print</a></div><div class="ttdeci">virtual void print(ostream &amp;out) const</div><div class="ttdef"><b>Definition:</b> plane.cpp:52</div></div>
+<div class="ttc" id="aclassmaterial_html"><div class="ttname"><a href="classmaterial.html">material</a></div><div class="ttdoc">NOT DOCUMENTED.</div><div class="ttdef"><b>Definition:</b> material.h:10</div></div>
+<div class="ttc" id="aclassplane_html_ad3455c1f19f203ed491c023ad94ae43b"><div class="ttname"><a href="classplane.html#ad3455c1f19f203ed491c023ad94ae43b">plane::intersectDistance</a></div><div class="ttdeci">virtual double intersectDistance(const ray &amp;r) const</div><div class="ttdef"><b>Definition:</b> plane.cpp:38</div></div>
+<div class="ttc" id="aclassvector3d_html"><div class="ttname"><a href="classvector3d.html">vector3d</a></div><div class="ttdoc">3d vectors</div><div class="ttdef"><b>Definition:</b> vector3d.h:14</div></div>
 <div class="ttc" id="aclassray_html"><div class="ttname"><a href="classray.html">ray</a></div><div class="ttdoc">A class for 3d rays.</div><div class="ttdef"><b>Definition:</b> ray.h:10</div></div>
-<div class="ttc" id="aclassplane_html_a586ee5642d92779111c9d7011c3c6af8"><div class="ttname"><a href="classplane.html#a586ee5642d92779111c9d7011c3c6af8">plane::intersects</a></div><div class="ttdeci">virtual bool intersects(const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> plane.cpp:29</div></div>
-<div class="ttc" id="aclassplane_html"><div class="ttname"><a href="classplane.html">plane</a></div><div class="ttdef"><b>Definition:</b> plane.h:8</div></div>
-<div class="ttc" id="aclassobject3d_html"><div class="ttname"><a href="classobject3d.html">object3d</a></div><div class="ttdoc">An abstract base class for all 3d objects in the scene.</div><div class="ttdef"><b>Definition:</b> object3d.h:11</div></div>
-<div class="ttc" id="aclassplane_html_a5556e41951ee1a284702f06c6ffd2acf"><div class="ttname"><a href="classplane.html#a5556e41951ee1a284702f06c6ffd2acf">plane::reflectedRay</a></div><div class="ttdeci">virtual ray reflectedRay(const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> plane.cpp:39</div></div>
+<div class="ttc" id="aclassplane_html"><div class="ttname"><a href="classplane.html">plane</a></div><div class="ttdoc">NOT DOCUMENTED.</div><div class="ttdef"><b>Definition:</b> plane.h:17</div></div>
+<div class="ttc" id="aclassobject3d_html"><div class="ttname"><a href="classobject3d.html">object3d</a></div><div class="ttdoc">An abstract base class for all 3d objects in the scene.</div><div class="ttdef"><b>Definition:</b> object3d.h:14</div></div>
+<div class="ttc" id="aclassplane_html_a66fcd8f0400c1005684d59e0a00cd3ae"><div class="ttname"><a href="classplane.html#a66fcd8f0400c1005684d59e0a00cd3ae">plane::normal</a></div><div class="ttdeci">virtual vector3d normal(const ray &amp;r) const</div><div class="ttdef"><b>Definition:</b> plane.cpp:26</div></div>
+<div class="ttc" id="aclassscene_html"><div class="ttname"><a href="classscene.html">scene</a></div><div class="ttdoc">A class for a 3d scene.</div><div class="ttdef"><b>Definition:</b> scene.h:34</div></div>
+<div class="ttc" id="aclassplane_html_a1da59018c38a34b8cce1a86ce2ef5ec3"><div class="ttname"><a href="classplane.html#a1da59018c38a34b8cce1a86ce2ef5ec3">plane::intersects</a></div><div class="ttdeci">virtual bool intersects(const ray &amp;r) const</div><div class="ttdef"><b>Definition:</b> plane.cpp:34</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

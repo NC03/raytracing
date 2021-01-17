@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.2</span>
+   &#160;<span id="projectnumber">v1.1.0</span>
    </div>
   </td>
  </tr>
@@ -77,33 +77,34 @@ $(function() {
 <div class="title">checkeredPlane.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;plane.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef CHECKEREDPLANE_H</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define CHECKEREDPLANE_H</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CHECKEREDPLANE_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CHECKEREDPLANE_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;plane.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classcheckeredPlane.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcheckeredPlane.html">checkeredPlane</a> : <span class="keyword">public</span> <a class="code" href="classplane.html">plane</a></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classcheckeredPlane.html">checkeredPlane</a>(<a class="code" href="classvector3d.html">vector3d</a> pos, <a class="code" href="classvector3d.html">vector3d</a> u, <a class="code" href="classvector3d.html">vector3d</a> v, <span class="keywordtype">double</span> width = 5, <span class="keywordtype">double</span> height = 5, <a class="code" href="classcolor.html">color</a> c1 = <a class="code" href="classcolor.html">color</a>(255, 255, 255), <a class="code" href="classcolor.html">color</a> c2 = <a class="code" href="classcolor.html">color</a>(0, 0, 0));</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classcolor.html">color</a> <a class="code" href="classcheckeredPlane.html#ad80e6fc6fc2cc6347d49d52a81df2c0d">getColor</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">double</span> width, height;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classcolor.html">color</a> c1, c2;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif //CHECKEREDPLANE_H</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classcheckeredPlane.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classcheckeredPlane.html">checkeredPlane</a> : <span class="keyword">public</span> <a class="code" href="classplane.html">plane</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classcheckeredPlane.html">checkeredPlane</a>(<a class="code" href="classvector3d.html">vector3d</a> pos, <a class="code" href="classvector3d.html">vector3d</a> u, <a class="code" href="classvector3d.html">vector3d</a> v, <span class="keywordtype">double</span> width = 5, <span class="keywordtype">double</span> height = 5, <a class="code" href="classcolor.html">color</a> c1 = <a class="code" href="classcolor.html">color</a>(255, 255, 255), <a class="code" href="classcolor.html">color</a> c2 = <a class="code" href="classcolor.html">color</a>(0, 0, 0));</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">using</span> plane::getColor;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classcolor.html">color</a> <a class="code" href="classcheckeredPlane.html#a861284ca5b5c819e19d5d1ef95724b64">getColor</a>(<span class="keyword">const</span> <a class="code" href="classray.html">ray</a> &amp;r) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">double</span> width, height;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classcolor.html">color</a> c1, c2;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif //CHECKEREDPLANE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclasscheckeredPlane_html_a861284ca5b5c819e19d5d1ef95724b64"><div class="ttname"><a href="classcheckeredPlane.html#a861284ca5b5c819e19d5d1ef95724b64">checkeredPlane::getColor</a></div><div class="ttdeci">virtual color getColor(const ray &amp;r) const</div><div class="ttdef"><b>Definition:</b> checkeredPlane.cpp:7</div></div>
 <div class="ttc" id="aclasscolor_html"><div class="ttname"><a href="classcolor.html">color</a></div><div class="ttdoc">A class for RGB colors.</div><div class="ttdef"><b>Definition:</b> color.h:12</div></div>
-<div class="ttc" id="aclassvector3d_html"><div class="ttname"><a href="classvector3d.html">vector3d</a></div><div class="ttdoc">A class for 3d vectors.</div><div class="ttdef"><b>Definition:</b> vector3d.h:14</div></div>
-<div class="ttc" id="aclasscheckeredPlane_html_ad80e6fc6fc2cc6347d49d52a81df2c0d"><div class="ttname"><a href="classcheckeredPlane.html#ad80e6fc6fc2cc6347d49d52a81df2c0d">checkeredPlane::getColor</a></div><div class="ttdeci">virtual color getColor(const ray &amp;r)</div><div class="ttdef"><b>Definition:</b> checkeredPlane.cpp:7</div></div>
+<div class="ttc" id="aclassvector3d_html"><div class="ttname"><a href="classvector3d.html">vector3d</a></div><div class="ttdoc">3d vectors</div><div class="ttdef"><b>Definition:</b> vector3d.h:14</div></div>
 <div class="ttc" id="aclassray_html"><div class="ttname"><a href="classray.html">ray</a></div><div class="ttdoc">A class for 3d rays.</div><div class="ttdef"><b>Definition:</b> ray.h:10</div></div>
-<div class="ttc" id="aclassplane_html"><div class="ttname"><a href="classplane.html">plane</a></div><div class="ttdef"><b>Definition:</b> plane.h:8</div></div>
-<div class="ttc" id="aclasscheckeredPlane_html"><div class="ttname"><a href="classcheckeredPlane.html">checkeredPlane</a></div><div class="ttdef"><b>Definition:</b> checkeredPlane.h:9</div></div>
+<div class="ttc" id="aclassplane_html"><div class="ttname"><a href="classplane.html">plane</a></div><div class="ttdoc">NOT DOCUMENTED.</div><div class="ttdef"><b>Definition:</b> plane.h:17</div></div>
+<div class="ttc" id="aclasscheckeredPlane_html"><div class="ttname"><a href="classcheckeredPlane.html">checkeredPlane</a></div><div class="ttdoc">NOT DOCUMENTED.</div><div class="ttdef"><b>Definition:</b> checkeredPlane.h:12</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -1,0 +1,5 @@
+<map id="texturedSphere" name="texturedSphere">
+<area shape="rect" id="node1" title="Textured 3d spheres." alt="" coords="5,155,128,181"/>
+<area shape="rect" id="node2" href="$classsphere.html" title="3d spheres" alt="" coords="33,80,100,107"/>
+<area shape="rect" id="node3" href="$classobject3d.html" title="An abstract base class for all 3d objects in the scene." alt="" coords="27,5,106,32"/>
+</map>

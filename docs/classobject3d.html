@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Raytracing
-   &#160;<span id="projectnumber">v1.0.2</span>
+   &#160;<span id="projectnumber">v1.1.0</span>
    </div>
   </td>
  </tr>
@@ -87,13 +87,14 @@ Inheritance diagram for object3d:</div>
 <div class="dyncontent">
 <div class="center"><img src="classobject3d__inherit__graph.png" border="0" usemap="#object3d_inherit__map" alt="Inheritance graph"/></div>
 <map name="object3d_inherit__map" id="object3d_inherit__map">
-<area shape="rect" title="An abstract base class for all 3d objects in the scene." alt="" coords="157,5,236,32"/>
-<area shape="rect" href="classlightSource.html" title=" " alt="" coords="5,80,100,107"/>
-<area shape="rect" href="classplane.html" title=" " alt="" coords="125,80,183,107"/>
-<area shape="rect" href="classsphere.html" title=" " alt="" coords="207,80,274,107"/>
-<area shape="rect" href="classtriangle.html" title=" " alt="" coords="298,80,370,107"/>
-<area shape="rect" href="classcheckeredPlane.html" title=" " alt="" coords="59,155,183,181"/>
-<area shape="rect" href="classcheckeredSphere.html" title=" " alt="" coords="207,155,341,181"/>
+<area shape="rect" title="An abstract base class for all 3d objects in the scene." alt="" coords="239,5,317,32"/>
+<area shape="rect" href="classplane.html" title="NOT DOCUMENTED." alt="" coords="71,80,130,107"/>
+<area shape="rect" href="classsphere.html" title="3d spheres" alt="" coords="187,80,254,107"/>
+<area shape="rect" href="classtexturedPlane.html" title="NOT DOCUMENTED &#45; INCOMPLETE." alt="" coords="279,80,392,107"/>
+<area shape="rect" href="classtriangle.html" title="NOT DOCUMENTED 3d triangles." alt="" coords="417,80,489,107"/>
+<area shape="rect" href="classcheckeredPlane.html" title="NOT DOCUMENTED." alt="" coords="5,155,129,181"/>
+<area shape="rect" href="classcheckeredSphere.html" title="NOT DOCUMENTED." alt="" coords="154,155,287,181"/>
+<area shape="rect" href="classtexturedSphere.html" title="Textured 3d spheres." alt="" coords="311,155,434,181"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -101,16 +102,18 @@ Inheritance diagram for object3d:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8c0306974111460a73a9f64fcd33c326"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#a8c0306974111460a73a9f64fcd33c326">~object3d</a> ()</td></tr>
 <tr class="separator:a8c0306974111460a73a9f64fcd33c326"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6f634f9952a5b5a2419c669b42677e2"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#ab6f634f9952a5b5a2419c669b42677e2">intersects</a> (const <a class="el" href="classray.html">ray</a> &amp;r)=0</td></tr>
-<tr class="separator:ab6f634f9952a5b5a2419c669b42677e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3902c4f176f29223381aebb4e4fa7b2"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#ac3902c4f176f29223381aebb4e4fa7b2">intersectDistance</a> (const <a class="el" href="classray.html">ray</a> &amp;r)=0</td></tr>
-<tr class="separator:ac3902c4f176f29223381aebb4e4fa7b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c38cb4583190e537a0367dec7d3a422"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classray.html">ray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#a4c38cb4583190e537a0367dec7d3a422">reflectedRay</a> (const <a class="el" href="classray.html">ray</a> &amp;r)=0</td></tr>
-<tr class="separator:a4c38cb4583190e537a0367dec7d3a422"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7364ca83bdce020bc16b3260036272e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classcolor.html">color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#ab7364ca83bdce020bc16b3260036272e">getColor</a> (const <a class="el" href="classray.html">ray</a> &amp;r)=0</td></tr>
-<tr class="separator:ab7364ca83bdce020bc16b3260036272e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae31e5cd782810919803948aaa4e757bd"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#ae31e5cd782810919803948aaa4e757bd">intersects</a> (const <a class="el" href="classray.html">ray</a> &amp;r) const =0</td></tr>
+<tr class="separator:ae31e5cd782810919803948aaa4e757bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f3647b2e6e0e4add41e9e384c54bab7"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#a5f3647b2e6e0e4add41e9e384c54bab7">intersectDistance</a> (const <a class="el" href="classray.html">ray</a> &amp;r) const =0</td></tr>
+<tr class="separator:a5f3647b2e6e0e4add41e9e384c54bab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a361ae65d94e5e4c50e66e8ac323aace2"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classcolor.html">color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#a361ae65d94e5e4c50e66e8ac323aace2">getColor</a> (const <a class="el" href="classray.html">ray</a> &amp;r) const =0</td></tr>
+<tr class="separator:a361ae65d94e5e4c50e66e8ac323aace2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe34c9b4a1c84424fcdbe8049480bc49"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#afe34c9b4a1c84424fcdbe8049480bc49">print</a> (ostream &amp;out) const =0</td></tr>
 <tr class="separator:afe34c9b4a1c84424fcdbe8049480bc49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e9266a4b708ad3491ee2ded7f4c8d30"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classvector3d.html">vector3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#a6e9266a4b708ad3491ee2ded7f4c8d30">normal</a> (const <a class="el" href="classray.html">ray</a> &amp;r) const =0</td></tr>
+<tr class="separator:a6e9266a4b708ad3491ee2ded7f4c8d30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e25c7fe8e31f1bb770a70d6db672c98"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classmaterial.html">material</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject3d.html#a3e25c7fe8e31f1bb770a70d6db672c98">getMaterial</a> () const</td></tr>
+<tr class="separator:a3e25c7fe8e31f1bb770a70d6db672c98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -147,8 +150,8 @@ Friends</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab7364ca83bdce020bc16b3260036272e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7364ca83bdce020bc16b3260036272e">&#9670;&nbsp;</a></span>getColor()</h2>
+<a id="a361ae65d94e5e4c50e66e8ac323aace2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a361ae65d94e5e4c50e66e8ac323aace2">&#9670;&nbsp;</a></span>getColor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,7 +164,7 @@ Friends</h2></td></tr>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classray.html">ray</a> &amp;&#160;</td>
           <td class="paramname"><em>r</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -177,12 +180,38 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classtriangle.html#a61b7db2527e256bbb0b74f30febff71b">triangle</a>, <a class="el" href="classsphere.html#a19e39d66ece595939cccc73f4d9edf61">sphere</a>, <a class="el" href="classplane.html#a1ee7adc1fceb48df0001fb9bdca02d3a">plane</a>, <a class="el" href="classcheckeredSphere.html#ab53351198296b2d2e0f748ee1b628fc0">checkeredSphere</a>, and <a class="el" href="classcheckeredPlane.html#ad80e6fc6fc2cc6347d49d52a81df2c0d">checkeredPlane</a>.</p>
+<p>Implemented in <a class="el" href="classtriangle.html#aff45b36990dd4df98b6b6dbe73ec4646">triangle</a>, <a class="el" href="classplane.html#a44085c724b79d4165636a501ab90d6d6">plane</a>, <a class="el" href="classsphere.html#ae9e51487828e4abbe572be3f62242e17">sphere</a>, <a class="el" href="classtexturedSphere.html#ac22bb1e6803ea469a414eb47471e1a45">texturedSphere</a>, <a class="el" href="classcheckeredSphere.html#acff9109a008f99dd6a4b756cde00eac9">checkeredSphere</a>, and <a class="el" href="classcheckeredPlane.html#a861284ca5b5c819e19d5d1ef95724b64">checkeredPlane</a>.</p>
 
 </div>
 </div>
-<a id="ac3902c4f176f29223381aebb4e4fa7b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3902c4f176f29223381aebb4e4fa7b2">&#9670;&nbsp;</a></span>intersectDistance()</h2>
+<a id="a3e25c7fe8e31f1bb770a70d6db672c98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e25c7fe8e31f1bb770a70d6db672c98">&#9670;&nbsp;</a></span>getMaterial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classmaterial.html">material</a> object3d::getMaterial </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The material of the <a class="el" href="classobject3d.html" title="An abstract base class for all 3d objects in the scene.">object3d</a> </dd></dl>
+
+</div>
+</div>
+<a id="a5f3647b2e6e0e4add41e9e384c54bab7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f3647b2e6e0e4add41e9e384c54bab7">&#9670;&nbsp;</a></span>intersectDistance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -195,7 +224,7 @@ Friends</h2></td></tr>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classray.html">ray</a> &amp;&#160;</td>
           <td class="paramname"><em>r</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -212,12 +241,12 @@ Friends</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The parameter of the ray for which evaluating the equation coincides with the object </dd></dl>
 
-<p>Implemented in <a class="el" href="classtriangle.html#acb2597cc6dc51fdc8f78ea2290cb05b7">triangle</a>, <a class="el" href="classsphere.html#af8c94023266b8a4fef647d7973cc90bc">sphere</a>, and <a class="el" href="classplane.html#a39f8ccb48fef1d9447db41bf3b62feca">plane</a>.</p>
+<p>Implemented in <a class="el" href="classtriangle.html#a4d38d38c95ea53ffa2da5fee7a5b3458">triangle</a>, <a class="el" href="classplane.html#ad3455c1f19f203ed491c023ad94ae43b">plane</a>, and <a class="el" href="classsphere.html#ad5d1d835a5c8d85f233950233e143839">sphere</a>.</p>
 
 </div>
 </div>
-<a id="ab6f634f9952a5b5a2419c669b42677e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6f634f9952a5b5a2419c669b42677e2">&#9670;&nbsp;</a></span>intersects()</h2>
+<a id="ae31e5cd782810919803948aaa4e757bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae31e5cd782810919803948aaa4e757bd">&#9670;&nbsp;</a></span>intersects()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -230,7 +259,7 @@ Friends</h2></td></tr>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classray.html">ray</a> &amp;&#160;</td>
           <td class="paramname"><em>r</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -247,7 +276,41 @@ Friends</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the ray intersects the object, otherwise False </dd></dl>
 
-<p>Implemented in <a class="el" href="classtriangle.html#a3372862be2ea41804a102e0130a6d589">triangle</a>, <a class="el" href="classsphere.html#a4144a881e2c37746df091f783334fa9c">sphere</a>, and <a class="el" href="classplane.html#a586ee5642d92779111c9d7011c3c6af8">plane</a>.</p>
+<p>Implemented in <a class="el" href="classtriangle.html#a76f01f71b9bedbbc544df8c6def67a6f">triangle</a>, <a class="el" href="classplane.html#a1da59018c38a34b8cce1a86ce2ef5ec3">plane</a>, and <a class="el" href="classsphere.html#aa073c70f45aecd736bd03e22bc6f0d26">sphere</a>.</p>
+
+</div>
+</div>
+<a id="a6e9266a4b708ad3491ee2ded7f4c8d30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e9266a4b708ad3491ee2ded7f4c8d30">&#9670;&nbsp;</a></span>normal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classvector3d.html">vector3d</a> object3d::normal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classray.html">ray</a> &amp;&#160;</td>
+          <td class="paramname"><em>r</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Finds the unit normal vector of the <a class="el" href="classobject3d.html" title="An abstract base class for all 3d objects in the scene.">object3d</a> at the point of intersection with the ray </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>The ray to evaluate PRECONDITION: The ray must intersect the object POSTCONDITION: The magnitude of the <a class="el" href="classvector3d.html" title="3d vectors">vector3d</a> object is 1 (it is a unit vector) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classtriangle.html#a29f2e2a504a697fc5ab2cfe21059962e">triangle</a>, <a class="el" href="classplane.html#a66fcd8f0400c1005684d59e0a00cd3ae">plane</a>, and <a class="el" href="classsphere.html#ae4472e9c4293e1d341abaae94973b61f">sphere</a>.</p>
 
 </div>
 </div>
@@ -281,41 +344,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classtriangle.html#a363d48c2d3fde1dbb7b42cbf9ef21799">triangle</a>, <a class="el" href="classsphere.html#a5812630a692481b4b3f1b17f2b5f8b52">sphere</a>, and <a class="el" href="classplane.html#ab3ec7cb18bde20d56d2807482d5bffba">plane</a>.</p>
-
-</div>
-</div>
-<a id="a4c38cb4583190e537a0367dec7d3a422"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c38cb4583190e537a0367dec7d3a422">&#9670;&nbsp;</a></span>reflectedRay()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="classray.html">ray</a> object3d::reflectedRay </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classray.html">ray</a> &amp;&#160;</td>
-          <td class="paramname"><em>r</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Finds the ray that exits with the same angle as the incoming ray </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">r</td><td>The ray to evaluate PRECONDITION: The ray must intersect the object </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Implemented in <a class="el" href="classtriangle.html#ac6d28e8f35c2ea16e88c00ee3881fd18">triangle</a>, <a class="el" href="classsphere.html#a14e79ffb388670f30c409317330f7ce7">sphere</a>, and <a class="el" href="classplane.html#a5556e41951ee1a284702f06c6ffd2acf">plane</a>.</p>
+<p>Implemented in <a class="el" href="classtriangle.html#a363d48c2d3fde1dbb7b42cbf9ef21799">triangle</a>, <a class="el" href="classplane.html#ab3ec7cb18bde20d56d2807482d5bffba">plane</a>, and <a class="el" href="classsphere.html#a5812630a692481b4b3f1b17f2b5f8b52">sphere</a>.</p>
 
 </div>
 </div>
